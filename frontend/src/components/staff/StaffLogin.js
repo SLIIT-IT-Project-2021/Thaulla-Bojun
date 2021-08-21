@@ -67,7 +67,7 @@ const StaffLogin = ()=>{
               <p>
                 <img src={"thamali.png"} style={{width:"150px" , height:"150px"}}/>
               </p>
-              <Link to = "#"><button type="button" className="read_more_btn">Login</button></Link>
+              <Link to = "/staff-login-stockM"><button type="button" className="read_more_btn">Login</button></Link>
             </div>
           </div>
           <div className="solution_card">
