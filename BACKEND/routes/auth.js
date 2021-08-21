@@ -3,7 +3,7 @@ const router = require('express').Router();
 
  
  
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM} = require("../controllers/auth");
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM} = require("../controllers/auth");
 
  
 
@@ -35,6 +35,9 @@ router.route("/staff-login-branchM").post(loginStaffBranchM);
 router.route("/staff-register-branchM").post(registerStaffBranchM);
 router.route("/staff-login-stockM").post(loginStaffStockM);
 router.route("/staff-register-stockM").post(registerStaffStockM);
+
+router.route("/staff-login-MarketingM").post(loginStaffMarketingM);
+router.route("/staff-register-MarketingM").post(registerStaffMarketingM);
 
  
 module.exports = router;

@@ -92,7 +92,17 @@ import AssistantLogin from "./components/staff/stockM/login/AssistantLogin";
 import PrivateAssistantStaff from "./components/staff/stockM/login/PrivateAssistantStaff";
 
 
- 
+ //Raveena - Marketing Manager
+
+import PrivateMarketingManagerStaffRoute from "./components/routes/PrivateMarketingManagerStaffRoute";
+import Header_MM from "./components/staff/MarketingM/Header";
+import AddPromotions_MM from "./components/staff/MarketingM/AddPromotions";
+import Home_MM from "./components/staff/MarketingM/Home";
+import DisplayPromotions_MM from "./components/staff/MarketingM/DisplayPromotions"
+import List_MM from "./components/staff/MarketingM/List"
+import Edit_MM from "./components/staff/MarketingM/Edit";
+import MarketingLogin from "./components/staff/MarketingM/login/MarketingLogin";
+import PrivateMarketingStaff from "./components/staff/MarketingM/login/PrivateMarketingStaff";
 
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -193,6 +203,16 @@ export default function App() {
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM" exact component = {ListSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditSupplier} /> 
             
+             {/*Raveena -Routes*/}
+            
+             <Route path="/staff-login-MarketingM" exact component={MarketingLogin} />
+            <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {Header_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {PrivateMarketingStaff} /> 
+            <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {Home_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {AddPromotions_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {DisplayPromotions_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {List_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_MM} /> 
             <Footer/>
 
           </div>
