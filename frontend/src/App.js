@@ -16,6 +16,20 @@ import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
 
+//Thamali part
+import PrivateAssistantStaffRoute from "./components/routes/PrivateCustomerStaffRoute";
+
+import HeaderStock from "./components/staff/stockM/Header";
+import AddAssistant from "./components/staff/stockM/AddAssistant";
+import HomeAssistant from "./components/staff/stockM/Home";
+//import Footer from "./components/staff/Footer";
+import DisplayAssistant from "./components/staff/stockM/DisplayAssistant"
+//import SocialMedia from "./components/staff/SocialMedia";
+import ListAssistant from "./components/staff/stockM/List"
+import EditAssistant from "./components/staff/stockM/Edit";
+import AssistantLogin from "./components/staff/stockM/login/AssistantLogin";
+import PrivateAssistantStaff from "./components/staff/stockM/login/PrivateAssistantStaff";
+
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
 
@@ -56,6 +70,16 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit} /> 
 
+             {/*Thamali - Stock Management*/}
+
+             <Route path="/staff-login-stockM" exact component={AssistantLogin} />
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {HeaderStock} /> 
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {PrivateAssistantStaff} /> 
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {HomeAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {AddAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {DisplayAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ListAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditAssistant} /> 
             <Footer/>
             
           </div>
