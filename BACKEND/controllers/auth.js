@@ -459,6 +459,7 @@ exports.loginStaffMarketingM = async (req , res , next) =>{
     }
  }
  //
+ //
  const sendStaffToken = (staff , statusCode , res)=>{ //JWT get
     const token = staff.getStaffSignedToken();
     res.status(200).json({success:true , token});

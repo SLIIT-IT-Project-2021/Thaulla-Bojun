@@ -27,7 +27,7 @@ router.route("/staff-register-supplierM").post(registerStaffSupplierM);
  
 router.route("/staff-login-deliveryM").post(loginStaffDeliveryM);
 router.route("/staff-register-deliveryM").post(registerStaffDeliveryM);
- 
+// 
 
 router.route("/staff-login-foodM").post(loginStafffoodM);
 router.route("/staff-register-foodM").post(registerStafffoodM);

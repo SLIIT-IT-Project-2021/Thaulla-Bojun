@@ -79,7 +79,7 @@ app.use("/suppliers" , supplierRouter);
 const marketingRouter = require("./routes/marketing.js"); //import 
 
 app.use("/promotions" , marketingRouter);
-
+//
 //this catches front-end URL
 /* http://localhost/8070/student */
 
