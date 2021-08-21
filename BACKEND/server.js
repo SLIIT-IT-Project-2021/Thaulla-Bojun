@@ -63,7 +63,7 @@ const branchRouter = require("./routes/branch.js"); //import
 app.use("/branches" , branchRouter);
 
 
-
+//
 //Thmali
 const assistantRouter = require("./routes/assistant.js"); //import 
 
@@ -75,6 +75,11 @@ const supplierRouter = require("./routes/supplier.js"); //import
 
 app.use("/suppliers" , supplierRouter);
 
+
+const marketingRouter = require("./routes/marketing.js"); //import 
+
+app.use("/promotions" , marketingRouter);
+//
 //this catches front-end URL
 /* http://localhost/8070/student */
 
