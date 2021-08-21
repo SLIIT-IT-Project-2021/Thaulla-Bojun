@@ -13,42 +13,53 @@ export default class Edit extends Component {
 
     super(props)
     
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentAge = this.onChangeStudentAge.bind(this);
-    this.onChangeStudentGender = this.onChangeStudentGender.bind(this);
-    this.onChangeStudentBirthdate = this.onChangeStudentBirthdate.bind(this);
-    this.onChangeStudentPhoto = this.onChangeStudentPhoto.bind(this);
+    this.onChangeMarketingFood_Item_Name = this.onChangeMarketingFood_Item_Name.bind(this);
+    this.onChangeMarketingQuantity = this.onChangeMarketingQuantity.bind(this);
+    this.onChangeMarketingDescription = this.onChangeMarketingDescription.bind(this);
+    this.onChangeMarketingDiscount_Rate = this.onChangeMarketingDiscount_Rate.bind(this);
+    this.onChangeMarketingPrior_Price = this.onChangeMarketingPrior_Price.bind(this);
+    this.onChangeMarketingPresent_Price = this.onChangeMarketingPresent_Price.bind(this);
+    this.onChangeMarketingPhoto = this.onChangeMarketingPhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     
 
     // State
     this.state = {
-      name: '',
-      age: '',
-      gender: '',
-      birthdate: '',
+      foodItemName: '',
+      quantity: '',
+      description: '',
+      discountRate: '',
+      priorPrice: '',
+      presentPrice: '',
       photo:'',
       
     }
   }
 
-  onChangeStudentName(e) {
-    this.setState({ name: e.target.value })
+  onChangeMarketingFood_Item_Name(e) {
+    this.setState({ foodItemName: e.target.value })
   }
 
-  onChangeStudentAge(e) {
-    this.setState({ age: e.target.value })
+  onChangeMarketingQuantity(e) {
+    this.setState({ quantity: e.target.value })
   }
 
-  onChangeStudentGender(e) {
-    this.setState({ gender: e.target.value })
+  onChangeMarketingDescription(e) {
+    this.setState({ description: e.target.value })
   }
 
-  onChangeStudentBirthdate(e) {
-    this.setState({ birthdate: e.target.value })
+  onChangeMarketingDiscount_Rate(e) {
+    this.setState({ discountRate: e.target.value })
   }
 
-  onChangeStudentPhoto(e) {
+  onChangeMarketingPrior_Price(e) {
+    this.setState({ priorPrice: e.target.value })
+  }
+  onChangeMarketingPresent_Price(e) {
+    this.setState({ presentPrice: e.target.value })
+  }
+  
+  onChangeMarketingPhoto(e) {
     this.setState({ photo: e.target.files[0] })
   }
 
@@ -57,15 +68,17 @@ export default class Edit extends Component {
 
     const formData = new FormData();
         formData.append('photo', this.state.photo);
-        formData.append('birthdate', this.state.birthdate);
-        formData.append('name', this.state.name);
-        formData.append('age', this.state.age);
-        formData.append('gender', this.state.gender);
+        formData.append('foodItemName', this.state.foodItemName);
+        formData.append('quantity', this.state.quantity);
+        formData.append('description', this.state.description);
+        formData.append('discountRate', this.state.discountRate);
+        formData.append('priorPrice', this.state.priorPrice);
+        formData.append('presentPrice', this.state.presentPrice);
 
-    axios.put('http://localhost:8070/Promotions/update/' + this.props.match.params.id, formData)
+    axios.put('http://localhost:8070/promotions/update/' + this.props.match.params.id, formData)
       .then((res) => {
         console.log(res.data)
-        alert('Student successfully updated')
+        alert('Promotion successfully updated')
       }).catch((error) => {
         console.log(error)
       })
@@ -76,7 +89,7 @@ export default class Edit extends Component {
 
 
   render() {
-    const { name , age , gender , birthdate , photo} = this.props.match.params;
+    const { Food_Item_Name , Quantity , Description , Discount_Rate, Prior_Price,Present_Price} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -112,26 +125,38 @@ export default class Edit extends Component {
                 <h1>Current Info 👁</h1>
                 <table>
 
-                    <td controlId="Name">
-                    <label>Name</label>
-                    <input type="text" value={name} onChange={this.onChangeStudentName} required disabled/>
+                    <td controlId="Food_Item_Name">
+                    <label>Food_Item_Name</label>
+                    <input type="text" value={Food_Item_Name} onChange={this.onChangeMarketingFood_Item_Name} required disabled/>
                     </td>
 
-                    <td controlId="Age">
-                    <label>Age</label>
-                    <input type="text" value={age} onChange={this.onChangeStudentAge} required disabled/>
+                    <td controlId="Quantity">
+                    <label>Quantity</label>
+                    <input type="text" value={Quantity} onChange={this.onChangeMarketingQuantity} required disabled/>
                     </td>
 
-                    <td controlId="Gender">
-                    <label>Gender</label>
-                    <input type="text" value={gender} onChange={this.onChangeStudentGender} required disabled/>
+                    <td controlId="Description">
+                    <label>Description</label>
+                    <input type="text" value={Description} onChange={this.onChangeMarketingDescription} required disabled/>
                     </td>
 
-                    <td controlId="Birthdate">
-                    <label>Birthdate</label>
-                    <input type="text" value={birthdate} onChange={this.onChangeStudentBirthdate} required disabled/>
+                    <td controlId="Discount_Rate">
+                    <label>Discount_Rate</label>
+                    <input type="text" value={Discount_Rate} onChange={this.onChangeMarketingDiscount_Rate} required disabled/>
                     </td>
 
+                    <td controlId="Prior_Price">
+                    <label>Prior_Price</label>
+                    <input type="text" value={Prior_Price} onChange={this.onChangeMarketingPrior_Price} required disabled/>
+                    </td>
+
+                    <td controlId="Present_Price">
+                    <label>Present_Price</label>
+                    <input type="text" value={Present_Price} onChange={this.onChangeMarketingPresent_Price} required disabled/>
+                    </td>
+
+                    
+                   
 
 
                 </table>
@@ -140,34 +165,47 @@ export default class Edit extends Component {
                 <h1>Need to Update ? 🤔</h1>
                 <Form onSubmit={this.onSubmit}>
                
-                    <Form.Group controlId="Name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required />
+                    <Form.Group controlId="Food_Item_Name">
+                    <Form.Label>Food_Item_Name</Form.Label>
+                    <Form.Control type="text" value={this.state.foodItemName} onChange={this.onChangeMarketingFood_Item_Name} placeholder="✍🏻 Edit Food_Item_Name" required />
                     </Form.Group>
 
-                    <Form.Group controlId="Age">
-                    <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
+                    <Form.Group controlId="Quantity">
+                    <Form.Label>Quantity</Form.Label>
+                    <Form.Control type="text" value={this.state.quantity} onChange={this.onChangeMarketingQuantity} placeholder="✍🏻 Edit Quantity" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Gender">
-                    <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
+                    <Form.Group controlId="Description">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control type="text" value={this.state.description} onChange={this.onChangeMarketingDescription} placeholder="✍🏻 Edit Description" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Birthdate">
-                    <Form.Label>Birthdate</Form.Label>
-                    <Form.Control type="text" value={this.state.birthdate} onChange={this.onChangeStudentBirthdate} placeholder="✍🏻 Edit Birthday" required/>
-                    </Form.Group><br/>
+                    <Form.Group controlId="Discount_Rate">
+                    <Form.Label>Discount_Rate</Form.Label>
+                    <Form.Control type="text" value={this.state.discountRate} onChange={this.onChangeMarketingDiscount_Rate} placeholder="✍🏻 Edit Discount_Rate" required/>
+                    </Form.Group>
+                    
 
-                    <Form.Group controlId="Email">
+                    <Form.Group controlId="Prior_Price">
+                    <Form.Label>Prior_Price</Form.Label>
+                    <Form.Control type="text" value={this.state.priorPrice} onChange={this.onChangeMarketingPrior_Price} placeholder="✍🏻 Edit Prior_Price" required/>
+                    </Form.Group>
+                    
+                    <Form.Group controlId="Present_Price">
+                    <Form.Label>Present_Price</Form.Label>
+                    <Form.Control type="text" value={this.state.presentPrice} onChange={this.onChangeMarketingPresent_Price} placeholder="✍🏻 Edit Present_Price" required/>
+                    </Form.Group>
+                    
+                    <br/>
+
+                    <Form.Group controlId="Photo">
                     <Form.Label>Photo</Form.Label>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <input 
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangeStudentPhoto} required
+                        onChange={this.onChangeMarketingPhoto} required
                     />
                    
                     </Form.Group>

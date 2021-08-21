@@ -12,11 +12,9 @@ const AddPromotions = () => {
         {
             foodItemName: '',
             quantity : '',
-            description : '',
-            discountRate: '',
-            priorPrice: '',
-            presentPrice : '',
-            photo: '',
+            price : '',
+            ingredience: '',
+            procedure: '',
         }
     );
 
@@ -30,18 +28,17 @@ const AddPromotions = () => {
         const formData = new FormData();
         formData.append('foodItemName', newUser.foodItemName);
         formData.append('quantity', newUser.quantity);
-        formData.append('description', newUser.description);
-        formData.append('discountRate', newUser.discountRate);
-        formData.append('priorPrice', newUser.priorPrice);
-        formData.append('presentPrice', newUser.presentPrice);
-        formData.append('photo', newUser.photo);
+        formData.append('price', newUser.price);
+        formData.append('ingredience', newUser.ingredience);
+        formData.append('procedure', newUser.procedure);
+        
 
         axios.post('http://localhost:8070/promotions/add', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
                 alert("Promotion is uploaded successfully")
-                setNewUser({foodItemName :'' , quantity : '' , description : '' , discountRate : '' , priorPrice : '' , presentPrice:'', photo:''})
+                setNewUser({foodItemName :'' , quantity : '' , price : '' , ingredience : '' , procedure : '' })
              })
              .catch(err => {
                 console.log(err);
@@ -63,7 +60,7 @@ const AddPromotions = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
+          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Marketing Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

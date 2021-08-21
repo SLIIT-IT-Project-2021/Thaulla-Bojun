@@ -24,15 +24,17 @@ export default class StudentTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.age}</td>
-                <td>{this.props.obj.gender}</td>
-                <td>{this.props.obj.birthdate}</td>
+                <td>{this.props.obj. foodItemName}</td>
+                <td>{this.props.obj.quantity}</td>
+                <td>{this.props.obj.description}</td>
+                <td>{this.props.obj.discountRate}</td>
+                <td>{this.props.obj.priorPrice}</td>
+                <td>{this.props.obj.presentPrice}</td>
                 <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
                 <td style={{width:"250px"}}>
-                    <Link className="edit-link" to={`/edit-MarketingM/${this.props.obj._id}/${this.props.obj.name}/${this.props.obj.age}/${this.props.obj.gender}/${this.props.obj.birthdate}/${this.props.obj.photo}`}>
+                    <Link className="edit-link" to={`/edit-MarketingM/${this.props.obj._id}/${this.props.obj. foodItemName}/${this.props.obj.quantity}/${this.props.obj.description}/${this.props.obj.discountRate}/${this.props.obj.priorPrice}/${this.props.obj.presentPrice}`}>
                         <Button size="sm" variant="success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</Button>
                     </Link >
                     
