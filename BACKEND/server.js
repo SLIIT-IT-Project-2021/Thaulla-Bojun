@@ -46,7 +46,7 @@ app.listen(PORT , () => {
     console.log(`Server is up and running on port number ${PORT}`);
 });
 
-const customerRouter = require("./routes/food.js"); //import 
+const customerRouter = require("./routes/customer.js"); //import 
 
 app.use("/users" , customerRouter);
 //chandima

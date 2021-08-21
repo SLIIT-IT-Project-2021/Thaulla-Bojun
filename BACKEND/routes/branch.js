@@ -26,17 +26,21 @@ let upload = multer({ storage, fileFilter });
 
 router.route('/add').post(upload.single('photo'), (req, res) => {
     const name = req.body.name;
-    const age = Number(req.body.age);
-    const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
+    const city = req.body.city;
+    const branchID = req.body.branchID;
+    const address = req.body.address;
+    const contactNo = Number(req.body.contactNo);
+    const email = req.body.email;
     const photo = req.file.filename;
 
     const newUserData = {
         name,
-        age,
-        gender,
-        birthdate,
-        photo
+        city,
+        branchID,
+        address,
+        contactNo,
+        email,
+        photo,
     }
 
     const newUser = new User(newUserData);
@@ -59,12 +63,14 @@ router.route("/").get((req , res)=>{ //route for display all
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
     let userID = req.params.id;
     const name = req.body.name;
-    const age = req.body.age;
-    const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
+    const city = req.body.city;
+    const branchID = req.body.branchID;
+    const address = req.body.address;
+    const contactNo = req.body.contactNo;
+    const email = req.body.email;
     const photo = req.file.filename;
 
-    const updateStudent = {name , age , gender , birthdate , photo};
+    const updateStudent = {name , city , branchID , address , contactNo , email , photo};
 
     await User.findByIdAndUpdate(userID , updateStudent)
     .then(()=>{

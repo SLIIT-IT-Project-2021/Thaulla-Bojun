@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-const AddBranch = () => {
+const AssignBranch = () => {
 
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
@@ -36,7 +36,7 @@ const AddBranch = () => {
         formData.append('contactNo', newUser.contactNo);
         formData.append('email', newUser.email);
 
-        axios.post('http://localhost:8070/branches/add', formData)
+        axios.post('http://localhost:8070/branches/assign', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
@@ -73,13 +73,13 @@ const AddBranch = () => {
                 <Link className="nav-link " aria-current="page" to = "/staff-branchM"><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-branchM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Branch</Link>
+                <Link className="nav-link " to = "/add-branchM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Branch</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+                <Link className="nav-link active" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -146,10 +146,10 @@ const AddBranch = () => {
                     className="form-control"
                     name="email"
                     value={newUser.email}
-                    onChange={handleChange} required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"
+                    onChange={handleChange} required 
                 />  
             </div>
-          
+            
             <div className="jumbotron">
                 <h1 className="display-4">Upload a Photo of Branch</h1>
                 <p className="lead">
@@ -178,11 +178,11 @@ const AddBranch = () => {
                         disabled={loading}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
-                         
+                    
             </div>
         </form>
         <br/>
-        <a href="/add-branchM"><button
+        <a href="/Add"><button
                         type="submit"
                         className="btn btn-success"
                         
@@ -194,4 +194,4 @@ const AddBranch = () => {
     );
 }
 
-export default AddBranch;
+export default AssignBranch;

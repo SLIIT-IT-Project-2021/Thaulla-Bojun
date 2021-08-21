@@ -25,14 +25,16 @@ export default class StudentTableRow extends Component {
         return (
             <tr>
                 <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.age}</td>
-                <td>{this.props.obj.gender}</td>
-                <td>{this.props.obj.birthdate}</td>
+                <td>{this.props.obj.city}</td>
+                <td>{this.props.obj.branchID}</td>
+                <td>{this.props.obj.address}</td>
+                <td>{this.props.obj.contactNo}</td>
+                <td>{this.props.obj.email}</td>
                 <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
                 <td style={{width:"250px"}}>
-                    <Link className="edit-link" to={`/edit-branchM/${this.props.obj._id}/${this.props.obj.name}/${this.props.obj.age}/${this.props.obj.gender}/${this.props.obj.birthdate}/${this.props.obj.photo}`}>
+                    <Link className="edit-link" to={`/edit-branchM/${this.props.obj._id}/${this.props.obj.name}/${this.props.obj.city}/${this.props.obj.branchID}/${this.props.obj.address}/${this.props.obj.contactNo}/${this.props.obj.email}/${this.props.obj.photo}`}>
                         <Button size="sm" variant="success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</Button>
                     </Link >
                     

@@ -13,42 +13,54 @@ export default class Edit extends Component {
 
     super(props)
     
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentAge = this.onChangeStudentAge.bind(this);
-    this.onChangeStudentGender = this.onChangeStudentGender.bind(this);
-    this.onChangeStudentBirthdate = this.onChangeStudentBirthdate.bind(this);
-    this.onChangeStudentPhoto = this.onChangeStudentPhoto.bind(this);
+    this.onChangeBranchName = this.onChangeBranchName.bind(this);
+    this.onChangeBranchCity = this.onChangeBranchCity.bind(this);
+    this.onChangeBranchBranchID = this.onChangeBranchBranchID.bind(this);
+    this.onChangeBranchAddress = this.onChangeBranchAddress.bind(this);
+    this.onChangeBranchContactNo = this.onChangeBranchContactNo.bind(this);
+    this.onChangeBranchEmail = this.onChangeBranchEmail.bind(this);
+    this.onChangeBranchPhoto = this.onChangeBranchPhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     
 
     // State
     this.state = {
-      name: '',
-      age: '',
-      gender: '',
-      birthdate: '',
-      photo:'',
+            name: '',
+            city : '',
+            branchID : '',
+            address: '',
+            contactNo: '',
+            email: '',
+            photo: '',
       
     }
   }
 
-  onChangeStudentName(e) {
+  onChangeBranchName(e) {
     this.setState({ name: e.target.value })
   }
 
-  onChangeStudentAge(e) {
-    this.setState({ age: e.target.value })
+  onChangeBranchCity(e) {
+    this.setState({ city: e.target.value })
   }
 
-  onChangeStudentGender(e) {
-    this.setState({ gender: e.target.value })
+  onChangeBranchBranchID(e) {
+    this.setState({ branchID: e.target.value })
   }
 
-  onChangeStudentBirthdate(e) {
-    this.setState({ birthdate: e.target.value })
+  onChangeBranchAddress(e) {
+    this.setState({ address: e.target.value })
   }
 
-  onChangeStudentPhoto(e) {
+  onChangeBranchContactNo(e) {
+    this.setState({ contactNo: e.target.value })
+  }
+
+  onChangeBranchEmail(e) {
+    this.setState({ email: e.target.value })
+  }
+
+  onChangeBranchPhoto(e) {
     this.setState({ photo: e.target.files[0] })
   }
 
@@ -57,10 +69,12 @@ export default class Edit extends Component {
 
     const formData = new FormData();
         formData.append('photo', this.state.photo);
-        formData.append('birthdate', this.state.birthdate);
+        formData.append('city', this.state.city);
         formData.append('name', this.state.name);
-        formData.append('age', this.state.age);
-        formData.append('gender', this.state.gender);
+        formData.append('branchID', this.state.branchID);
+        formData.append('address', this.state.address);
+        formData.append('contactNo', this.state.contactNo);
+        formData.append('email', this.state.email);
 
     axios.put('http://localhost:8070/branches/update/' + this.props.match.params.id, formData)
       .then((res) => {
@@ -76,7 +90,7 @@ export default class Edit extends Component {
 
 
   render() {
-    const { name , age , gender , birthdate , photo} = this.props.match.params;
+    const { name , city , branchID , address , contactNo , email , photo} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -97,6 +111,9 @@ export default class Edit extends Component {
                         <Link className="nav-link" to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
                       </li>
                       <li className="nav-item">
+                       <Link className="nav-link" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+                      </li>
+                      <li className="nav-item">
                         <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Branch</Link>
                       </li>
                     </ul>
@@ -113,23 +130,33 @@ export default class Edit extends Component {
                 <table>
 
                     <td controlId="Name">
-                    <label>Name</label>
-                    <input type="text" value={name} onChange={this.onChangeStudentName} required disabled/>
+                    <label>Branch Name</label>
+                    <input type="text" value={name} onChange={this.onChangeBranchName} required disabled/>
                     </td>
 
-                    <td controlId="Age">
-                    <label>Age</label>
-                    <input type="text" value={age} onChange={this.onChangeStudentAge} required disabled/>
+                    <td controlId="city">
+                    <label>City</label>
+                    <input type="text" value={city} onChange={this.onChangeBranchCity} required disabled/>
                     </td>
 
-                    <td controlId="Gender">
-                    <label>Gender</label>
-                    <input type="text" value={gender} onChange={this.onChangeStudentGender} required disabled/>
+                    <td controlId="branchID">
+                    <label>BranchID</label>
+                    <input type="text" value={branchID} onChange={this.onChangeBranchBranchID} required disabled/>
                     </td>
 
-                    <td controlId="Birthdate">
-                    <label>Birthdate</label>
-                    <input type="text" value={birthdate} onChange={this.onChangeStudentBirthdate} required disabled/>
+                    <td controlId="address">
+                    <label>Address</label>
+                    <input type="text" value={address} onChange={this.onChangeBranchAddress} required disabled/>
+                    </td>
+
+                    <td controlId="contactNo">
+                    <label>Contact NO</label>
+                    <input type="text" value={contactNo} onChange={this.onChangeBranchContactNo} required disabled/>
+                    </td>
+
+                    <td controlId="email">
+                    <label>Email</label>
+                    <input type="text" value={email} onChange={this.onChangeBranchEmail} required disabled/>
                     </td>
 
 
@@ -141,23 +168,33 @@ export default class Edit extends Component {
                 <Form onSubmit={this.onSubmit}>
                
                     <Form.Group controlId="Name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required />
+                    <Form.Label>Branch Name</Form.Label>
+                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeBranchName} placeholder="✍🏻 Edit Branch Name" required />
                     </Form.Group>
 
-                    <Form.Group controlId="Age">
-                    <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
+                    <Form.Group controlId="city">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control type="text" value={this.state.city} onChange={this.onChangeBranchCity} placeholder="✍🏻 Edit City" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Gender">
-                    <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
+                    <Form.Group controlId="branchID">
+                    <Form.Label>BranchID</Form.Label>
+                    <Form.Control type="text" value={this.state.branchID} onChange={this.onChangeBranchBranchID} placeholder="✍🏻 Edit BranchID" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Birthdate">
-                    <Form.Label>Birthdate</Form.Label>
-                    <Form.Control type="text" value={this.state.birthdate} onChange={this.onChangeStudentBirthdate} placeholder="✍🏻 Edit Birthday" required/>
+                    <Form.Group controlId="address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control type="text" value={this.state.address} onChange={this.onChangeBranchAddress} placeholder="✍🏻 Edit Address" required/>
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="contactNo">
+                    <Form.Label>ContactNO</Form.Label>
+                    <Form.Control type="text" value={this.state.contactNo} onChange={this.onChangeBranchContactNo} placeholder="✍🏻 Edit ContactNo" required/>
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeBranchEmail} placeholder="✍🏻 Edit Email" required/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Email">
@@ -167,14 +204,14 @@ export default class Edit extends Component {
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangeStudentPhoto} required
+                        onChange={this.onChangeBranchPhoto} required
                     />
                    
                     </Form.Group>
 
                     <br/>
                     <Button variant="danger" size="lg" block="block" type="submit">
-                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Student
+                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Branch
                     </Button>
                 </Form><br/><br/><br/><br/>
                 </div>

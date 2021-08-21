@@ -53,6 +53,9 @@ export default class StudentList extends Component {
                 <li className="nav-item">
                     <Link className="nav-link active" to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
                 </li>
+                <li className="nav-item">
+                <Link className="nav-link" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+              </li>
                 </ul>
                 <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -66,9 +69,11 @@ export default class StudentList extends Component {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>DOB</th>
+                        <th>City</th>
+                        <th>BranchID</th>
+                        <th>Address</th>
+                        <th>ContactNO</th>
+                        <th>Email</th>
                         <th>Photo</th>
                     </tr>
                 </thead>
