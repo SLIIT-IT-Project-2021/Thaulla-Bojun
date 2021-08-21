@@ -50,6 +50,12 @@ const customerRouter = require("./routes/customer.js"); //import
 
 app.use("/users" , customerRouter);
 
+const branchRouter = require("./routes/branch.js"); //import 
+
+app.use("/branches" , branchRouter);
+
+
+
 
 //this catches front-end URL
 /* http://localhost/8070/student */

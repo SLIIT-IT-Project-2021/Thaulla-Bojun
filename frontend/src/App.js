@@ -16,6 +16,19 @@ import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
 
+
+//Mithila section
+import PrivateBranchStaffRoute from "./components/routes/PrivateBranchStaffRoute";
+
+import Headerb from "./components/staff/branchM/Header";
+import AddBranch from "./components/staff/branchM/AddBranch";
+import Homeb from "./components/staff/branchM/Home";
+import DisplayBranches from "./components/staff/branchM/DisplayBranches"
+import Listb from "./components/staff/branchM/List"
+import Editb from "./components/staff/branchM/Edit";
+import BranchLogin from "./components/staff/branchM/login/BranchManagerLogin";
+import PrivateBranchManagerStaff from "./components/staff/branchM/login/PrivateBranchManagerStaff";
+
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
 
@@ -56,7 +69,22 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit} /> 
 
+
+
+
+
+            <Route path="/staff-login-branchM" exact component={BranchLogin} />
+            <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Headerb} /> 
+            <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {PrivateBranchManagerStaff} /> 
+            <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Homeb} /> 
+            <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
+            <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
+            <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
+            <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Editb} />
             <Footer/>
+
+
+
             
           </div>
 
