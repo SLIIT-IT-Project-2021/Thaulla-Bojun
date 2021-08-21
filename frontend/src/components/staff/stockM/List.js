@@ -45,13 +45,13 @@ export default class StudentList extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
                 <li className="nav-item">
-                    <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                    <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                    <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                    <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
                 </li>
                 </ul>
                 <form className="d-flex">
@@ -69,6 +69,9 @@ export default class StudentList extends Component {
                         <th>Age</th>
                         <th>Gender</th>
                         <th>DOB</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
                         <th>Photo</th>
                     </tr>
                 </thead>

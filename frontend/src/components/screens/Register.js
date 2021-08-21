@@ -79,7 +79,7 @@ const RegisterScreen = ({history})=>{
                                 <i className="fa fa-paper-plane"></i>
                             </span>                    
                         </div>
-                        <input type="email" className="form-control" name="email" placeholder="Email Address" required="required" paatern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}" 
+                        <input type="email" className="form-control" name="email" placeholder="Email Address" required="required" pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}" 
                         value = {email} onChange = {(e)=>setEmail(e.target.value)}
                         />
                     </div>

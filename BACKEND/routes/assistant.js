@@ -2,7 +2,7 @@ const router = require('express').Router();
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 let path = require('path');
-let User = require('../models/customer');
+let User = require('../models/assistant');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -29,6 +29,9 @@ router.route('/add').post(upload.single('photo'), (req, res) => {
     const age = Number(req.body.age);
     const gender = req.body.gender;
     const birthdate = req.body.birthdate;
+    const address = req.body.address;
+    const phone = Number(req.body.phone);
+    const email = req.body.email;
     const photo = req.file.filename;
 
     const newUserData = {
@@ -36,6 +39,9 @@ router.route('/add').post(upload.single('photo'), (req, res) => {
         age,
         gender,
         birthdate,
+        address,
+        phone,
+        email,
         photo
     }
 
@@ -62,9 +68,12 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
     const age = req.body.age;
     const gender = req.body.gender;
     const birthdate = req.body.birthdate;
+    const address = req.body.address;
+    const phone = req.body.phone;
+    const email = req.body.email;
     const photo = req.file.filename;
 
-    const updateStudent = {name , age , gender , birthdate , photo};
+    const updateStudent = {name , age , gender , birthdate ,address, phone, email, photo};
 
     await User.findByIdAndUpdate(userID , updateStudent)
     .then(()=>{

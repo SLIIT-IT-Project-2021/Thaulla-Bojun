@@ -14,6 +14,9 @@ const AddAssistant = () => {
             age : '',
             gender : '',
             birthdate: '',
+            phone : '',
+            address: '',
+            email: '',
             photo: '',
         }
     );
@@ -27,17 +30,22 @@ const AddAssistant = () => {
 
         const formData = new FormData();
         formData.append('photo', newUser.photo);
-        formData.append('birthdate', newUser.birthdate);
+        formData.append('phone', newUser.phone);
         formData.append('name', newUser.name);
         formData.append('age', newUser.age);
         formData.append('gender', newUser.gender);
+        formData.append('address', newUser.address);
+        formData.append('birthdate', newUser.birthdate);
+        formData.append('email', newUser.email);
+        //formData.append('qualification', newUser.qualification);
+        formData.append('addreass', newUser.addreass);
 
         axios.post('http://localhost:8070/stocks/add', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
                 alert("Image is uploaded successfully")
-                setNewUser({name :'' , age : '' , gender : '' , birthdate : '' , photo : ''})
+                setNewUser({name :'' , age : '' , gender : '', birthdate : '' , phone : '' , addreass : '' , email : '' , photo : ''})
              })
              .catch(err => {
                 console.log(err);
@@ -59,20 +67,23 @@ const AddAssistant = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
+          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Stock Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                <Link className="nav-link active" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to = "#"><i class="fa fa-desktop" aria-hidden="true"></i> Inventory</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -93,7 +104,7 @@ const AddAssistant = () => {
                     name="name"
                     value={newUser.name}
                     onChange={handleChange} required
-                />
+                /><br/>
                 <label for="age" className="form-label">Age</label>
                 <input 
                     type="text"
@@ -102,7 +113,7 @@ const AddAssistant = () => {
                     name="age"
                     value={newUser.age}
                     onChange={handleChange} required
-                />
+                /><br/>
                 <label for="gender" className="form-label">Gender</label>
                 <input 
                     type="text"
@@ -111,8 +122,35 @@ const AddAssistant = () => {
                     name="gender"
                     value={newUser.gender}
                     onChange={handleChange} required
-                />  
-            </div>
+                /><br/> 
+                <label for="address" className="form-label">Address</label>
+                <textarea 
+                    rows = "8" cols = "50"
+                    placeholder="Enter the address"
+                    className="form-control"
+                    name="address"
+                    value={newUser.address}
+                    onChange={handleChange} required
+                /><br/>
+                <label for="phone" className="form-label">Phone</label>  
+                 <input 
+                    type="text"
+                    placeholder="Enter the phone"
+                    className="form-control"
+                    name="phone"
+                    value={newUser.phone}
+                    onChange={handleChange} required pattern = "[0-9]{10}"
+                /> 
+                <label for="email" className="form-label">Email</label>  
+                 <input 
+                    type="text"
+                    placeholder="Enter the email"
+                    className="form-control"
+                    name="email"
+                    value={newUser.email}
+                    onChange={handleChange} required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"
+                />   
+            </div><br/>
             
             <div className="jumbotron">
                 <h1 className="display-4">Upload a Photo of Assistant</h1>
@@ -151,7 +189,7 @@ const AddAssistant = () => {
             </div>
         </form>
         <br/>
-        <a href="/add"><button
+        <a href="/add-stockM"><button
                         type="submit"
                         className="btn btn-success"
                         

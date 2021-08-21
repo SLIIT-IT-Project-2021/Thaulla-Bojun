@@ -190,7 +190,7 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {AddAssistant} /> 
             <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {DisplayAssistant} /> 
             <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ListAssistant} /> 
-            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {EditAssistant} /> 
  
 
 

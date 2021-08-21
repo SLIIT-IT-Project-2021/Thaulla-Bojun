@@ -10,7 +10,7 @@ const AssistantLogin = ({history})=>{
 
     useEffect(()=>{
         if(localStorage.getItem("authTokenStaff")){  //push a user if he already logged in
-            history.push("/staff-customerM");
+            history.push("/staff-stockM");
         }
     } , [history])
 
@@ -28,7 +28,7 @@ const AssistantLogin = ({history})=>{
 
             localStorage.setItem("authTokenStaff" , data.token);
 
-            history.push("/staff-customerM");
+            history.push("/staff-stockM");
 
         } catch (error) {
             setError(error.response.data.error);
