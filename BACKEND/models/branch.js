@@ -9,13 +9,13 @@ const ImageSchema = new Schema({
         trim: true
     }, 
 
-    age: {
-        type: Number,
+    city: {
+        type: String,
         required: true,
         trim: true
     },
 
-    gender: {
+    branchID: {
         type: String,
         required: true,
         trim: true
@@ -25,7 +25,17 @@ const ImageSchema = new Schema({
         type: String
     },
 
-    birthdate: {
+    address: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    contactNo: {
+        type: Number,
+        required: true,
+        trim: true
+    },
+    email: {
         type: String,
         required: true,
         trim: true

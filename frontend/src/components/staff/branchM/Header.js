@@ -21,6 +21,9 @@ function Header(){
             <li className="nav-item">
               <Link className="nav-link" to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
             </li>
+            <li className="nav-item">
+                <Link className="nav-link" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+              </li>
           </ul>
           <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>

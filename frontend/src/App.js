@@ -179,7 +179,7 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
-            <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Editb} />
+            <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
 
              {/*Thamali - Stock Management*/}
 

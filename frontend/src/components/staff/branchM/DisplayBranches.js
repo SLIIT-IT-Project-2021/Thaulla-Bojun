@@ -35,6 +35,9 @@ export default function DisplayBranches() {
           <li className="nav-item">
             <Link className="nav-link active" to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
           </li>
+          <li className="nav-item">
+                <Link className="nav-link" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+              </li>
         </ul>
         <form className="d-flex">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -69,10 +72,12 @@ export default function DisplayBranches() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <h2 ><center><b style={{color:"red"}}> </b>{student.name}</center></h2>
+                    <p >👫<b style={{color:"blue"}}>City: </b>{student.city}</p>
+                    <p >🏃<b style={{color:"green"}}>ID  : </b>{student.branchID} </p>
+                    <p >👫<b style={{color:"blue"}}>Address: </b>{student.address}</p>
+                    <p >❤️<b style={{color:"orange"}}>Contact: </b>{student.contactNo}</p>
+                    <p >👨<b style={{color:"red"}}>Email   : </b>{student.email}</p>
                   </div>
                 
                   <a href="/edit-branchM"><button className="btn btn-secondary">Edit</button></a>
