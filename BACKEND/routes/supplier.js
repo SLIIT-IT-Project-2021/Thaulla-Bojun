@@ -25,18 +25,20 @@ const fileFilter = (req, file, cb) => {
 let upload = multer({ storage, fileFilter });
 
 router.route('/add').post(upload.single('photo'), (req, res) => {
-    const name = req.body.name;
-    const age = Number(req.body.age);
-    const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
+    const supplierID = req.body.supplierID;
+    const fullName = req.body.fullName;
+    const address = req.body.address;
+    const priorExperiance = Number(req.body.priorExperiance);
     const photo = req.file.filename;
+    const itemsPurchased = req.body.itemsPurchased;
 
     const newUserData = {
-        name,
-        age,
-        gender,
-        birthdate,
-        photo
+        supplierID,
+        fullName,
+        address,
+        priorExperiance,
+        photo,
+        itemsPurchased
     }
 
     const newUser = new User(newUserData);
@@ -57,16 +59,16 @@ router.route("/").get((req , res)=>{ //route for display all
 });
 
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
-    let userID = req.params.id;
-    const name = req.body.name;
-    const age = req.body.age;
-    const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
+    let supplierID = req.params.id;
+    const fullName = req.body.fullName;
+    const address = req.body.address;
+    const priorExperiance = req.body.priorExperiance;
     const photo = req.file.filename;
+    const itemsPurchased = req.body.itemsPurchased;
 
-    const updateStudent = {name , age , gender , birthdate , photo};
+    const updateSupplier = {supplierID , fullName , address , priorExperiance , photo , itemsPurchased};
 
-    await User.findByIdAndUpdate(userID , updateStudent)
+    await User.findByIdAndUpdate(supplierID , updateSupplier)
     .then(()=>{
         res.status(200).send({status : "User Updated"});
     }).catch((err)=>{

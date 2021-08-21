@@ -1,22 +1,29 @@
 const mongoose = require('mongoose');
+const { isNumber } = require('util');
 
 const Schema = mongoose.Schema;
 
 const ImageSchema = new Schema({
-    name: {
+    supplierID: {
         type: String,
         required: true,
         trim: true
     }, 
 
-    age: {
-        type: Number,
+    fullName: {
+        type: String,
         required: true,
         trim: true
     },
 
-    gender: {
+    address: {
         type: String,
+        required: true,
+        trim: true
+    }, 
+
+    priorExperiance: {
+        type: Number,
         required: true,
         trim: true
     }, 
@@ -25,7 +32,7 @@ const ImageSchema = new Schema({
         type: String
     },
 
-    birthdate: {
+    itemsPurchased: {
         type: String,
         required: true,
         trim: true
