@@ -49,6 +49,10 @@ app.listen(PORT , () => {
 const customerRouter = require("./routes/food.js"); //import 
 
 app.use("/users" , customerRouter);
+//chandima
+const DeliveryPersonRouter = require("./routes/DeliveryPerson.js"); //import 
+
+app.use("/deliveryperson" , DeliveryPersonRouter);
 
 const foodRouter = require("./routes/food.js"); //import 
 
