@@ -169,7 +169,7 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/add-foodM" exact component = {AddChef} /> 
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {DisplayChefs} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM" exact component = {List_fm} /> 
-            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_fm} /> 
+            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:id/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
 
 
             <Route path="/staff-login-branchM" exact component={BranchLogin} />

@@ -10,10 +10,12 @@ const AddChef = () => {
 
     const [newUser, setNewUser] = useState(
         {
+            id: '',
             name: '',
-            age : '',
-            gender : '',
-            birthdate: '',
+            address : '',
+            phone : '',
+            email: '',
+            exp: '',
             photo: '',
         }
     );
@@ -26,18 +28,20 @@ const AddChef = () => {
 
 
         const formData = new FormData();
-        formData.append('photo', newUser.photo);
-        formData.append('birthdate', newUser.birthdate);
+        formData.append('id', newUser.id);
         formData.append('name', newUser.name);
-        formData.append('age', newUser.age);
-        formData.append('gender', newUser.gender);
+        formData.append('address', newUser.address);
+        formData.append('phone', newUser.phone);
+        formData.append('exp', newUser.exp);
+        formData.append('photo', newUser.photo);
+        formData.append('email', newUser.email);
 
         axios.post('http://localhost:8070/chefs/add', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
                 alert("Image is uploaded successfully")
-                setNewUser({name :'' , age : '' , gender : '' , birthdate : '' , photo : ''})
+                setNewUser({id : '', name :'' , address : '' , phone : '' , email : '', exp : '' , photo : ''})
              })
              .catch(err => {
                 console.log(err);
@@ -59,21 +63,34 @@ const AddChef = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
+          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Food Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                <Link className="nav-link " aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
+              {/* shortcoming tab */}
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                <Link className="nav-link "  aria-current="page" to = "/staff-foodM"><i class="fa fa-calendar-minus-o"></i>Create Shortcomings</Link>
               </li>
+              {/*assign chef tab */}
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                <Link className="nav-link active" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Assign Chefs</Link>
               </li>
+
+              {/* View orders tab */}
+              <li className="nav-item">
+                <Link className="nav-link" to = "/display-foodM"><i class="fa fa-list-alt" aria-hidden="true"></i>display profiles</Link>
+              </li>
+
+              {/*update new food arrivals */}
+              <li className="nav-item">
+                <Link className="nav-link " aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>update new food arrivals </Link>
+              </li>
+              
             </ul>
             <form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -82,40 +99,76 @@ const AddChef = () => {
           </div>
         </div>
       </nav>
-        <div className="container" style={{width:"50%"}}><br/><br/>
-            <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="cmb-3">
+      
+     
+        <div className="container" style={{width:"25%"  }} ><br/><br/>
+        
+            <form onSubmit={handleSubmit} encType='multipart/form-data' >
+            <h3>Add Chef Details</h3>
+            <div className="cmb-3" >
+              <label for="id" className="form-label">Chef ID</label>
+                <input 
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter Chef ID :"
+                    name="id"
+                    value={newUser.id}
+                    onChange={handleChange} required
+                />
+
                 <label for="name" className="form-label">Name</label>
                 <input 
                     type="text"
                     className="form-control"
-                    placeholder="Enter the name"
+                    placeholder="Enter Chef Name"
                     name="name"
                     value={newUser.name}
                     onChange={handleChange} required
                 />
-                <label for="age" className="form-label">Age</label>
+                <label for="address" className="form-label">Address</label>
                 <input 
-                    type="text"
-                    placeholder="Enter the age"
+                    type="textarea"
+                    placeholder="Enter Address"
                     className="form-control"
-                    name="age"
-                    value={newUser.age}
+                    name="address"
+                    value={newUser.address}
                     onChange={handleChange} required
                 />
-                <label for="gender" className="form-label">Gender</label>
+                <label for="phone" className="form-label">Contact No</label>
                 <input 
                     type="text"
-                    placeholder="Enter the gender"
+                    placeholder="Ex : xxxxxxxxxx"
                     className="form-control"
-                    name="gender"
-                    value={newUser.gender}
+                    name="phone"
+                    value={newUser.phone}
+                    onChange={handleChange} required pattern= "[0-9]{10}"
+                />  
+
+                <label for="email" className="form-label">Email :</label>
+                <input 
+                    type="text"
+                    placeholder=" "
+                    className="form-control"
+                    name="email"
+                    value={newUser.email}
+                    onChange={handleChange} required pattern = "[0-9a-zA-Z%$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"
+                />  
+
+                <label for="exp" className="form-label">Experience :</label>
+                <textarea
+                    row= "8"
+                    column = "10"
+                    placeholder="Enter Experience"
+                    className="form-control"
+                    name="exp"
+                    value={newUser.exp}
                     onChange={handleChange} required
                 />  
+
             </div>
-            
+           
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Customer</h1>
+                <h1 className="display-4">Upload a Photo of Chef</h1>
                 <p className="lead">
                 Please choose a valid relavant photo 👩‍🎓
                 </p>
@@ -128,15 +181,7 @@ const AddChef = () => {
                 name="photo"
                 onChange={handlePhoto} required
             />
-
-            <input 
-                type="date"
-                name="birthdate"
-                value={newUser.date}
-                onChange={handleChange} required
-            />
-
-            
+  
             <br/>
             <div>
                      {isError && <small className="mt-3 d-inline-block text-danger">Something went wrong. Please try again later.</small>}
@@ -149,18 +194,37 @@ const AddChef = () => {
                      </button>
                     
             </div>
+            
+           
         </form>
+        </div>
+        
+
         <br/>
         <a href="/add"><button
                         type="submit"
                         className="btn btn-success"
                         
                         ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button></a>
+
+        <br></br><br></br>
+        
+        {/* Add Button */}
+        <a href="/add"><button
+                        type="submit"
+                        className="btn btn-success"
+                        
+                        ><i aria-hidden="true"></i>ADD</button></a>
+        
         <br/><br/><br/><br/><br/><br/>
-        </div>
+        
         </div>
         
+        
+        
     );
+
+    
 }
 
 export default AddChef;

@@ -30,7 +30,7 @@ export default function DisplayChefs() {
             <Link className="nav-link " aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+            <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Assign Chefs</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link active" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
@@ -69,10 +69,12 @@ export default function DisplayChefs() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <p >📋<b style={{color:"green"}}>Chef ID :</b>{student.id}</p>
+                    <p >👨<b style={{color:"green"}}>Name   : </b>{student.name}</p>
+                    <p >🏃<b style={{color:"green"}}>Address  : </b>{student.address} </p>
+                    <p >👫<b style={{color:"green"}}>Contact: </b>{student.phone}</p>
+                    <p >❤️<b style={{color:"green"}}>Email: </b>{student.email}</p>
+                    <p >🛠<b style={{color:"green"}}>Experience:</b>{student.exp}</p>
                   </div>
                 
                   <a href="/edit-foodM"><button className="btn btn-secondary">Edit</button></a>
