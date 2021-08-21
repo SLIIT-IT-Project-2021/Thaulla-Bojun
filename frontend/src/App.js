@@ -18,6 +18,7 @@ import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
 
+
 //kavi's section
 import PrivateFoodManagerStaffRoute from "./components/routes/PrivateFoodManagerStaffRoute";
 import Header_fm from "./components/staff/foodM/Header";
@@ -28,6 +29,36 @@ import List_fm from "./components/staff/foodM/List"
 import Edit_fm from "./components/staff/foodM/Edit";
 import FoodManagerLogin from "./components/staff/foodM/login/FoodManagerLogin";
 import PrivateFoodManagerStaff from "./components/staff/foodM/login/PrivateFoodManagerStaff";
+
+
+
+//Mithila section
+import PrivateBranchStaffRoute from "./components/routes/PrivateBranchStaffRoute";
+
+import Headerb from "./components/staff/branchM/Header";
+import AddBranch from "./components/staff/branchM/AddBranch";
+import Homeb from "./components/staff/branchM/Home";
+import DisplayBranches from "./components/staff/branchM/DisplayBranches"
+import Listb from "./components/staff/branchM/List"
+import Editb from "./components/staff/branchM/Edit";
+import BranchLogin from "./components/staff/branchM/login/BranchManagerLogin";
+import PrivateBranchManagerStaff from "./components/staff/branchM/login/PrivateBranchManagerStaff";
+
+//Thamali part
+import PrivateAssistantStaffRoute from "./components/routes/PrivateCustomerStaffRoute";
+
+import HeaderStock from "./components/staff/stockM/Header";
+import AddAssistant from "./components/staff/stockM/AddAssistant";
+import HomeAssistant from "./components/staff/stockM/Home";
+//import Footer from "./components/staff/Footer";
+import DisplayAssistant from "./components/staff/stockM/DisplayAssistant"
+//import SocialMedia from "./components/staff/SocialMedia";
+import ListAssistant from "./components/staff/stockM/List"
+import EditAssistant from "./components/staff/stockM/Edit";
+import AssistantLogin from "./components/staff/stockM/login/AssistantLogin";
+import PrivateAssistantStaff from "./components/staff/stockM/login/PrivateAssistantStaff";
+
+
 
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -81,7 +112,31 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_fm} /> 
 
 
+            <Route path="/staff-login-branchM" exact component={BranchLogin} />
+            <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Headerb} /> 
+            <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {PrivateBranchManagerStaff} /> 
+            <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Homeb} /> 
+            <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
+            <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
+            <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
+            <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Editb} />
+
+             {/*Thamali - Stock Management*/}
+
+             <Route path="/staff-login-stockM" exact component={AssistantLogin} />
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {HeaderStock} /> 
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {PrivateAssistantStaff} /> 
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {HomeAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {AddAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {DisplayAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ListAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditAssistant} /> 
+
+
             <Footer/>
+
+
+
             
           </div>
 
