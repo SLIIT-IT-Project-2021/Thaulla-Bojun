@@ -10,11 +10,12 @@ const AddSupplier = () => {
 
     const [newUser, setNewUser] = useState(
         {
-            name: '',
-            age : '',
-            gender : '',
-            birthdate: '',
+            supplierID: '',
+            fullName : '',
+            address : '',
+            priorExperiance: '',
             photo: '',
+            itemsPurchased : '',
         }
     );
 
@@ -26,18 +27,19 @@ const AddSupplier = () => {
 
 
         const formData = new FormData();
+        formData.append('supplierID', newUser.supplierID);
+        formData.append('fullName', newUser.fullName);
+        formData.append('address', newUser.address);
+        formData.append('priorExperiance', newUser.priorExperiance);
         formData.append('photo', newUser.photo);
-        formData.append('birthdate', newUser.birthdate);
-        formData.append('name', newUser.name);
-        formData.append('age', newUser.age);
-        formData.append('gender', newUser.gender);
+        formData.append('itemsPurchased', newUser.itemsPurchased);
 
         axios.post('http://localhost:8070/suppliers/add', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
                 alert("Image is uploaded successfully")
-                setNewUser({name :'' , age : '' , gender : '' , birthdate : '' , photo : ''})
+                setNewUser({supplierID :'' , fullName : '' , address : '' , priorExperiance : '' , photo : '' , itemsPurchased : ''})
              })
              .catch(err => {
                 console.log(err);
@@ -59,20 +61,23 @@ const AddSupplier = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
+          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Supplier Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                <Link className="nav-link " aria-current="page" to = "/staff-supplierM"><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                <Link className="nav-link active" to = "/add-supplierM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Supplier</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                <Link className="nav-link" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Suppliers</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -85,37 +90,55 @@ const AddSupplier = () => {
         <div className="container" style={{width:"50%"}}><br/><br/>
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="cmb-3">
-                <label for="name" className="form-label">Name</label>
+                <label for="supplierID" className="form-label">Supplier ID</label>
                 <input 
                     type="text"
                     className="form-control"
-                    placeholder="Enter the name"
-                    name="name"
+                    placeholder="Enter supplier ID"
+                    name="supplierID"
                     value={newUser.name}
-                    onChange={handleChange} required
+                    onChange={handleChange} required //pattern="[0-9][A-Z][a-z]"
                 />
-                <label for="age" className="form-label">Age</label>
+                <label for="fullName" className="form-label">Full Name</label>
                 <input 
                     type="text"
-                    placeholder="Enter the age"
+                    placeholder="Enter full name"
                     className="form-control"
-                    name="age"
-                    value={newUser.age}
+                    name="fullName"
+                    value={newUser.fullName}
                     onChange={handleChange} required
                 />
-                <label for="gender" className="form-label">Gender</label>
+                <label for="address" className="form-label">Address</label>
                 <input 
                     type="text"
-                    placeholder="Enter the gender"
+                    placeholder="Enter the address"
                     className="form-control"
-                    name="gender"
-                    value={newUser.gender}
+                    name="address"
+                    value={newUser.address}
                     onChange={handleChange} required
                 />  
+                <label for="priorExperiance" className="form-label">Prior Experiance</label>
+                <input 
+                    type="text"
+                    placeholder="Enter number of years of experiance"
+                    className="form-control"
+                    name="priorExperiance"
+                    value={newUser.priorExperiance}
+                    onChange={handleChange} required
+                />
+                <label for="itemsPurchased" className="form-label">Items Purchased</label>
+                <input 
+                    type="text"
+                    placeholder="Enter the items purchased"
+                    className="form-control"
+                    name="itemsPurchased"
+                    value={newUser.itemsPurchased}
+                    onChange={handleChange} required
+                />
             </div>
             
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Customer</h1>
+                <h1 className="display-4">Upload a Photo of Supplier</h1>
                 <p className="lead">
                 Please choose a valid relavant photo 👩‍🎓
                 </p>
@@ -129,12 +152,7 @@ const AddSupplier = () => {
                 onChange={handlePhoto} required
             />
 
-            <input 
-                type="date"
-                name="birthdate"
-                value={newUser.date}
-                onChange={handleChange} required
-            />
+           
 
             
             <br/>
@@ -151,7 +169,7 @@ const AddSupplier = () => {
             </div>
         </form>
         <br/>
-        <a href="/add"><button
+        <a href="/add-supplierM"><button
                         type="submit"
                         className="btn btn-success"
                         
