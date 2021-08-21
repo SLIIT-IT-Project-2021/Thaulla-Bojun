@@ -71,6 +71,10 @@ app.use("/stocks" , assistantRouter);
 
 
 
+const supplierRouter = require("./routes/supplier.js"); //import 
+
+app.use("/suppliers" , supplierRouter);
+
 //this catches front-end URL
 /* http://localhost/8070/student */
 

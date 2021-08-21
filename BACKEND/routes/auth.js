@@ -1,8 +1,9 @@
 const router = require('express').Router();
 
+
  
  
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM} = require("../controllers/auth");
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM} = require("../controllers/auth");
 
  
 
@@ -18,6 +19,11 @@ router.route("/passwordreset/:resetToken").put(resetpassword);
 
 router.route("/staff-login-customerM").post(loginStaffCustomerM);
 router.route("/staff-register-customerM").post(registerStaffCustomerM);
+
+
+router.route("/staff-login-supplierM").post(loginStaffSupplierM);
+router.route("/staff-register-supplierM").post(registerStaffSupplierM);
+
  
 router.route("/staff-login-deliveryM").post(loginStaffDeliveryM);
 router.route("/staff-register-deliveryM").post(registerStaffDeliveryM);
