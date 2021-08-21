@@ -13,13 +13,17 @@ function Header(){
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+              <Link className="nav-link active" aria-current="page" to = "/staff-deliveryM"><i class="fa fa-fw fa-home"></i>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+              <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Delivery Profile</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+              <Link className="nav-link " to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Delivery Profiles</Link>
+            </li>
+            
+            <li className="nav-item">
+              <Link className="nav-link" to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Deliveries</Link>
             </li>
           </ul>
           <form className="d-flex">
