@@ -46,30 +46,14 @@ app.listen(PORT , () => {
     console.log(`Server is up and running on port number ${PORT}`);
 });
 
-const customerRouter = require("./routes/food.js"); //import 
+const customerRouter = require("./routes/customer.js"); //import 
 
 app.use("/users" , customerRouter);
-//chandima
-const DeliveryPersonRouter = require("./routes/DeliveryPerson.js"); //import 
-
-app.use("/deliveryperson" , DeliveryPersonRouter);
-
-const foodRouter = require("./routes/food.js"); //import 
-
-app.use("/chefs" , foodRouter);
-
-const branchRouter = require("./routes/branch.js"); //import 
-
-app.use("/branches" , branchRouter);
 
 
+const marketingRouter = require("./routes/marketing.js"); //import 
 
-//Thmali
-const assistantRouter = require("./routes/assistant.js"); //import 
-
-app.use("/stocks" , assistantRouter);
-
-
+app.use("/promotions" , marketingRouter);
 
 //this catches front-end URL
 /* http://localhost/8070/student */

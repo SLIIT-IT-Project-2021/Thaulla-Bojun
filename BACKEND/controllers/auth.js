@@ -177,7 +177,9 @@ exports.loginStaffCustomerM = async (req , res , next) =>{
      })       
     }
  }
- exports.registerStaffBranchM = async (req , res , next) =>{  
+
+
+ exports.registerStaffMarketingM = async (req , res , next) =>{  
    
     const {email , password} = req.body; //destructure method
 
@@ -192,7 +194,7 @@ exports.loginStaffCustomerM = async (req , res , next) =>{
     }
 }
 
-exports.loginStaffBranchM = async (req , res , next) =>{
+exports.loginStaffMarketingM = async (req , res , next) =>{
     const {email , password} = req.body;
  
     if(!email || !password){ //backend validation
@@ -223,145 +225,6 @@ exports.loginStaffBranchM = async (req , res , next) =>{
     }
  }
 
-
- exports.registerStaffStockM = async (req , res , next) =>{  
-   
-    const {email , password} = req.body; //destructure method
-
-    try {
-        const staff = await Staff.create({
-            email , password //this.password filed of user.js in models
-        })
-        sendStaffToken(staff , 200 , res);
-
-    } catch (error) {
-       next(error);
-    }
-}
-
-exports.loginStaffStockM = async (req , res , next) =>{
-    const {email , password} = req.body;
- 
-    if(!email || !password){ //backend validation
-        return next(new ErrorResponse("Please provide an email and password" , 400)); //throws a new error
-    }                                                                           //400 Bad Request
- 
-    try {
-     
-         const staff = await Staff.findOne({email}).select("+password");
- 
-         if(!staff){ //true
-             return next(new ErrorResponse("Invalid Credentials" , 401));
-         }
- 
-         const isMatch = await staff.matchStaffPasswords(password); //matching the passwords from the received from request and from the db
-         
-         if(!isMatch){
-             return next(new ErrorResponse("Invalid Credentials" , 401)); //401 for unauthorized
-         }
- 
-         sendStaffToken(staff , 200 , res);
- 
-    } catch (error) {
-         res.status(500).json({ // 500 internal server error
-             success:false,
-             error:error.message
-     })       
-    }
- }
-
- exports.registerStafffoodM = async (req , res , next) =>{  
-   
-    const {email , password} = req.body; //destructure method
-
-    try {
-        const staff = await Staff.create({
-            email , password //this.password filed of user.js in models
-        })
-        sendStaffToken(staff , 200 , res);
-
-    } catch (error) {
-       next(error);
-    }
-}
-
-exports.loginStafffoodM = async (req , res , next) =>{
-    const {email , password} = req.body;
- 
-    if(!email || !password){ //backend validation
-        return next(new ErrorResponse("Please provide an email and password" , 400)); //throws a new error
-    }                                                                           //400 Bad Request
- 
-    try {
-     
-         const staff = await Staff.findOne({email}).select("+password");
- 
-         if(!staff){ //true
-             return next(new ErrorResponse("Invalid Credentials" , 401));
-         }
- 
-         const isMatch = await staff.matchStaffPasswords(password); //matching the passwords from the received from request and from the db
-         
-         if(!isMatch){
-             return next(new ErrorResponse("Invalid Credentials" , 401)); //401 for unauthorized
-         }
- 
-         sendStaffToken(staff , 200 , res);
- 
-    } catch (error) {
-         res.status(500).json({ // 500 internal server error
-             success:false,
-             error:error.message
-     })       
-    }
- }
-
- //chandima
- exports.registerStaffDeliveryM = async (req , res , next) =>{  
-   
-    const {email , password} = req.body; //destructure method
-
-    try {
-        const staff = await Staff.create({
-            email , password //this.password filed of user.js in models
-        })
-        sendStaffToken(staff , 200 , res);
-
-    } catch (error) {
-       next(error);
-    }
-}
-
-exports.loginStaffDeliveryM = async (req , res , next) =>{
-    const {email , password} = req.body;
- 
-    if(!email || !password){ //backend validation
-        return next(new ErrorResponse("Please provide an email and password" , 400)); //throws a new error
-    }                                                                           //400 Bad Request
- 
-    try {
-     
-         const staff = await Staff.findOne({email}).select("+password");
- 
-         if(!staff){ //true
-             return next(new ErrorResponse("Invalid Credentials" , 401));
-         }
- 
-         const isMatch = await staff.matchStaffPasswords(password); //matching the passwords from the received from request and from the db
-         
-         if(!isMatch){
-             return next(new ErrorResponse("Invalid Credentials" , 401)); //401 for unauthorized
-         }
- 
-         sendStaffToken(staff , 200 , res);
- 
-    } catch (error) {
-         res.status(500).json({ // 500 internal server error
-             success:false,
-             error:error.message
-     })       
-    }
- }
  const sendStaffToken = (staff , statusCode , res)=>{ //JWT get
     const token = staff.getStaffSignedToken();
     res.status(200).json({success:true , token});

@@ -67,7 +67,7 @@ const StaffLogin = ()=>{
               <p>
                 <img src={"thamali.png"} style={{width:"150px" , height:"150px"}}/>
               </p>
-              <Link to = "/staff-login-stockM"><button type="button" className="read_more_btn">Login</button></Link>
+              <Link to = "#"><button type="button" className="read_more_btn">Login</button></Link>
             </div>
           </div>
           <div className="solution_card">
@@ -184,7 +184,7 @@ const StaffLogin = ()=>{
             <p>
                 <img src={"Kavi.png"} style={{width:"150px" , height:"150px"}}/>
               </p>
-              <Link to = "/staff-login-foodM"><button type="button" className="read_more_btn">Login</button></Link>
+              <Link to = "#"><button type="button" className="read_more_btn">Login</button></Link>
             </div>
           </div>
           <div className="solution_card">
@@ -308,7 +308,7 @@ const StaffLogin = ()=>{
             <p>
                 <img src={"Chandima.png"} style={{width:"150px" , height:"150px"}}/>
               </p>
-              <Link to = "staff-login-deliveryM"><button type="button" className="read_more_btn">Login</button></Link>
+              <Link to = "#"><button type="button" className="read_more_btn">Login</button></Link>
             </div>
           </div>
           <div className="solution_card">
@@ -365,7 +365,7 @@ const StaffLogin = ()=>{
             <p>
                 <img src={"Raveena.png"} style={{width:"150px" , height:"150px"}}/>
               </p>
-              <Link to = "#"><button type="button" className="read_more_btn">Login</button></Link>
+              <Link to = "/staff-login-MarketingM"><button type="button" className="read_more_btn">Login</button></Link>
             </div>
           </div>
         </div>
@@ -482,7 +482,7 @@ const StaffLogin = ()=>{
             <p>
                 <img src={"Mithila.png"} style={{width:"150px" , height:"150px"}}/>
               </p>
-              <Link to = "/staff-login-branchM"><button type="button" className="read_more_btn">Login</button></Link>
+              <Link to = "#"><button type="button" className="read_more_btn">Login</button></Link>
             </div>
           </div>
         </div>
