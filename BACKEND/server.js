@@ -50,6 +50,11 @@ const customerRouter = require("./routes/customer.js"); //import
 
 app.use("/users" , customerRouter);
 
+//Thmali
+const assistantRouter = require("./routes/assistant.js"); //import 
+
+app.use("/stocks" , assistantRouter);
+
 
 //this catches front-end URL
 /* http://localhost/8070/student */
