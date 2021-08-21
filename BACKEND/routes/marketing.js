@@ -81,7 +81,7 @@ router.route("/delete/:id").delete(async (req , res)=>{  //delete data
     await User.findByIdAndDelete(userID)
     .then(()=>{
         res.status(200).send({status : "User has successfully deleted"});
-
+//
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status : "Error with deleting data" , error : err.message});

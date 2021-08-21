@@ -39,5 +39,5 @@ router.route("/staff-register-stockM").post(registerStaffStockM);
 router.route("/staff-login-MarketingM").post(loginStaffMarketingM);
 router.route("/staff-register-MarketingM").post(registerStaffMarketingM);
 
- 
+ //
 module.exports = router;
