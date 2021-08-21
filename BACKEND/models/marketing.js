@@ -1,37 +1,50 @@
 const mongoose = require('mongoose');
-//
+
 const Schema = mongoose.Schema;
-//
-const ImageSchema = new Schema({
-    name: {
+
+const promotionSchema = new Schema({
+    foodItemName: {
         type: String,
         required: true,
         trim: true
     }, 
 
-    age: {
+    quantity: {
         type: Number,
         required: true,
         trim: true
     },
 
-    gender: {
+    description: {
         type: String,
         required: true,
         trim: true
     }, 
+
+    discountRate: {
+        type: String,
+        required: true,
+        trim: true
+    },
     
+    priorPrice: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
+    presentPrice:{
+        type:String,
+        required:true , 
+       
+    },
+
     photo: {
         type: String
     },
 
-    birthdate: {
-        type: String,
-        required: true,
-        trim: true
-    }
 });
 
-const Image = mongoose.model('promotion', ImageSchema);
+const Promotion = mongoose.model('promotion', promotionSchema);
 
-module.exports = Image;
+module.exports = Promotion;

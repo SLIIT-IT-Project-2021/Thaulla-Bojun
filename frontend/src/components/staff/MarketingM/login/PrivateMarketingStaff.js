@@ -21,7 +21,7 @@ const PrivateMarketingStaff = ({history})=>{
                 <img src="thaulla1.png" style={{width:"60px"}}/>
                 <button onClick = {logoutHandler} style={{float:"right"}} className="btn btn-warning"><i class="fa fa-reply-all" aria-hidden="true"></i> Logout</button>
                 <marquee width="100%" direction="left" >
-                <i class="fa fa-heartbeat" aria-hidden="true"></i> Welcome to the Customer Management System
+                <i class="fa fa-heartbeat" aria-hidden="true"></i> Welcome to the Marketing Management System
                 </marquee>
             </div>
 

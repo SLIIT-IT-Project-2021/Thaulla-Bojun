@@ -213,7 +213,7 @@ export default function App() {
             <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {AddPromotions_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {DisplayPromotions_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {List_MM} /> 
-            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price" exact component = {Edit_MM} /> 
             <Footer/>
 
           </div>

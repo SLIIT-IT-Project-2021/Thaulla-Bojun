@@ -51,6 +51,9 @@ export default class List extends Component {
                     <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Promotions</Link>
                 </li>
                 <li className="nav-item">
+                <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
+               </li>
+                <li className="nav-item">
                     <Link className="nav-link active" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Details</Link>
                 </li>
                 </ul>
@@ -65,11 +68,12 @@ export default class List extends Component {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>DOB</th>
-                        <th>Photo</th>
+                        <th>Food_Item_Name</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                        <th>Discount_Rate</th>
+                        <th>Prior_Price</th>
+                        <th>Present_Price</th>
                     </tr>
                 </thead>
                 <tbody>
