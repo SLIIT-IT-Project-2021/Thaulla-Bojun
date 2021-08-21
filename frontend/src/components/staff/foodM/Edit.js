@@ -12,43 +12,54 @@ export default class Edit extends Component {
   constructor(props) {
 
     super(props)
-    
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentAge = this.onChangeStudentAge.bind(this);
-    this.onChangeStudentGender = this.onChangeStudentGender.bind(this);
-    this.onChangeStudentBirthdate = this.onChangeStudentBirthdate.bind(this);
-    this.onChangeStudentPhoto = this.onChangeStudentPhoto.bind(this);
+    this.onChangeChefId = this.onChangeChefId.bind(this);
+    this.onChangeChefName = this.onChangeChefName.bind(this);
+    this.onChangeChefAddress = this.onChangeChefAddress.bind(this);
+    this.onChangeChefPhone = this.onChangeChefPhone.bind(this);
+    this.onChangeChefEmail = this.onChangeChefEmail.bind(this);
+    this.onChangeChefExp = this.onChangeChefExp.bind(this);
+    this.onChangeChefPhoto = this.onChangeChefPhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     
 
     // State
     this.state = {
+      id: '',
       name: '',
-      age: '',
-      gender: '',
-      birthdate: '',
+      address: '',
+      phone: '',
+      email: '',
+      exp: '',
       photo:'',
       
     }
   }
 
-  onChangeStudentName(e) {
+  onChangeChefId(e) {
+    this.setState({ id: e.target.value })
+  }
+
+  onChangeChefName(e) {
     this.setState({ name: e.target.value })
   }
 
-  onChangeStudentAge(e) {
-    this.setState({ age: e.target.value })
+  onChangeChefAddress(e) {
+    this.setState({ address: e.target.value })
   }
 
-  onChangeStudentGender(e) {
-    this.setState({ gender: e.target.value })
+  onChangeChefPhone(e) {
+    this.setState({ phone: e.target.value })
   }
 
-  onChangeStudentBirthdate(e) {
-    this.setState({ birthdate: e.target.value })
+  onChangeChefEmail(e) {
+    this.setState({ email: e.target.value })
   }
 
-  onChangeStudentPhoto(e) {
+  onChangeChefExp(e) {
+    this.setState({ exp: e.target.value })
+  }
+
+  onChangeChefPhoto(e) {
     this.setState({ photo: e.target.files[0] })
   }
 
@@ -56,16 +67,20 @@ export default class Edit extends Component {
     e.preventDefault()
 
     const formData = new FormData();
-        formData.append('photo', this.state.photo);
-        formData.append('birthdate', this.state.birthdate);
+        formData.append('id', this.state.id);
         formData.append('name', this.state.name);
-        formData.append('age', this.state.age);
-        formData.append('gender', this.state.gender);
+        formData.append('address', this.state.address);
+        formData.append('phone', this.state.phone);
+        formData.append('email', this.state.email);
+        formData.append('exp', this.state.exp);
+        formData.append('photo', this.state.photo);
+        
+        
 
     axios.put('http://localhost:8070/chefs/update/' + this.props.match.params.id, formData)
       .then((res) => {
         console.log(res.data)
-        alert('Student successfully updated')
+        alert('Chef successfully updated')
       }).catch((error) => {
         console.log(error)
       })
@@ -76,7 +91,7 @@ export default class Edit extends Component {
 
 
   render() {
-    const { name , age , gender , birthdate , photo} = this.props.match.params;
+    const {id, name , address , phone , email, exp , photo} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -97,7 +112,7 @@ export default class Edit extends Component {
                         <Link className="nav-link" to = "/foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profiles</Link>
+                        <Link className="nav-link active" to = "/edit-foodM"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profiles</Link>
                       </li>
                     </ul>
                     <form className="d-flex">
@@ -112,25 +127,37 @@ export default class Edit extends Component {
                 <h1>Current Info 👁</h1>
                 <table>
 
+                    <td controlId="Id">
+                    <label>Chef Id</label>
+                    <input type="text" value={id} onChange={this.onChangeChefId} required disabled/>
+                    </td>
+
                     <td controlId="Name">
                     <label>Name</label>
-                    <input type="text" value={name} onChange={this.onChangeStudentName} required disabled/>
+                    <input type="text" value={name} onChange={this.onChangeChefName} required disabled/>
                     </td>
 
-                    <td controlId="Age">
-                    <label>Age</label>
-                    <input type="text" value={age} onChange={this.onChangeStudentAge} required disabled/>
+                    <td controlId="Address">
+                    <label>Address</label>
+                    <input type="text" value={address} onChange={this.onChangeChefAddress} required disabled/>
                     </td>
 
-                    <td controlId="Gender">
-                    <label>Gender</label>
-                    <input type="text" value={gender} onChange={this.onChangeStudentGender} required disabled/>
+                    <td controlId="Phone">
+                    <label>Phone</label>
+                    <input type="text" value={phone} onChange={this.onChangeChefPhone} required disabled/>
                     </td>
 
-                    <td controlId="Birthdate">
-                    <label>Birthdate</label>
-                    <input type="text" value={birthdate} onChange={this.onChangeStudentBirthdate} required disabled/>
+                    <td controlId="Email">
+                    <label>Email</label>
+                    <input type="text" value={email} onChange={this.onChangeChefEmail} required disabled/>
                     </td>
+
+                    <td controlId="Exp">
+                    <label>Experience</label>
+                    <input type="text" value={exp} onChange={this.onChangeChefExp} required disabled/>
+                    </td>
+
+                    
 
 
 
@@ -140,41 +167,52 @@ export default class Edit extends Component {
                 <h1>Need to Update ? 🤔</h1>
                 <Form onSubmit={this.onSubmit}>
                
+                    <Form.Group controlId="Id">
+                    <Form.Label>Chef Id</Form.Label>
+                    <Form.Control type="text" value={this.state.id} onChange={this.onChangeChefId} placeholder="✍🏻 Edit Id" required />
+                    </Form.Group>
+
                     <Form.Group controlId="Name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required />
+                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeChefName} placeholder="✍🏻 Edit Name" required />
                     </Form.Group>
 
-                    <Form.Group controlId="Age">
-                    <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
+                    <Form.Group controlId="Address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control type="text" value={this.state.address} onChange={this.onChangeChefAddress} placeholder="✍🏻 Edit Address" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Gender">
-                    <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
+                    <Form.Group controlId="Phone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeChefPhone} placeholder="✍🏻 Edit Phone" required/>
                     </Form.Group>
-
-                    <Form.Group controlId="Birthdate">
-                    <Form.Label>Birthdate</Form.Label>
-                    <Form.Control type="text" value={this.state.birthdate} onChange={this.onChangeStudentBirthdate} placeholder="✍🏻 Edit Birthday" required/>
-                    </Form.Group><br/>
 
                     <Form.Group controlId="Email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeChefEmail} placeholder="✍🏻 Edit Email" required/>
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="Exp">
+                    <Form.Label>Experience</Form.Label>
+                    <Form.Control type="text" value={this.state.exp} onChange={this.onChangeChefExp} placeholder="✍🏻 Edit Experience" required/>
+                    </Form.Group><br/>
+
+
+                    <Form.Group controlId="Photo">
                     <Form.Label>Photo</Form.Label>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <input 
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangeStudentPhoto} required
+                        onChange={this.onChangeChefPhoto} required
                     />
                    
                     </Form.Group>
 
                     <br/>
                     <Button variant="danger" size="lg" block="block" type="submit">
-                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Student
+                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Chef
                     </Button>
                 </Form><br/><br/><br/><br/>
                 </div>
