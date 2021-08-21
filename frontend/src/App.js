@@ -157,7 +157,7 @@ export default function App() {
             <PrivateDeliveryStaffRoute path = "/add-deliveryM" exact component = {AddDeliveryPerson} /> 
             <PrivateDeliveryStaffRoute path = "/display-deliveryM" exact component = {DisplayDeliveryPerson} /> 
             <PrivateDeliveryStaffRoute path = "/edit-deliveryM" exact component = {List_dm} /> 
-            <PrivateDeliveryStaffRoute path = "/edit-deliveryM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_dm} /> 
+            <PrivateDeliveryStaffRoute path = "/edit-deliveryM/:id/:name/:age/:workdate/:birthdate/:address/:phonenumber/:emailaddress/:branchcode/:photo" exact component = {Edit_dm} /> 
 
 
  

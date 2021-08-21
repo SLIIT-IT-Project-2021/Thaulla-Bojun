@@ -48,10 +48,13 @@ export default class StudentList extends Component {
                     <Link className="nav-link " aria-current="page" to = "/staff-deliveryM"><i class="fa fa-fw fa-home"></i>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                    <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Delivery Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active" to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                    <Link className="nav-link active" to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i>Display Delivery Profiles</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link " to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i>Assign Deliveries</Link>
                 </li>
                 </ul>
                 <form className="d-flex">
@@ -67,8 +70,12 @@ export default class StudentList extends Component {
                     <tr>
                         <th>Name</th>
                         <th>Age</th>
-                        <th>Gender</th>
+                        <th>WorkDate</th>
                         <th>DOB</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>BranchCode</th>
                         <th>Photo</th>
                     </tr>
                 </thead>
