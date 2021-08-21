@@ -1,7 +1,14 @@
 //JWT authentication goes here
 const User = require("../models/user");
 const Staff = require("../models/staff");
+
 const supplierStaff= require("../models/supplierStaff");
+
+
+const assistantStaff = require("../models/assistantStaff");
+const branchStaff = require("../models/branchStaff");
+
+
 const ErrorResponse = require("../utils/errorResponse");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
@@ -183,7 +190,7 @@ exports.loginStaffCustomerM = async (req , res , next) =>{
     const {email , password} = req.body; //destructure method
 
     try {
-        const staff = await Staff.create({
+        const staff = await branchStaff.create({
             email , password //this.password filed of user.js in models
         })
         sendStaffToken(staff , 200 , res);
@@ -202,7 +209,7 @@ exports.loginStaffBranchM = async (req , res , next) =>{
  
     try {
      
-         const staff = await Staff.findOne({email}).select("+password");
+         const staff = await branchStaff.findOne({email}).select("+password");
  
          if(!staff){ //true
              return next(new ErrorResponse("Invalid Credentials" , 401));
@@ -224,13 +231,13 @@ exports.loginStaffBranchM = async (req , res , next) =>{
     }
  }
 
-
+//Thamali
  exports.registerStaffStockM = async (req , res , next) =>{  
    
     const {email , password} = req.body; //destructure method
 
     try {
-        const staff = await Staff.create({
+        const staff = await assistantStaff.create({
             email , password //this.password filed of user.js in models
         })
         sendStaffToken(staff , 200 , res);
@@ -249,7 +256,7 @@ exports.loginStaffStockM = async (req , res , next) =>{
  
     try {
      
-         const staff = await Staff.findOne({email}).select("+password");
+         const staff = await assistantStaff.findOne({email}).select("+password");
  
          if(!staff){ //true
              return next(new ErrorResponse("Invalid Credentials" , 401));
