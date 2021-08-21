@@ -51,6 +51,10 @@ const customerRouter = require("./routes/customer.js"); //import
 app.use("/users" , customerRouter);
 
 
+const supplierRouter = require("./routes/supplier.js"); //import 
+
+app.use("/suppliers" , supplierRouter);
+
 //this catches front-end URL
 /* http://localhost/8070/student */
 

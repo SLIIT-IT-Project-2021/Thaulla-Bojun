@@ -5,6 +5,9 @@ import StaffLogin from "./components/staff/StaffLogin";
 
 import PrivateCustomerStaffRoute from "./components/routes/PrivateCustomerStaffRoute";
 
+
+
+//Customer part
 import Header from "./components/staff/customerM/Header";
 import AddCustomer from "./components/staff/customerM/AddCustomer";
 import Home from "./components/staff/customerM/Home";
@@ -15,6 +18,21 @@ import List from "./components/staff/customerM/List"
 import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
+
+
+//Supplier part
+import PrivateSupplierManagerStaffRoute from "./components/routes/PrivateSupplierManagerStaffRoute";
+
+import HeaderSupplier from "./components/staff/supplierM/Header";
+import AddSupplier from "./components/staff/supplierM/AddSupplier";
+import HomeSupplier from "./components/staff/supplierM/Home";
+//import Footer from "./components/staff/Footer";
+import DisplaySuppliers from "./components/staff/supplierM/DisplaySuppliers"
+//import SocialMedia from "./components/staff/SocialMedia";
+import ListSupplier from "./components/staff/supplierM/List"
+import EditSupplier from "./components/staff/supplierM/Edit";
+import SupplierLogin from "./components/staff/supplierM/login/SupplierLogin";
+import PrivateSupplierManagerStaff from "./components/staff/supplierM/login/PrivateSupplierManagerStaff";
 
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -56,8 +74,32 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit} /> 
 
-            <Footer/>
             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Route path="/staff-login-supplierM" exact component={SupplierLogin} />
+            <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HeaderSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {PrivateSupplierManagerStaff} /> 
+            <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HomeSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {AddSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {DisplaySuppliers} /> 
+            <PrivateSupplierManagerStaffRoute path = "/edit-supplierM" exact component = {ListSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditSupplier} /> 
+            
+            <Footer/>
+
           </div>
 
     </Router>
