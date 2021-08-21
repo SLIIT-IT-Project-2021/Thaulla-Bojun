@@ -46,10 +46,13 @@ app.listen(PORT , () => {
     console.log(`Server is up and running on port number ${PORT}`);
 });
 
-const customerRouter = require("./routes/customer.js"); //import 
+const customerRouter = require("./routes/food.js"); //import 
 
 app.use("/users" , customerRouter);
 
+const foodRouter = require("./routes/food.js"); //import 
+
+app.use("/chefs" , foodRouter);
 
 //this catches front-end URL
 /* http://localhost/8070/student */
