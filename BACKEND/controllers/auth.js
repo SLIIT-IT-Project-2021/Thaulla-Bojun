@@ -19,6 +19,9 @@ const branchStaff = require("../models/branchStaff");
 
 const ErrorResponse = require("../utils/errorResponse");
 const sendEmail = require("../utils/sendEmail");
+
+const sendSupplierEmail = require("../utils/sendSupplierEmail");
+
 const crypto = require("crypto");
 
 
@@ -479,5 +482,48 @@ exports.loginStaffMarketingM = async (req , res , next) =>{
  const sendStaffToken = (staff , statusCode , res)=>{ //JWT get
     const token = staff.getStaffSignedToken();
     res.status(200).json({success:true , token});
+}
+
+
+
+//Supplier Management
+exports.sendSupplierEmail = async (req , res , next) =>{
+
+    const {email , description} = req.body;
+
+
+
+    try {
+
+        const message = `
+         <h1>${description}</h1>
+        <p>Feel free to contact : 0764477674 </p>
+
+         `
+
+        try {
+            await sendSupplierEmail({
+                to : email,
+                subject : "About Complaints",
+                text : message
+
+            })
+
+            res.status(200).json({ success : true , data : "Email Sent"});
+
+
+
+        } catch (error) {
+            res.status(500).json({ success : false , data : "Email could not be sent"});
+            return next(new ErrorResponse("Email could not be sent") , 500);
+
+        }
+
+    } catch (error) {
+
+        next(error);
+
+    }
+
 }
  

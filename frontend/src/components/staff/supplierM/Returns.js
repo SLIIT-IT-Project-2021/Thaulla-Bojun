@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-const AddSupplier = () => {
+const Returns = () => {
 
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
@@ -10,12 +10,10 @@ const AddSupplier = () => {
 
     const [newUser, setNewUser] = useState(
         {
-            supplierID: '',
-            fullName : '',
-            address : '',
-            priorExperiance: '',
+            itemID: '',
+            itemName : '',
+            itemQuantity : '',
             photo: '',
-            itemsPurchased : '',
         }
     );
 
@@ -27,19 +25,17 @@ const AddSupplier = () => {
 
 
         const formData = new FormData();
-        formData.append('supplierID', newUser.supplierID);
-        formData.append('fullName', newUser.fullName);
-        formData.append('address', newUser.address);
-        formData.append('priorExperiance', newUser.priorExperiance);
+        formData.append('itemID', newUser.itemID);
+        formData.append('itemName', newUser.itemName);
+        formData.append('itemQuantity', newUser.itemQuantity);
         formData.append('photo', newUser.photo);
-        formData.append('itemsPurchased', newUser.itemsPurchased);
 
-        axios.post('http://localhost:8070/suppliers/add', formData)
+        axios.post('http://localhost:8070/returns/add', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
                 alert("Image is uploaded successfully")
-                setNewUser({supplierID :'' , fullName : '' , address : '' , priorExperiance : '' , photo : '' , itemsPurchased : ''})
+                setNewUser({itemNo :'' , itemName : '' , itemQuantity : '' ,  photo : ''})
              })
              .catch(err => {
                 console.log(err);
@@ -71,13 +67,13 @@ const AddSupplier = () => {
                 <Link className="nav-link " aria-current="page" to = "/staff-supplierM"><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-supplierM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Supplier</Link>
+                <Link className="nav-link" to = "/add-supplierM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Supplier</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Suppliers</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
+                <Link className="nav-link active" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -90,55 +86,38 @@ const AddSupplier = () => {
         <div className="container" style={{width:"50%"}}><br/><br/>
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="cmb-3">
-                <label for="supplierID" className="form-label">Supplier ID</label>
+                <label for="itemNo" className="form-label">Item No</label>
                 <input 
                     type="text"
                     className="form-control"
-                    placeholder="Enter supplier ID"
-                    name="supplierID"
-                    value={newUser.name}
+                    placeholder="Enter item code "
+                    name="itemID"
+                    value={newUser.itemID}
                     onChange={handleChange} required //pattern="[0-9][A-Z][a-z]"
                 />
-                <label for="fullName" className="form-label">Full Name</label>
+                <label for="itemName" className="form-label">Item Name</label>
                 <input 
                     type="text"
-                    placeholder="Enter full name"
+                    placeholder="Enter item name"
                     className="form-control"
-                    name="fullName"
-                    value={newUser.fullName}
+                    name="itemName"
+                    value={newUser.itemName}
                     onChange={handleChange} required
                 />
-                <label for="address" className="form-label">Address</label>
+                <label for="itemQuantity" className="form-label">Item Quantity</label>
                 <input 
-                    type="text"
-                    placeholder="Enter the address"
+                    type="Number"
+                    placeholder="Enter item quantity "
                     className="form-control"
-                    name="address"
-                    value={newUser.address}
+                    name="itemQuantity"
+                    value={newUser.itemQuantity}
                     onChange={handleChange} required
                 />  
-                <label for="priorExperiance" className="form-label">Prior Experiance</label>
-                <input 
-                    type="text"
-                    placeholder="Enter number of years of experiance"
-                    className="form-control"
-                    name="priorExperiance"
-                    value={newUser.priorExperiance}
-                    onChange={handleChange} required
-                />
-                <label for="itemsPurchased" className="form-label">Items Purchased</label>
-                <input 
-                    type="text"
-                    placeholder="Enter the items purchased"
-                    className="form-control"
-                    name="itemsPurchased"
-                    value={newUser.itemsPurchased}
-                    onChange={handleChange} required
-                />
+                
             </div>
             
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Supplier</h1>
+                <h1 className="display-4">Upload any evidence(snaps)</h1>
                 <p className="lead">
                 Please choose a valid relavant photo 👩‍🎓
                 </p>
@@ -169,11 +148,8 @@ const AddSupplier = () => {
             </div>
         </form>
         <br/>
-        <a href="/add-supplierM"><button
-                        type="submit"
-                        className="btn btn-success"
-                        
-                        ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button></a>
+        
+ 
         <br/><br/><br/><br/><br/><br/>
         </div>
         </div>
@@ -181,4 +157,4 @@ const AddSupplier = () => {
     );
 }
 
-export default AddSupplier;
+export default Returns;
