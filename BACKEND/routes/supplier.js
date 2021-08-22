@@ -59,7 +59,8 @@ router.route("/").get((req , res)=>{ //route for display all
 });
 
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
-    let supplierID = req.params.id;
+    let ID = req.params.id;
+    const supplierID = req.body.supplierID;
     const fullName = req.body.fullName;
     const address = req.body.address;
     const priorExperiance = req.body.priorExperiance;
@@ -68,7 +69,7 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
 
     const updateSupplier = {supplierID , fullName , address , priorExperiance , photo , itemsPurchased};
 
-    await User.findByIdAndUpdate(supplierID , updateSupplier)
+    await User.findByIdAndUpdate(ID , updateSupplier)
     .then(()=>{
         res.status(200).send({status : "User Updated"});
     }).catch((err)=>{
