@@ -47,7 +47,7 @@ export default function DisplayPromotions() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Promotons</h1>
+      <h1>All Promotions</h1>
 
       {/* Fetch data from API */}
       <div>
