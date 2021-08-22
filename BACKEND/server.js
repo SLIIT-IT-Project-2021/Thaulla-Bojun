@@ -101,8 +101,12 @@ app.use("/stocks" , assistantRouter);
 
 
 const supplierRouter = require("./routes/supplier.js"); //import 
+const returnsRouter = require("./routes/returns.js"); 
+const displayNeedsRouter = require("./routes/displayNeeds.js")
 
 app.use("/suppliers" , supplierRouter);
+app.use("/returns" , returnsRouter);
+app.use("/displayNeeds" , displayNeedsRouter);
 
 
 

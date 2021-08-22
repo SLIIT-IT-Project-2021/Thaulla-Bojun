@@ -106,6 +106,9 @@ export default class Edit extends Component {
                       <li className="nav-item">
                         <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profiles</Link>
                       </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
+                      </li>
                     </ul>
                     <form className="d-flex">
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -191,7 +194,7 @@ export default class Edit extends Component {
 
                     <br/>
                     <Button variant="danger" size="lg" block="block" type="submit">
-                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Student
+                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Supplier
                     </Button>
                 </Form><br/><br/><br/><br/>
                 </div>

@@ -4,15 +4,15 @@ import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function DisplaySuppliers() {
-  const [students, setSuppliers] = useState(null);
+export default function DisplayNeeds() {
+  const [students, setNeeds] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/suppliers'
+      'http://localhost:8070/displayNeeds'
     );
 
-    setSuppliers(response.data);
+    setNeeds(response.data);
    
   };
 
@@ -33,7 +33,7 @@ export default function DisplaySuppliers() {
             <Link className="nav-link" to = "/add-supplierM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+            <Link className="nav-link" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns </Link>
@@ -47,12 +47,12 @@ export default function DisplaySuppliers() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Suppliers</h1>
+      <h1>All Needs</h1>
 
       {/* Fetch data from API */}
       <div>
         <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Suppliers
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Needs
         </button>
         <br />
       </div>
@@ -63,7 +63,7 @@ export default function DisplaySuppliers() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Supplier {index + 1}</h3>
+                <h3 className="badge bg-success">Requirement {index + 1}</h3>
 
                 <div className="details">
                   <div>
@@ -72,14 +72,13 @@ export default function DisplaySuppliers() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Supplier ID   : </b>{student.supplierID}</p>
-                    <p >👨<b style={{color:"red"}}>Full Name   : </b>{student.fullName}</p>
-                    <p >🏃<b style={{color:"green"}}>Address  : </b>{student.address}</p>
-                    <p >👫<b style={{color:"blue"}}>Prior Experiance: </b>{student.priorExperiance} years</p>
-                    <p >❤️<b style={{color:"orange"}}>Items Purchased: </b>{student.itemsPurchased}</p>
+                    <p >👨<b style={{color:"red"}}>Item ID  : </b>{student.itemID}</p>
+                    <p >👨<b style={{color:"red"}}>Item Name   : </b>{student.itemName}</p>
+                    <p >🏃<b style={{color:"green"}}>Date Purchased  : </b>{student.datePurchased}</p>
+                    <p >👫<b style={{color:"blue"}}>Quantity: </b>{student.quantity}</p>
                   </div>
                 
-                  <a href="/edit-supplierM"><button className="btn btn-secondary">Edit</button></a>
+                  <a href="/editNeeds-supplierM"><button className="btn btn-secondary">Edit Needs</button></a>
                   
     
                 </div>

@@ -53,6 +53,9 @@ export default class StudentList extends Component {
                 <li className="nav-item">
                     <Link className="nav-link active" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link active" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
+                </li>
                 </ul>
                 <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -65,7 +68,7 @@ export default class StudentList extends Component {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>Supplier ID</th>
+                        <th>ID</th>
                         <th>Full Name</th>
                         <th>Address</th>
                         <th>Prior Experiance</th>

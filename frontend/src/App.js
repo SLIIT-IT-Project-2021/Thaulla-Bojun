@@ -40,11 +40,20 @@ import HeaderSupplier from "./components/staff/supplierM/Header";
 import AddSupplier from "./components/staff/supplierM/AddSupplier";
 import HomeSupplier from "./components/staff/supplierM/Home";
 //import Footer from "./components/staff/Footer";
-import DisplaySuppliers from "./components/staff/supplierM/DisplaySuppliers"
+import DisplaySuppliers from "./components/staff/supplierM/DisplaySuppliers";
 //import SocialMedia from "./components/staff/SocialMedia";
+import Returns from "./components/staff/supplierM/Returns"
 import ListSupplier from "./components/staff/supplierM/List"
 import EditSupplier from "./components/staff/supplierM/Edit";
 import SupplierLogin from "./components/staff/supplierM/login/SupplierLogin";
+import PayButton from "./components/staff/supplierM/PayButton"
+import ReqButton from "./components/staff/supplierM/RequirementsButton";
+import ReqButton1 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton2 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton3 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton4 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton5 from "./components/staff/supplierM/RequirementsButton";
+import ReturnsChatBot from "./components/staff/supplierM/ChatBot";
 import PrivateSupplierManagerStaff from "./components/staff/supplierM/login/PrivateSupplierManagerStaff";
 
  
@@ -239,13 +248,23 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {EditAssistant} /> 
  
 
+          {/*Supplier - Routes*/}
 
             <Route path="/staff-login-supplierM" exact component={SupplierLogin} />
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HeaderSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {PrivateSupplierManagerStaff} /> 
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HomeSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {ReqButton} /> 
             <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {AddSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {ReqButton1} /> 
             <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {DisplaySuppliers} /> 
+            <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {PayButton} />
+            <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {ReqButton2} />
+            <PrivateSupplierManagerStaffRoute path = "/return-supplierM" exact component = {Returns} /> 
+            <PrivateSupplierManagerStaffRoute path = "/return-supplierM" exact component = {ReqButton3} /> 
+            <PrivateSupplierManagerStaffRoute path = "/return-supplierM" exact component = {ReturnsChatBot} />
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {ReqButton4} /> 
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {ReqButton5} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM" exact component = {ListSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:supplierID/:fullName/:address/:priorExperiance/:itemsPurchased" exact component = {EditSupplier} /> 
             
