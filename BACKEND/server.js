@@ -54,9 +54,28 @@ const DeliveryPersonRouter = require("./routes/DeliveryPerson.js"); //import
 
 app.use("/deliveryperson" , DeliveryPersonRouter);
 
+//kavi
 const foodRouter = require("./routes/food.js"); //import 
 
 app.use("/chefs" , foodRouter);
+
+const shortComingRouter = require("./routes/shortcomings.js"); //import 
+
+app.use("/shortcomings" , shortComingRouter);
+
+const ViewUpdateRouter = require("./routes/updatefoodview.js"); //import 
+
+app.use("/viewupdates" , ViewUpdateRouter);
+
+const updateRouter = require("./routes/updatefood.js"); //import 
+
+app.use("/updatefood" , updateRouter);
+
+const viewFoodOrdRouter = require("./routes/viewfoodorders.js"); //import 
+
+app.use("/viewfoodord" , viewFoodOrdRouter);
+
+
 
 const branchRouter = require("./routes/branch.js"); //import 
 

@@ -73,7 +73,11 @@ import List_fm from "./components/staff/foodM/List"
 import Edit_fm from "./components/staff/foodM/Edit";
 import FoodManagerLogin from "./components/staff/foodM/login/FoodManagerLogin";
 import PrivateFoodManagerStaff from "./components/staff/foodM/login/PrivateFoodManagerStaff";
-
+import fchatBot from "./components/staff/foodM/chatBot";
+import fchatBot2 from "./components/staff/foodM/chatBot2";
+import AddShortcoming from "./components/staff/foodM/AddShortcomings";
+import UpdateFood from "./components/staff/foodM/UpdateFood";
+import ViewFoodOrders from "./components/staff/foodM/ViewFoodOrders";
 
 
 //Mithila section
@@ -138,7 +142,7 @@ import RegisterScreen from "./components/screens/Register";
 import ForgotPasswordScreen from "./components/screens/ForgotPassword";
 import ResetPasswordScreen from "./components/screens/ResetPassword";
 import PrivateScreen from "./components/screens/Private";
-//import AddChef from "./components/staff/foodM/AddChef";
+
 
 export default function App() {
   return (
@@ -203,10 +207,14 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/staff-foodM" exact component = {PrivateFoodManagerStaff} /> 
             <PrivateFoodManagerStaffRoute path = "/staff-foodM" exact component = {Home_fm} /> 
             <PrivateFoodManagerStaffRoute path = "/add-foodM" exact component = {AddChef} /> 
+            <PrivateFoodManagerStaffRoute path = "/addSC-foodM" exact component = {AddShortcoming} /> 
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {DisplayChefs} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM" exact component = {List_fm} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:id/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
-
+            <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {UpdateFood} />
+            <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {fchatBot}/>
+            <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {fchatBot2}/>
+            <PrivateFoodManagerStaffRoute path = "/view-foodM" exact component = {ViewFoodOrders}/> 
 
             <Route path="/staff-login-branchM" exact component={BranchLogin} />
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Headerb} /> 
