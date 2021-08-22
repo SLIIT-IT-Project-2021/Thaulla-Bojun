@@ -81,6 +81,8 @@ import PrivateBranchStaffRoute from "./components/routes/PrivateBranchStaffRoute
 
 import Headerb from "./components/staff/branchM/Header";
 import AddBranch from "./components/staff/branchM/AddBranch";
+import ChatBotB from "./components/staff/branchM/ChatBotB";
+import AssignBranch from "./components/staff/branchM/AssignBranch";
 import Homeb from "./components/staff/branchM/Home";
 import DisplayBranches from "./components/staff/branchM/DisplayBranches"
 import Listb from "./components/staff/branchM/List"
@@ -199,6 +201,8 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {PrivateBranchManagerStaff} /> 
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Homeb} /> 
             <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
+            <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {ChatBotB} />
+            <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {AssignBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />

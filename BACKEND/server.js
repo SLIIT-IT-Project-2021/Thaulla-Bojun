@@ -62,6 +62,16 @@ const branchRouter = require("./routes/branch.js"); //import
 
 app.use("/branches" , branchRouter);
 
+const assignbranchRouter = require("./routes/assignbranch.js"); //import 
+
+app.use("/assignbranches" , assignbranchRouter);
+
+const branchOdersRourer = require("./routes/seeOrders.js"); //import 
+
+app.use("/orders" , branchOdersRourer);
+
+
+
 
 //
 //Thmali
