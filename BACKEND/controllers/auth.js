@@ -18,7 +18,7 @@ const assistantStaff = require("../models/assistantStaff");
 const branchStaff = require("../models/branchStaff");
 
 const ErrorResponse = require("../utils/errorResponse");
-
+const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 
 const sendCustomerEmail = require("../utils/sendCustomerEmail");
