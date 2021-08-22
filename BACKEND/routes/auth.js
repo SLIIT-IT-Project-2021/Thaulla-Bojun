@@ -1,9 +1,12 @@
 const router = require('express').Router();
 
 
- 
- 
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM, sendSupplierEmail} = require("../controllers/auth");
+
+
+
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM , sendCustomerEmail , sendCustomerPromotionEmail} = require("../controllers/auth");
+
+
 
  
 
@@ -16,6 +19,14 @@ router.route("/forgotpassword").post(forgotpassword);
 router.route("/passwordreset/:resetToken").put(resetpassword);
 
 router.route("/sendSupplierEmail").post(sendSupplierEmail);
+
+
+router.route("/sendMarketingEmail").post(sendMarketingEmail);
+
+router.route("/sendCustomerEmail").post(sendCustomerEmail);
+
+router.route("/sendCustomerPromotionEmail").post(sendCustomerPromotionEmail);
+
 
 //--------------------------Staff Routes------------------------------------------
 
