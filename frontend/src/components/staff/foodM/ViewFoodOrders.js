@@ -4,12 +4,12 @@ import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function DisplayChefs() {
+export default function ViewFoodOrders() {
   const [students, setStudents] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/chefs'
+      'http://localhost:8070//viewfoodord'
     );
 
     setStudents(response.data);
