@@ -27,13 +27,16 @@ export default function DisplayDeliveryPerson() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
           <li className="nav-item">
-            <Link className="nav-link " aria-current="page" to = "/staff-deliveryM"><i class="fa fa-fw fa-home"></i>Home</Link>
+            <Link className="nav-link active" aria-current="page" to = "/staff-deliveryM"><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+            <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Delivery Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+            <Link className="nav-link active " to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Delivery Profiles</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link " to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Deliveries</Link>
           </li>
         </ul>
         <form className="d-flex">
@@ -71,8 +74,12 @@ export default function DisplayDeliveryPerson() {
                     </div>
                     <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
                     <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
+                    <p >👫<b style={{color:"blue"}}>Work Date: </b>{student.workdate}</p>
                     <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <p >🏠<b style={{color:"red"}}>Address   : </b>{student.address}</p>
+                    <p >📱<b style={{color:"green"}}>Phone   : </b>{student.phonenumber}</p>
+                    <p >📧<b style={{color:"blue"}}>Email   : </b>{student.emailaddress}</p>
+                    <p >✨<b style={{color:"orange"}}>BranchCode   : </b>{student.branchcode}</p>
                   </div>
                 
                   <a href="/edit-deliveryM"><button className="btn btn-secondary">Edit</button></a>

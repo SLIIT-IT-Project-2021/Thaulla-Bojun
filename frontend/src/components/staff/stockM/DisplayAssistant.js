@@ -27,14 +27,17 @@ export default function DisplayAssistant() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
           <li className="nav-item">
-            <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+            <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+            <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+            <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
           </li>
+          <li className="nav-item">
+                <Link className="nav-link" to = "#"><i class="fa fa-desktop" aria-hidden="true"></i> Inventory</Link>
+              </li>
         </ul>
         <form className="d-flex">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -69,10 +72,13 @@ export default function DisplayAssistant() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <p >👨 <b style={{color:"red"}}>Name   : </b>{student.name}</p>
+                    <p >🏃 <b style={{color:"green"}}>Age   : </b>{student.age} years old</p>
+                    <p >👫 <b style={{color:"blue"}}>Gender   : </b>{student.gender}</p>
+                    <p >❤️ <b style={{color:"orange"}}>DOB    : </b>{student.birthdate}</p>
+                    <p >🏡 <b style={{color:"red"}}>Address   : </b>{student.address}</p>
+                    <p >📳 <b style={{color:"green"}}>phone   : </b>{student.phone}</p>
+                    <p >💌 <b style={{color:"blue"}}>Email   : </b>{student.email}</p>
                   </div>
                 
                   <a href="/edit-stockM"><button className="btn btn-secondary">Edit</button></a>

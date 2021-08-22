@@ -9,7 +9,7 @@ export default function DisplayPromotions() {
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/Promotions'
+      'http://localhost:8070/promotions'
     );
 
     setStudents(response.data);
@@ -32,6 +32,9 @@ export default function DisplayPromotions() {
           <li className="nav-item">
             <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Promotions</Link>
           </li>
+          <li className="nav-item">
+                <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
+               </li>
           <li className="nav-item">
             <Link className="nav-link active" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i>Display Details</Link>
           </li>
@@ -60,7 +63,7 @@ export default function DisplayPromotions() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Customer {index + 1}</h3>
+                <h3 className="badge bg-success">Promotion {index + 1}</h3>
 
                 <div className="details">
                   <div>
@@ -69,10 +72,12 @@ export default function DisplayPromotions() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <p >🥘<b style={{color:"red"}}>foodItemName   : </b>{student.foodItemName}</p>
+                    <p >🍲<b style={{color:"green"}}>quantity  : </b>{student.quantity} </p>
+                    <p >🍲<b style={{color:"purple"}}>description  : </b>{student.description} </p>
+                    <p >➗<b style={{color:"blue"}}>discountRate: </b>{student.discountRate}</p>
+                    <p >💲<b style={{color:"orange"}}>priorPrice: </b>{student.priorPrice}</p>
+                    <p >💲<b style={{color:"orange"}}>presentPrice: </b>{student.presentPrice}</p>
                   </div>
                 
                   <a href="/edit-MarketingM"><button className="btn btn-secondary">Edit</button></a>

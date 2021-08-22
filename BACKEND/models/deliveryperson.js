@@ -15,7 +15,7 @@ const ImageSchema = new Schema({
         trim: true
     },
 
-    gender: {
+    workdate: {
         type: String,
         required: true,
         trim: true
@@ -29,7 +29,27 @@ const ImageSchema = new Schema({
         type: String,
         required: true,
         trim: true
-    }
+    },
+    address: {
+        type: String,
+        required: true,
+        trim: true
+    }, 
+    phonenumber: {
+        type: String,
+        required: true,
+        trim: true
+    }, 
+    emailaddress: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    branchcode: {
+        type: String,
+        required: true,
+        trim: true
+    },  
 });
 
 const Image = mongoose.model('deliveryperson', ImageSchema);

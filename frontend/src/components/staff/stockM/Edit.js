@@ -17,6 +17,9 @@ export default class Edit extends Component {
     this.onChangeStudentAge = this.onChangeStudentAge.bind(this);
     this.onChangeStudentGender = this.onChangeStudentGender.bind(this);
     this.onChangeStudentBirthdate = this.onChangeStudentBirthdate.bind(this);
+    this.onChangeStudentPhone = this.onChangeStudentPhone.bind(this);
+    this.onChangeStudentAddress = this.onChangeStudentAddress.bind(this);
+    this.onChangeStudentEmail = this.onChangeStudentEmail.bind(this);
     this.onChangeStudentPhoto = this.onChangeStudentPhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     
@@ -27,6 +30,9 @@ export default class Edit extends Component {
       age: '',
       gender: '',
       birthdate: '',
+      phone: '',
+      address: '',
+      email: '',
       photo:'',
       
     }
@@ -48,6 +54,18 @@ export default class Edit extends Component {
     this.setState({ birthdate: e.target.value })
   }
 
+  onChangeStudentPhone(e) {
+    this.setState({ phone: e.target.value })
+  }
+
+  onChangeStudentAddress(e) {
+    this.setState({ address: e.target.value })
+  }
+
+  onChangeStudentEmail(e) {
+    this.setState({ email: e.target.value })
+  }
+
   onChangeStudentPhoto(e) {
     this.setState({ photo: e.target.files[0] })
   }
@@ -61,22 +79,25 @@ export default class Edit extends Component {
         formData.append('name', this.state.name);
         formData.append('age', this.state.age);
         formData.append('gender', this.state.gender);
+        formData.append('phone',this.state.phone);
+        formData.append('address',this.state.address);
+        formData.append('email',this.state.email);
 
     axios.put('http://localhost:8070/stocks/update/' + this.props.match.params.id, formData)
       .then((res) => {
         console.log(res.data)
-        alert('Student successfully updated')
+        alert('Assistant successfully updated')
       }).catch((error) => {
         console.log(error)
       })
-      // Redirect to Customer List 
-    this.props.history.push('/edit-customerM')
+      // Redirect to assistant List 
+    this.props.history.push('/edit-stockM')
     
   }
 
 
   render() {
-    const { name , age , gender , birthdate , photo} = this.props.match.params;
+    const { name , age , gender , birthdate , address, phone, email, photo} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -88,16 +109,19 @@ export default class Edit extends Component {
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
                       <li className="nav-item">
-                        <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                        <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link " to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                        <Link className="nav-link " to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                        <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profiles</Link>
+                        <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Assistant</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to = "#"><i class="fa fa-desktop" aria-hidden="true"></i> Inventory</Link>
                       </li>
                     </ul>
                     <form className="d-flex">
@@ -132,6 +156,21 @@ export default class Edit extends Component {
                     <input type="text" value={birthdate} onChange={this.onChangeStudentBirthdate} required disabled/>
                     </td>
 
+                    <td controlId="Address">
+                    <label>Address</label>
+                    <input type="text" value={address} onChange={this.onChangeStudentAddress} required disabled/>
+                    </td>
+
+                    <td controlId="Phone">
+                    <label>Phone</label>
+                    <input type="text" value={phone} onChange={this.onChangeStudentPhone} required disabled/>
+                    </td>
+
+                    <td controlId="Email">
+                    <label>Email</label>
+                    <input type="text" value={email} onChange={this.onChangeStudentEmail} required disabled/>
+                    </td>
+
 
 
                 </table>
@@ -160,6 +199,21 @@ export default class Edit extends Component {
                     <Form.Control type="text" value={this.state.birthdate} onChange={this.onChangeStudentBirthdate} placeholder="✍🏻 Edit Birthday" required/>
                     </Form.Group><br/>
 
+                    <Form.Group controlId="Address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control type="text" value={this.state.address} onChange={this.onChangeStudentAddress} placeholder="✍🏻 Edit Address" required/>
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="Phone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeStudentPhone} placeholder="✍🏻 Edit Phone" required/>
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="Email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeStudentEmail} placeholder="✍🏻 Edit Email" required/>
+                    </Form.Group><br/>
+
                     <Form.Group controlId="Email">
                     <Form.Label>Photo</Form.Label>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
@@ -174,7 +228,7 @@ export default class Edit extends Component {
 
                     <br/>
                     <Button variant="danger" size="lg" block="block" type="submit">
-                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Student
+                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Assistant
                     </Button>
                 </Form><br/><br/><br/><br/>
                 </div>

@@ -65,10 +65,12 @@ export default class StudentList extends Component {
             <Table striped bordered hover>
                 <thead>
                     <tr>
+                        <th>Chef ID</th>
                         <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>Contact No</th>
+                        <th>Email</th>
+                        <th>Experience</th>
                         <th>Photo</th>
                     </tr>
                 </thead>

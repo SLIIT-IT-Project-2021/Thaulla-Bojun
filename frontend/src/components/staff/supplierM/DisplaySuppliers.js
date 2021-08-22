@@ -5,14 +5,14 @@ import {Link} from "react-router-dom";
 
 
 export default function DisplaySuppliers() {
-  const [students, setStudents] = useState(null);
+  const [students, setSuppliers] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
       'http://localhost:8070/suppliers'
     );
 
-    setStudents(response.data);
+    setSuppliers(response.data);
    
   };
 
@@ -60,7 +60,7 @@ export default function DisplaySuppliers() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Supplier {index + 1}</h3>
+                <h3 className="badge bg-success">Student {index + 1}</h3>
 
                 <div className="details">
                   <div>
@@ -69,10 +69,11 @@ export default function DisplaySuppliers() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <p >👨<b style={{color:"red"}}>Supplier ID   : </b>{student.supplierID}</p>
+                    <p >👨<b style={{color:"red"}}>Full Name   : </b>{student.fullName}</p>
+                    <p >🏃<b style={{color:"green"}}>Address  : </b>{student.address}</p>
+                    <p >👫<b style={{color:"blue"}}>Prior Experiance: </b>{student.priorExperiance} years</p>
+                    <p >❤️<b style={{color:"orange"}}>Items Purchased: </b>{student.itemsPurchased}</p>
                   </div>
                 
                   <a href="/edit-supplierM"><button className="btn btn-secondary">Edit</button></a>

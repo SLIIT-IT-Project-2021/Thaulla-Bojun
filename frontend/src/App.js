@@ -157,7 +157,7 @@ export default function App() {
             <PrivateDeliveryStaffRoute path = "/add-deliveryM" exact component = {AddDeliveryPerson} /> 
             <PrivateDeliveryStaffRoute path = "/display-deliveryM" exact component = {DisplayDeliveryPerson} /> 
             <PrivateDeliveryStaffRoute path = "/edit-deliveryM" exact component = {List_dm} /> 
-            <PrivateDeliveryStaffRoute path = "/edit-deliveryM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_dm} /> 
+            <PrivateDeliveryStaffRoute path = "/edit-deliveryM/:id/:name/:age/:workdate/:birthdate/:address/:phonenumber/:emailaddress/:branchcode/:photo" exact component = {Edit_dm} /> 
 
 
  
@@ -169,7 +169,7 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/add-foodM" exact component = {AddChef} /> 
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {DisplayChefs} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM" exact component = {List_fm} /> 
-            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_fm} /> 
+            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:id/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
 
 
             <Route path="/staff-login-branchM" exact component={BranchLogin} />
@@ -179,7 +179,7 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
-            <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Editb} />
+            <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
 
              {/*Thamali - Stock Management*/}
 
@@ -190,7 +190,7 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {AddAssistant} /> 
             <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {DisplayAssistant} /> 
             <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ListAssistant} /> 
-            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {EditAssistant} /> 
  
 
 
@@ -201,7 +201,7 @@ export default function App() {
             <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {AddSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {DisplaySuppliers} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM" exact component = {ListSupplier} /> 
-            <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {EditSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:supplierID/:fullName/:address/:priorExperiance/:itemsPurchased" exact component = {EditSupplier} /> 
             
 
              {/*Raveena -Routes*/}
@@ -213,7 +213,7 @@ export default function App() {
             <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {AddPromotions_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {DisplayPromotions_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {List_MM} /> 
-            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price" exact component = {Edit_MM} /> 
             <Footer/>
 
           </div>

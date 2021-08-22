@@ -15,9 +15,14 @@ export default class Edit extends Component {
     
     this.onChangeStudentName = this.onChangeStudentName.bind(this);
     this.onChangeStudentAge = this.onChangeStudentAge.bind(this);
-    this.onChangeStudentGender = this.onChangeStudentGender.bind(this);
+    this.onChangeStudentWorkDate = this.onChangeStudentWorkDate.bind(this);
     this.onChangeStudentBirthdate = this.onChangeStudentBirthdate.bind(this);
+    this.onChangeStudentAddress= this.onChangeStudentAddress.bind(this);
+    this.onChangeStudentPhone = this.onChangeStudentPhone.bind(this);
+    this.onChangeStudentEmailaddress = this.onChangeStudentEmailaddress.bind(this);
+    this.onChangeStudentBranchCode = this.onChangeStudentBranchCode.bind(this);
     this.onChangeStudentPhoto = this.onChangeStudentPhoto.bind(this);
+    
     this.onSubmit = this.onSubmit.bind(this);
     
 
@@ -25,8 +30,12 @@ export default class Edit extends Component {
     this.state = {
       name: '',
       age: '',
-      gender: '',
+      workdate: '',
       birthdate: '',
+      address: '',
+      phonenumber: '',
+      emailaddress: '',
+      branchcode: '',
       photo:'',
       
     }
@@ -40,12 +49,28 @@ export default class Edit extends Component {
     this.setState({ age: e.target.value })
   }
 
-  onChangeStudentGender(e) {
-    this.setState({ gender: e.target.value })
+  onChangeStudentWorkDate(e) {
+    this.setState({ workdate: e.target.value })
   }
 
   onChangeStudentBirthdate(e) {
     this.setState({ birthdate: e.target.value })
+  }
+
+  onChangeStudentAddress(e) {
+    this.setState({ address: e.target.value })
+  }
+
+  onChangeStudentPhone(e) {
+    this.setState({ phonenumber: e.target.value })
+  }
+
+  onChangeStudentEmailaddress(e) {
+    this.setState({ emailaddress: e.target.value })
+  }
+
+  onChangeStudentBranchCode(e) {
+    this.setState({ branchcode: e.target.value })
   }
 
   onChangeStudentPhoto(e) {
@@ -60,12 +85,16 @@ export default class Edit extends Component {
         formData.append('birthdate', this.state.birthdate);
         formData.append('name', this.state.name);
         formData.append('age', this.state.age);
-        formData.append('gender', this.state.gender);
+        formData.append('workdate', this.state.workdate);
+        formData.append('address', this.state.address);
+        formData.append('phonenumber', this.state.phonenumber);
+        formData.append('emailaddress', this.state.emailaddress);
+        formData.append('branchcode', this.state.branchcode);
 
     axios.put('http://localhost:8070/deliveryperson/update/' + this.props.match.params.id, formData)
       .then((res) => {
         console.log(res.data)
-        alert('Student successfully updated')
+        alert('Delivery Person successfully updated')
       }).catch((error) => {
         console.log(error)
       })
@@ -76,7 +105,7 @@ export default class Edit extends Component {
 
 
   render() {
-    const { name , age , gender , birthdate , photo} = this.props.match.params;
+    const { name , age , workdate , birthdate , address , phonenumber ,emailaddress ,branchcode ,photo} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -91,10 +120,10 @@ export default class Edit extends Component {
                         <Link className="nav-link " aria-current="page" to = "/staff-deliveryM"><i class="fa fa-fw fa-home"></i>Home</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link " to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                        <Link className="nav-link " to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Delivery Profile</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                        <Link className="nav-link" to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Delivery Profiles</Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profiles</Link>
@@ -122,14 +151,34 @@ export default class Edit extends Component {
                     <input type="text" value={age} onChange={this.onChangeStudentAge} required disabled/>
                     </td>
 
-                    <td controlId="Gender">
-                    <label>Gender</label>
-                    <input type="text" value={gender} onChange={this.onChangeStudentGender} required disabled/>
+                    <td controlId="WorkDate">
+                    <label>WorkDate</label>
+                    <input type="text" value={workdate} onChange={this.onChangeStudentWorkDate} required disabled/>
                     </td>
 
                     <td controlId="Birthdate">
                     <label>Birthdate</label>
                     <input type="text" value={birthdate} onChange={this.onChangeStudentBirthdate} required disabled/>
+                    </td>
+
+                    <td controlId="Address">
+                    <label>Address</label>
+                    <input type="text" value={address} onChange={this.onChangeStudentAddress} required disabled/>
+                    </td>
+
+                    <td controlId="Phone">
+                    <label>Phone</label>
+                    <input type="text" value={phonenumber} onChange={this.onChangeStudentPhone} required disabled/>
+                    </td>
+
+                    <td controlId="Emailaddress">
+                    <label>Emailaddress</label>
+                    <input type="text" value={emailaddress} onChange={this.onChangeStudentEmailaddress} required disabled/>
+                    </td>
+
+                    <td controlId="BranchCode">
+                    <label>BranchCode</label>
+                    <input type="text" value={branchcode} onChange={this.onChangeStudentBranchCode} required disabled/>
                     </td>
 
 
@@ -150,15 +199,35 @@ export default class Edit extends Component {
                     <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Gender">
-                    <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
+                    <Form.Group controlId="WorkDate">
+                    <Form.Label>WorkDate</Form.Label>
+                    <Form.Control type="text" value={this.state.workdate} onChange={this.onChangeStudentWorkDate} placeholder="✍🏻 Edit WorkDate" required/>
                     </Form.Group>
 
                     <Form.Group controlId="Birthdate">
                     <Form.Label>Birthdate</Form.Label>
                     <Form.Control type="text" value={this.state.birthdate} onChange={this.onChangeStudentBirthdate} placeholder="✍🏻 Edit Birthday" required/>
                     </Form.Group><br/>
+
+                    <Form.Group controlId="Address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control type="text" value={this.state.address} onChange={this.onChangeStudentAddress} placeholder="✍🏻 Edit Address" required />
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="Phone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="text" value={this.state.phonenumber} onChange={this.onChangeStudentPhone} placeholder="✍🏻 Edit Phone" required />
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="Emailaddress">
+                    <Form.Label>Emailaddress</Form.Label>
+                    <Form.Control type="text" value={this.state.emailaddress} onChange={this.onChangeStudentEmailaddress} placeholder="✍🏻 Edit Emailaddress" required />
+                    </Form.Group><br/>
+
+                    <Form.Group controlId="BranchCode">
+                    <Form.Label>BranchCode</Form.Label>
+                    <Form.Control type="text" value={this.state.branchcode} onChange={this.onChangeStudentBranchCode} placeholder="✍🏻 Edit BranchCode" required />
+                    </Form.Group> 
 
                     <Form.Group controlId="Email">
                     <Form.Label>Photo</Form.Label>

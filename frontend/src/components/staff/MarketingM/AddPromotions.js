@@ -10,13 +10,15 @@ const AddCustomer = () => {
 
     const [newUser, setNewUser] = useState(
         {
-            foodItemName: null,
-            quantity : null,
-            description : null,
-            discountRate: null,
-            priorPrice: null,
-            presentPrice : null,
-            photo: null,
+
+            foodItemName: '',
+            quantity : '',
+            description : '',
+            discountRate: '',
+            priorPrice: '',
+            presentPrice : '',
+            photo: '',
+
         }
     );
 
@@ -76,6 +78,11 @@ const AddCustomer = () => {
                 <Link className="nav-link active" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Promotion</Link>
               </li>
               <li className="nav-item">
+
+                <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
+               </li>
+              <li className="nav-item">
+
                 <Link className="nav-link" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Promotions</Link>
               </li>
             </ul>

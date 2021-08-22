@@ -6,20 +6,20 @@ function Header(){
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
+        <a className="navbar-brand" href="#" style={{color:"red"}}><b>Food Management System</b></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+              <Link className="nav-link active" aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+              <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Assign Chefs</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+              <Link className="nav-link" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
             </li>
           </ul>
           <form className="d-flex">
