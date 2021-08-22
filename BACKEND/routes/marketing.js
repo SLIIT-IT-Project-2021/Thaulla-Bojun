@@ -71,7 +71,9 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
     const photo = req.file.filename;
 
 
+
     const updatePromotion = {
+
         foodItemName,
         quantity,
         description,
@@ -84,6 +86,7 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
     await Customer.findByIdAndUpdate(CustomerID , updatePromotion)
     .then(()=>{
         res.status(200).send({status : "Promotion Updated"});
+
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status : "Error with updating data" , error : err.message});
@@ -95,7 +98,9 @@ router.route("/delete/:id").delete(async (req , res)=>{  //delete data
 
     await Customer.findByIdAndDelete(CustomerID)
     .then(()=>{
+
         res.status(200).send({status : "Promotion has successfully deleted"});
+
 
     }).catch((err)=>{
         console.log(err);

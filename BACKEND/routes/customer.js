@@ -2,7 +2,7 @@ const router = require('express').Router();
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 let path = require('path');
-let User = require('../models/customer');
+let Customer = require('../models/customer');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -28,28 +28,32 @@ router.route('/add').post(upload.single('photo'), (req, res) => {
     const name = req.body.name;
     const age = Number(req.body.age);
     const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
+    const address = req.body.address;
+    const phone = Number(req.body.phone);
+    const email = req.body.email;
     const photo = req.file.filename;
 
-    const newUserData = {
+    const newCustomerData = {
         name,
         age,
         gender,
-        birthdate,
-        photo
+        address,
+        photo,
+        email, 
+        phone
     }
 
-    const newUser = new User(newUserData);
+    const newCustomer = new Customer(newCustomerData);
 
-    newUser.save()
-           .then(() => res.json('User Added'))
+    newCustomer.save()
+           .then(() => res.json('Customer Added'))
            .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route("/").get((req , res)=>{ //route for display all
     
-    User.find().then((students)=>{
-        res.json(students);
+    Customer.find().then((customers)=>{
+        res.json(customers);
     }).catch((err)=>{
         console.log(err);
     });
@@ -57,18 +61,21 @@ router.route("/").get((req , res)=>{ //route for display all
 });
 
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
-    let userID = req.params.id;
+    let CustomerID = req.params.id;
     const name = req.body.name;
-    const age = req.body.age;
+    const age = Number(req.body.age);
     const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
+    const address = req.body.address;
+    const phone = Number(req.body.phone);
+    const email = req.body.email;
     const photo = req.file.filename;
 
-    const updateStudent = {name , age , gender , birthdate , photo};
 
-    await User.findByIdAndUpdate(userID , updateStudent)
+    const updateCustomer = {name , age , gender , address , photo , phone , email};
+
+    await Customer.findByIdAndUpdate(CustomerID , updateCustomer)
     .then(()=>{
-        res.status(200).send({status : "User Updated"});
+        res.status(200).send({status : "Customer Updated"});
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status : "Error with updating data" , error : err.message});
@@ -76,11 +83,11 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
 });
 
 router.route("/delete/:id").delete(async (req , res)=>{  //delete data
-    let userID = req.params.id;
+    let CustomerID = req.params.id;
 
-    await User.findByIdAndDelete(userID)
+    await Customer.findByIdAndDelete(CustomerID)
     .then(()=>{
-        res.status(200).send({status : "User has successfully deleted"});
+        res.status(200).send({status : "Customer has successfully deleted"});
 
     }).catch((err)=>{
         console.log(err);
@@ -89,11 +96,11 @@ router.route("/delete/:id").delete(async (req , res)=>{  //delete data
 });
 
 router.route("/get/:id").get(async (req , res)=>{  //search data
-    let userID = req.params.id; 
+    let CustomerID = req.params.id; 
 
-    await User.findById(userID)
-    .then((students)=>{
-        res.status(200).send({students});
+    await Customer.findById(CustomerID)
+    .then((customers)=>{
+        res.status(200).send({customers});
 
     }).catch((err)=>{
         console.log(err);

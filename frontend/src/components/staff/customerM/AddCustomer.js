@@ -13,7 +13,9 @@ const AddCustomer = () => {
             name: '',
             age : '',
             gender : '',
-            birthdate: '',
+            address: '',
+            phone: '',
+            email : '',
             photo: '',
         }
     );
@@ -27,7 +29,9 @@ const AddCustomer = () => {
 
         const formData = new FormData();
         formData.append('photo', newUser.photo);
-        formData.append('birthdate', newUser.birthdate);
+        formData.append('address', newUser.address);
+        formData.append('phone', newUser.phone);
+        formData.append('email', newUser.email);
         formData.append('name', newUser.name);
         formData.append('age', newUser.age);
         formData.append('gender', newUser.gender);
@@ -36,8 +40,8 @@ const AddCustomer = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
-                setNewUser({name :'' , age : '' , gender : '' , birthdate : '' , photo : ''})
+                alert("Customer is uploaded successfully")
+                setNewUser({name :'' , age : '' , gender : '' , address : '' , photo : '' , email:'', phone:''})
              })
              .catch(err => {
                 console.log(err);
@@ -111,8 +115,37 @@ const AddCustomer = () => {
                     name="gender"
                     value={newUser.gender}
                     onChange={handleChange} required
-                />  
+                />
+                 <label for="address" className="form-label">Address</label>
+                <textarea
+                    rows = "5" cols ="50"
+                    placeholder="Enter the Address"
+                    className="form-control"
+                    name="address"
+                    value={newUser.address}
+                    onChange={handleChange} required
+                 />
+                  <label for="phone" className="form-label">Phone</label>
+                 <input 
+                    type="text"
+                    placeholder="Enter the Phone"
+                    className="form-control"
+                    name="phone"
+                    value={newUser.phone}
+                    onChange={handleChange} required 
+                />
+                 <label for="email" className="form-label">Email</label>
+                <input 
+                    type="email"
+                    placeholder="Enter the Email"
+                    className="form-control"
+                    name="email"
+                    value={newUser.email}
+                    onChange={handleChange} required
+                />
+
             </div>
+
             
             <div className="jumbotron">
                 <h1 className="display-4">Upload a Photo of Customer</h1>
@@ -129,14 +162,6 @@ const AddCustomer = () => {
                 onChange={handlePhoto} required
             />
 
-            <input 
-                type="date"
-                name="birthdate"
-                value={newUser.date}
-                onChange={handleChange} required
-            />
-
-            
             <br/>
             <div>
                      {isError && <small className="mt-3 d-inline-block text-danger">Something went wrong. Please try again later.</small>}
@@ -151,7 +176,7 @@ const AddCustomer = () => {
             </div>
         </form>
         <br/>
-        <a href="/add"><button
+        <a href="/add-customerM"><button
                         type="submit"
                         className="btn btn-success"
                         
