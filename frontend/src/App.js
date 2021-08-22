@@ -20,6 +20,17 @@ import List from "./components/staff/customerM/List"
 import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
+import Complaints from "./components/staff/customerM/Complaints";
+import PromotionButton from "./components/staff/customerM/PromotionButton";
+import PromotionButton1 from "./components/staff/customerM/PromotionButton";
+import PromotionButton2 from "./components/staff/customerM/PromotionButton";
+import PromotionButton3 from "./components/staff/customerM/PromotionButton";
+import PromotionButton4 from "./components/staff/customerM/PromotionButton";
+import PromotionButton5 from "./components/staff/customerM/PromotionButton";
+import chatBot from "./components/staff/customerM/chatBot";
+import chatBotPromo from "./components/staff/customerM/chatBotPromo";
+import PromotionView from "./components/staff/customerM/Promotions";
+
 
 
 //Supplier part
@@ -70,6 +81,8 @@ import PrivateBranchStaffRoute from "./components/routes/PrivateBranchStaffRoute
 
 import Headerb from "./components/staff/branchM/Header";
 import AddBranch from "./components/staff/branchM/AddBranch";
+import ChatBotB from "./components/staff/branchM/ChatBotB";
+import AssignBranch from "./components/staff/branchM/AssignBranch";
 import Homeb from "./components/staff/branchM/Home";
 import DisplayBranches from "./components/staff/branchM/DisplayBranches"
 import Listb from "./components/staff/branchM/List"
@@ -156,6 +169,17 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {DisplayCustomers} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {Edit} /> 
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {Complaints} />
+            <PrivateCustomerStaffRoute path = "/staff-customerM" exact component = {PromotionButton} /> 
+            <PrivateCustomerStaffRoute path = "/add-customerM" exact component = {PromotionButton1} /> 
+            <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {PromotionButton2} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {PromotionButton3} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {PromotionButton4} /> 
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {PromotionButton5} />
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {chatBot} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {chatBotPromo} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} /> 
+
 
 
  
@@ -189,6 +213,8 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {PrivateBranchManagerStaff} /> 
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Homeb} /> 
             <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
+            <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {ChatBotB} />
+            <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {AssignBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />

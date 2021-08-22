@@ -4,15 +4,15 @@ import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function DisplayCustomers() {
-  const [customers, setStudents] = useState(null);
+export default function DisplayComplaints() {
+  const [complaints, setComplaints] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/users'
+      'http://localhost:8070/complaints'
     );
 
-    setStudents(response.data);
+    setComplaints(response.data);
    
   };
 
@@ -33,10 +33,10 @@ export default function DisplayCustomers() {
             <Link className="nav-link" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+            <Link className="nav-link " to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
           </li>
           <li className="nav-item">
-                <Link className="nav-link" to = "/complaints-customerM"><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
+                <Link className="nav-link active" to = "/complaints-customerM"><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
               </li>
         </ul>
         <form className="d-flex">
@@ -47,41 +47,34 @@ export default function DisplayCustomers() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Customers</h1>
+      <h1>All Complaints</h1>
 
       {/* Fetch data from API */}
       <div>
         <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Customers
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> See Complaints
         </button>
         <br />
       </div>
 
       {/* Display data from API */}
-      <div className="students" >
-        {customers &&
-          customers.map((customer, index) => {
+      <div className="students" style={{width:"70%"}}>  
+        {complaints &&
+          complaints.map((complaint, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Customer {index + 1}</h3>
+                <h3 className="badge bg-success">Complaints {index + 1}</h3>
 
                 <div className="details">
                   <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + customer.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{customer.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{customer.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{customer.gender}</p>
-                    <p >🏕<b style={{color:"red"}}>Address: </b>{customer.address}</p>
-                    <p >📱<b style={{color:"green"}}>Phone: </b>{customer.phone}</p>
-                    <p >💌<b style={{color:"blue"}}>Email: </b>{customer.email}</p>
+                    <p ><b style={{color:"red"}}>Complaint ID   : </b>{complaint.complaintId}</p>
+                    <p ><b style={{color:"green"}}>Complaint Type  : </b>{complaint.complaintType}</p>
+                    <p ><b style={{color:"blue"}}>Description: </b>{complaint.description}</p>
+                    <p ><b style={{color:"red"}}>Customer Email: </b>{complaint.complaintEmail}</p>
+
                   
                   </div>
-                
-                  <a href="/edit-customerM"><button className="btn btn-secondary">Edit</button></a>
+
                   
     
                 </div>

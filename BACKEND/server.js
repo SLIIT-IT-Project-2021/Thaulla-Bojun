@@ -62,6 +62,16 @@ const branchRouter = require("./routes/branch.js"); //import
 
 app.use("/branches" , branchRouter);
 
+const assignbranchRouter = require("./routes/assignbranch.js"); //import 
+
+app.use("/assignbranches" , assignbranchRouter);
+
+const branchOdersRourer = require("./routes/seeOrders.js"); //import 
+
+app.use("/orders" , branchOdersRourer);
+
+
+
 
 //
 //Thmali
@@ -83,6 +93,7 @@ const marketingRouter = require("./routes/marketing.js"); //import
 app.use("/promotions" , marketingRouter);
 
 
+
 //Raveena New Food
 const marketingfoodRouter = require("./routes/marketingfood.js"); //import 
 
@@ -97,6 +108,16 @@ app.use("/marketingcampaign" , marketingcampaignRouter);
 const marketingDisplayfoodRouter = require("./routes/displayfood.js"); //import 
 
 app.use("/displayfood" , marketingDisplayfoodRouter);
+
+const complaintRouter = require("./routes/complaintView");
+
+app.use("/complaints" , complaintRouter);
+
+const promotionViewRouter = require("./routes/promotionView");
+
+app.use("/promotionView" , promotionViewRouter);
+//
+
 //this catches front-end URL
 /* http://localhost/8070/student */
 
