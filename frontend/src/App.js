@@ -20,6 +20,17 @@ import List from "./components/staff/customerM/List"
 import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
+import Complaints from "./components/staff/customerM/Complaints";
+import PromotionButton from "./components/staff/customerM/PromotionButton";
+import PromotionButton1 from "./components/staff/customerM/PromotionButton";
+import PromotionButton2 from "./components/staff/customerM/PromotionButton";
+import PromotionButton3 from "./components/staff/customerM/PromotionButton";
+import PromotionButton4 from "./components/staff/customerM/PromotionButton";
+import PromotionButton5 from "./components/staff/customerM/PromotionButton";
+import chatBot from "./components/staff/customerM/chatBot";
+import chatBotPromo from "./components/staff/customerM/chatBotPromo";
+import PromotionView from "./components/staff/customerM/Promotions";
+
 
 
 //Supplier part
@@ -144,6 +155,17 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {DisplayCustomers} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {Edit} /> 
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {Complaints} />
+            <PrivateCustomerStaffRoute path = "/staff-customerM" exact component = {PromotionButton} /> 
+            <PrivateCustomerStaffRoute path = "/add-customerM" exact component = {PromotionButton1} /> 
+            <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {PromotionButton2} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {PromotionButton3} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {PromotionButton4} /> 
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {PromotionButton5} />
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {chatBot} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {chatBotPromo} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} /> 
+
 
 
  
