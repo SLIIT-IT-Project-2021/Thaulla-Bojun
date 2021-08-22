@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 
 export default function DisplayCustomers() {
-  const [students, setStudents] = useState(null);
+  const [customers, setStudents] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
@@ -56,8 +56,8 @@ export default function DisplayCustomers() {
 
       {/* Display data from API */}
       <div className="students">
-        {students &&
-          students.map((student, index) => {
+        {customers &&
+          customers.map((customer, index) => {
             return (
               <div className="student" key={index}>
                 <h3 className="badge bg-success">Customer {index + 1}</h3>
@@ -65,14 +65,17 @@ export default function DisplayCustomers() {
                 <div className="details">
                   <div>
                     <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
+                      <img src ={"images/" + customer.photo} style={{width:"200px" , height:"200px"}}
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Gender: </b>{student.gender}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
+                    <p >👨<b style={{color:"red"}}>Name   : </b>{customer.name}</p>
+                    <p >🏃<b style={{color:"green"}}>Age  : </b>{customer.age} years old</p>
+                    <p >👫<b style={{color:"blue"}}>Gender: </b>{customer.gender}</p>
+                    <p >🏕<b style={{color:"red"}}>Address: </b>{customer.address}</p>
+                    <p >📱<b style={{color:"green"}}>Phone: </b>{customer.phone}</p>
+                    <p >💌<b style={{color:"blue"}}>Email: </b>{customer.email}</p>
+                  
                   </div>
                 
                   <a href="/edit-customerM"><button className="btn btn-secondary">Edit</button></a>

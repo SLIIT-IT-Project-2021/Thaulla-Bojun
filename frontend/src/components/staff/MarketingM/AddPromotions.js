@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-const AddPromotions = () => {
+const AddCustomer = () => {
 
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
@@ -10,11 +10,13 @@ const AddPromotions = () => {
 
     const [newUser, setNewUser] = useState(
         {
-            name: '',
-            age : '',
-            gender : '',
-            birthdate: '',
-            photo: '',
+            foodItemName: null,
+            quantity : null,
+            description : null,
+            discountRate: null,
+            priorPrice: null,
+            presentPrice : null,
+            photo: null,
         }
     );
 
@@ -26,18 +28,20 @@ const AddPromotions = () => {
 
 
         const formData = new FormData();
+        formData.append('foodItemName', newUser.foodItemName);
+        formData.append('quantity', newUser.quantity);
+        formData.append('description', newUser.description);
+        formData.append('discountRate', newUser.discountRate);
+        formData.append('priorPrice', newUser.priorPrice);
+        formData.append('presentPrice', newUser.presentPrice);
         formData.append('photo', newUser.photo);
-        formData.append('birthdate', newUser.birthdate);
-        formData.append('name', newUser.name);
-        formData.append('age', newUser.age);
-        formData.append('gender', newUser.gender);
 
-        axios.post('http://localhost:8070/Promotions/add', formData)
+        axios.post('http://localhost:8070/promotions/add', formData)
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
-                setNewUser({name :'' , age : '' , gender : '' , birthdate : '' , photo : ''})
+                alert("Promotion is uploaded successfully")
+                setNewUser({foodItemName :'' , quantity : '' , description : '' , discountRate : '' , priorPrice : '' , presentPrice:'', photo:''})
              })
              .catch(err => {
                 console.log(err);
@@ -66,13 +70,13 @@ const AddPromotions = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                <Link className="nav-link " aria-current="page" to = "/staff-MarketingM"><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                <Link className="nav-link active" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Promotion</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                <Link className="nav-link" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Promotions</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -85,37 +89,66 @@ const AddPromotions = () => {
         <div className="container" style={{width:"50%"}}><br/><br/>
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="cmb-3">
-                <label for="name" className="form-label">Name</label>
+                <label for="foodItemName" className="form-label">Food Item Name</label>
                 <input 
                     type="text"
                     className="form-control"
-                    placeholder="Enter the name"
-                    name="name"
-                    value={newUser.name}
+                    placeholder="Enter the Food Item Name"
+                    name="foodItemName"
+                    value={newUser.foodItemName}
                     onChange={handleChange} required
                 />
-                <label for="age" className="form-label">Age</label>
+                <label for="quantity" className="form-label">Quantity</label>
                 <input 
                     type="text"
-                    placeholder="Enter the age"
+                    placeholder="Enter the Quantity"
                     className="form-control"
-                    name="age"
-                    value={newUser.age}
+                    name="quantity"
+                    value={newUser.quantity}
                     onChange={handleChange} required
                 />
-                <label for="gender" className="form-label">Gender</label>
+                <label for="description" className="form-label">Description</label>
                 <input 
                     type="text"
-                    placeholder="Enter the gender"
+                    placeholder="Enter the Description"
                     className="form-control"
-                    name="gender"
-                    value={newUser.gender}
+                    name="description"
+                    value={newUser.description}
                     onChange={handleChange} required
-                />  
+                />
+                 <label for="discountRate" className="form-label">Discount Rate</label>
+                <textarea
+                    rows = "5" cols ="50"
+                    placeholder="Enter the Discount Rate"
+                    className="form-control"
+                    name="discountRate"
+                    value={newUser.discountRate}
+                    onChange={handleChange} required
+                 />
+                  <label for="priorPrice" className="form-label">Prior Price</label>
+                 <input 
+                    type="text"
+                    placeholder="Enter the Prior Price"
+                    className="form-control"
+                    name="priorPrice"
+                    value={newUser.priorPrice}
+                    onChange={handleChange} required 
+                />
+                 <label for="presentPrice" className="form-label">Present Price</label>
+                <input 
+                    type="text"
+                    placeholder="Enter the Present Price"
+                    className="form-control"
+                    name="presentPrice"
+                    value={newUser.presentPrice}
+                    onChange={handleChange} required
+                />
+
             </div>
+
             
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Customer</h1>
+                <h1 className="display-4">Upload a Photo of Promotion</h1>
                 <p className="lead">
                 Please choose a valid relavant photo 👩‍🎓
                 </p>
@@ -129,14 +162,6 @@ const AddPromotions = () => {
                 onChange={handlePhoto} required
             />
 
-            <input 
-                type="date"
-                name="birthdate"
-                value={newUser.date}
-                onChange={handleChange} required
-            />
-
-            
             <br/>
             <div>
                      {isError && <small className="mt-3 d-inline-block text-danger">Something went wrong. Please try again later.</small>}
@@ -151,7 +176,7 @@ const AddPromotions = () => {
             </div>
         </form>
         <br/>
-        <a href="/add"><button
+        <a href="/add-customerM"><button
                         type="submit"
                         className="btn btn-success"
                         
@@ -163,4 +188,4 @@ const AddPromotions = () => {
     );
 }
 
-export default AddPromotions;
+export default AddCustomer;

@@ -5,12 +5,12 @@ import TableRow from './TableRow';
 import {Link} from "react-router-dom";
 
 
-export default class StudentList extends Component {
+export default class CustomerList extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      students: []
+      customers: []
     };
   }
 
@@ -18,7 +18,7 @@ export default class StudentList extends Component {
     axios.get('http://localhost:8070/users')
       .then(res => {
         this.setState({
-          students: res.data
+          customers: res.data
         });
       })
       .catch((error) => {
@@ -27,7 +27,7 @@ export default class StudentList extends Component {
   }
 
   DataTable() {
-    return this.state.students.map((res, i) => {
+    return this.state.customers.map((res, i) => {
       return <TableRow obj={res} key={i} />;
     });
   }
@@ -68,7 +68,9 @@ export default class StudentList extends Component {
                         <th>Name</th>
                         <th>Age</th>
                         <th>Gender</th>
-                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
                         <th>Photo</th>
                     </tr>
                 </thead>

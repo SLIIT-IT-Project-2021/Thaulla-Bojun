@@ -143,7 +143,7 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/add-customerM" exact component = {AddCustomer} /> 
             <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {DisplayCustomers} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
-            <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:birthdate/:photo" exact component = {Edit} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {Edit} /> 
 
 
  

@@ -13,43 +13,55 @@ export default class Edit extends Component {
 
     super(props)
     
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentAge = this.onChangeStudentAge.bind(this);
-    this.onChangeStudentGender = this.onChangeStudentGender.bind(this);
-    this.onChangeStudentBirthdate = this.onChangeStudentBirthdate.bind(this);
-    this.onChangeStudentPhoto = this.onChangeStudentPhoto.bind(this);
+    this.onChangeCustomerName = this.onChangeCustomerName.bind(this);
+    this.onChangeCustomerAge = this.onChangeCustomerAge.bind(this);
+    this.onChangeCustomerGender = this.onChangeCustomerGender.bind(this);
+    this.onChangeCustomerAddress = this.onChangeCustomerAddress.bind(this);
+    this.onChangeCustomerPhone = this.onChangeCustomerPhone.bind(this);
+    this.onChangeCustomerEmail = this.onChangeCustomerEmail.bind(this);
+    this.onChangeCustomerPhoto = this.onChangeCustomerPhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     
 
     // State
     this.state = {
       name: '',
-      age: '',
-      gender: '',
-      birthdate: '',
-      photo:'',
+      age : '',
+      gender : '',
+      address: '',
+      phone: '',
+      email : '',
+      photo: '',
       
     }
   }
 
-  onChangeStudentName(e) {
+  onChangeCustomerName(e) {
     this.setState({ name: e.target.value })
   }
 
-  onChangeStudentAge(e) {
+  onChangeCustomerAge(e) {
     this.setState({ age: e.target.value })
   }
 
-  onChangeStudentGender(e) {
+  onChangeCustomerGender(e) {
     this.setState({ gender: e.target.value })
   }
 
-  onChangeStudentBirthdate(e) {
-    this.setState({ birthdate: e.target.value })
+  onChangeCustomerAddress(e) {
+    this.setState({ address: e.target.value })
   }
 
-  onChangeStudentPhoto(e) {
+  onChangeCustomerPhoto(e) {
     this.setState({ photo: e.target.files[0] })
+  }
+
+  onChangeCustomerPhone(e) {
+    this.setState({ phone: e.target.value })
+  }
+
+  onChangeCustomerEmail(e) {
+    this.setState({ email: e.target.value })
   }
 
   onSubmit(e) {
@@ -57,15 +69,17 @@ export default class Edit extends Component {
 
     const formData = new FormData();
         formData.append('photo', this.state.photo);
-        formData.append('birthdate', this.state.birthdate);
+        formData.append('address', this.state.address);
         formData.append('name', this.state.name);
         formData.append('age', this.state.age);
         formData.append('gender', this.state.gender);
+        formData.append('phone', this.state.phone);
+        formData.append('email', this.state.email);
 
     axios.put('http://localhost:8070/users/update/' + this.props.match.params.id, formData)
       .then((res) => {
         console.log(res.data)
-        alert('Student successfully updated')
+        alert('Customer successfully updated')
       }).catch((error) => {
         console.log(error)
       })
@@ -76,7 +90,7 @@ export default class Edit extends Component {
 
 
   render() {
-    const { name , age , gender , birthdate , photo} = this.props.match.params;
+    const { name , age , gender , address , photo , phone , email} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -114,22 +128,32 @@ export default class Edit extends Component {
 
                     <td controlId="Name">
                     <label>Name</label>
-                    <input type="text" value={name} onChange={this.onChangeStudentName} required disabled/>
+                    <input type="text" value={name} onChange={this.onChangeCustomerName} required disabled/>
                     </td>
 
                     <td controlId="Age">
                     <label>Age</label>
-                    <input type="text" value={age} onChange={this.onChangeStudentAge} required disabled/>
+                    <input type="text" value={age} onChange={this.onChangeCustomerAge} required disabled/>
                     </td>
 
                     <td controlId="Gender">
                     <label>Gender</label>
-                    <input type="text" value={gender} onChange={this.onChangeStudentGender} required disabled/>
+                    <input type="text" value={gender} onChange={this.onChangeCustomerGender} required disabled/>
                     </td>
 
-                    <td controlId="Birthdate">
-                    <label>Birthdate</label>
-                    <input type="text" value={birthdate} onChange={this.onChangeStudentBirthdate} required disabled/>
+                    <td controlId="Address">
+                    <label>Address</label>
+                    <input type="text" value={address} onChange={this.onChangeCustomerAddress} required disabled/>
+                    </td>
+
+                    <td controlId="Phone">
+                    <label>Phone</label>
+                    <input type="text" value={phone} onChange={this.onChangeCustomerPhone} required disabled/>
+                    </td>
+
+                    <td controlId="Email">
+                    <label>Email</label>
+                    <input type="text" value={email} onChange={this.onChangeCustomerEmail} required disabled/>
                     </td>
 
 
@@ -142,39 +166,50 @@ export default class Edit extends Component {
                
                     <Form.Group controlId="Name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required />
+                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeCustomerName} placeholder="✍🏻 Edit Name" required />
                     </Form.Group>
 
                     <Form.Group controlId="Age">
                     <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
+                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeCustomerAge} placeholder="✍🏻 Edit Age" required/>
                     </Form.Group>
 
                     <Form.Group controlId="Gender">
                     <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
+                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeCustomerGender} placeholder="✍🏻 Edit Gender" required/>
                     </Form.Group>
 
-                    <Form.Group controlId="Birthdate">
-                    <Form.Label>Birthdate</Form.Label>
-                    <Form.Control type="text" value={this.state.birthdate} onChange={this.onChangeStudentBirthdate} placeholder="✍🏻 Edit Birthday" required/>
-                    </Form.Group><br/>
+                    <Form.Group controlId="Address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control type="text" value={this.state.address} onChange={this.onChangeCustomerAddress} placeholder="✍🏻 Edit Address" required/>
+                    </Form.Group>
+                    
+                    <Form.Group controlId="Phone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeCustomerPhone} placeholder="✍🏻 Edit Phone" required/>
+                    </Form.Group>
 
                     <Form.Group controlId="Email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeCustomerEmail} placeholder="✍🏻 Edit Email" required/>
+                    </Form.Group><br/>
+
+
+                    <Form.Group controlId="Photo">
                     <Form.Label>Photo</Form.Label>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <input 
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangeStudentPhoto} required
+                        onChange={this.onChangeCustomerPhoto} required
                     />
                    
                     </Form.Group>
 
                     <br/>
                     <Button variant="danger" size="lg" block="block" type="submit">
-                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Student
+                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Customer
                     </Button>
                 </Form><br/><br/><br/><br/>
                 </div>
