@@ -15,7 +15,7 @@ export default class List extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8070/Promotions')
+    axios.get('http://localhost:8070/promotions')
       .then(res => {
         this.setState({
           students: res.data
@@ -51,7 +51,7 @@ export default class List extends Component {
                     <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Promotions</Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
+                <Link className="nav-link" to = "/addfood-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
                </li>
                 <li className="nav-item">
                     <Link className="nav-link active" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Details</Link>

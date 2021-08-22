@@ -9,7 +9,7 @@ export default function DisplayPromotions() {
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/promotions'
+      'http://localhost:8070/displayfood'
     );
 
     setStudents(response.data);
@@ -36,7 +36,7 @@ export default function DisplayPromotions() {
                 <Link className="nav-link" to = "/addfood-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
                </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i>Display Details</Link>
+            <Link className="nav-link active " to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i>Display Details</Link>
           </li>
         </ul>
         <form className="d-flex">
@@ -47,12 +47,12 @@ export default function DisplayPromotions() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Promotions</h1>
+      <h1>All Confirmations</h1>
 
       {/* Fetch data from API */}
       <div>
         <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Promotions
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Items
         </button>
         <br />
       </div>
@@ -63,24 +63,17 @@ export default function DisplayPromotions() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Promotion {index + 1}</h3>
+                <h3 className="badge bg-success">Food Item {index + 1}</h3>
 
                 <div className="details">
                   <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
+                   
                     <p >🥘<b style={{color:"red"}}>foodItemName   : </b>{student.foodItemName}</p>
-                    <p >🍲<b style={{color:"green"}}>quantity  : </b>{student.quantity} </p>
-                    <p >🍲<b style={{color:"purple"}}>description  : </b>{student.description} </p>
-                    <p >➗<b style={{color:"blue"}}>discountRate: </b>{student.discountRate}</p>
-                    <p >💲<b style={{color:"orange"}}>priorPrice: </b>{student.priorPrice}</p>
-                    <p >💲<b style={{color:"orange"}}>presentPrice: </b>{student.presentPrice}</p>
+                    <p >🍲<b style={{color:"green"}}>Status  : </b>{student.quantity} </p>
+                    
                   </div>
                 
-                  <a href="/edit-MarketingM"><button className="btn btn-secondary">Edit</button></a>
+                  
                   
     
                 </div>
