@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-const AddCustomer = () => {
+const AddPromotions = () => {
 
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
@@ -65,7 +65,7 @@ const AddCustomer = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
+          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Marketing Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -79,11 +79,11 @@ const AddCustomer = () => {
               </li>
               <li className="nav-item">
 
-                <Link className="nav-link" to = "/add-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
+                <Link className="nav-link" to = "/addfood-MarketingM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create New Food Item</Link>
                </li>
               <li className="nav-item">
 
-                <Link className="nav-link" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Promotions</Link>
+                <Link className="nav-link" to = "/display-MarketingM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Details</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -195,4 +195,4 @@ const AddCustomer = () => {
     );
 }
 
-export default AddCustomer;
+export default AddPromotions;

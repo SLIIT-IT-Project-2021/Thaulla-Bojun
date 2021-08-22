@@ -104,18 +104,30 @@ import EditAssistant from "./components/staff/stockM/Edit";
 import AssistantLogin from "./components/staff/stockM/login/AssistantLogin";
 import PrivateAssistantStaff from "./components/staff/stockM/login/PrivateAssistantStaff";
 
+
+
 //Raveena - Marketing Manager
 
 import PrivateMarketingManagerStaffRoute from "./components/routes/PrivateMarketingManagerStaffRoute";
 import Header_MM from "./components/staff/MarketingM/Header";
 import AddPromotions_MM from "./components/staff/MarketingM/AddPromotions";
+import AddNewFoods_MM from "./components/staff/MarketingM/AddNewFoods";
+import Campaigns_MM from "./components/staff/MarketingM/Campaigns";
 import Home_MM from "./components/staff/MarketingM/Home";
 import DisplayPromotions_MM from "./components/staff/MarketingM/DisplayPromotions"
+import DisplayNewFood_MM from "./components/staff/MarketingM/DisplayNewFood"
 import List_MM from "./components/staff/MarketingM/List"
 import Edit_MM from "./components/staff/MarketingM/Edit";
 import MarketingLogin from "./components/staff/MarketingM/login/MarketingLogin";
 import PrivateMarketingStaff from "./components/staff/MarketingM/login/PrivateMarketingStaff";
- 
+import CampaignsButton from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton1 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton2 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton3 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton4 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton5 from  "./components/staff/MarketingM/CampaignsButton";
+import promochatBot from"./components/staff/MarketingM/chatBot";
+import StatusButton from  "./components/staff/MarketingM/StatusButton";
 
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -237,9 +249,22 @@ export default function App() {
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {PrivateMarketingStaff} /> 
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {Home_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {AddPromotions_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {Campaigns_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {AddNewFoods_MM} />
             <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {DisplayPromotions_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/displayfood-MarketingM" exact component = {DisplayNewFood_MM }/> 
             <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {List_MM} /> 
-            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price" exact component = {Edit_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price" exact component = {Edit_MM} />
+            <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {CampaignsButton} /> 
+            <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {CampaignsButton1} /> 
+            <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {CampaignsButton2} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {CampaignsButton3} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {CampaignsButton4} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {CampaignsButton5} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price"  exact component = {CampaignsButton4} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {promochatBot} />
+            <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {StatusButton} /> 
+
             <Footer/>
 
           </div>

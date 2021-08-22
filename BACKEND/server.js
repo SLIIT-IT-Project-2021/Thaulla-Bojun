@@ -86,9 +86,28 @@ const supplierRouter = require("./routes/supplier.js"); //import
 app.use("/suppliers" , supplierRouter);
 
 
+
+//Raveena Promotions
 const marketingRouter = require("./routes/marketing.js"); //import 
 
 app.use("/promotions" , marketingRouter);
+
+
+
+//Raveena New Food
+const marketingfoodRouter = require("./routes/marketingfood.js"); //import 
+
+app.use("/marketingfood" , marketingfoodRouter);
+
+//Raveena Campaigns
+const marketingcampaignRouter = require("./routes/campaign.js"); //import 
+
+app.use("/marketingcampaign" , marketingcampaignRouter);
+
+//Raveena displayfoods
+const marketingDisplayfoodRouter = require("./routes/displayfood.js"); //import 
+
+app.use("/displayfood" , marketingDisplayfoodRouter);
 
 const complaintRouter = require("./routes/complaintView");
 
@@ -98,6 +117,7 @@ const promotionViewRouter = require("./routes/promotionView");
 
 app.use("/promotionView" , promotionViewRouter);
 //
+
 //this catches front-end URL
 /* http://localhost/8070/student */
 
