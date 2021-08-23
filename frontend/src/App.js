@@ -20,6 +20,17 @@ import List from "./components/staff/customerM/List"
 import Edit from "./components/staff/customerM/Edit";
 import CustomerLogin from "./components/staff/customerM/login/CustomerLogin";
 import PrivateCustomerStaff from "./components/staff/customerM/login/PrivateCustomerStaff";
+import Complaints from "./components/staff/customerM/Complaints";
+import PromotionButton from "./components/staff/customerM/PromotionButton";
+import PromotionButton1 from "./components/staff/customerM/PromotionButton";
+import PromotionButton2 from "./components/staff/customerM/PromotionButton";
+import PromotionButton3 from "./components/staff/customerM/PromotionButton";
+import PromotionButton4 from "./components/staff/customerM/PromotionButton";
+import PromotionButton5 from "./components/staff/customerM/PromotionButton";
+import chatBot from "./components/staff/customerM/chatBot";
+import chatBotPromo from "./components/staff/customerM/chatBotPromo";
+import PromotionView from "./components/staff/customerM/Promotions";
+
 
 
 //Supplier part
@@ -29,11 +40,20 @@ import HeaderSupplier from "./components/staff/supplierM/Header";
 import AddSupplier from "./components/staff/supplierM/AddSupplier";
 import HomeSupplier from "./components/staff/supplierM/Home";
 //import Footer from "./components/staff/Footer";
-import DisplaySuppliers from "./components/staff/supplierM/DisplaySuppliers"
+import DisplaySuppliers from "./components/staff/supplierM/DisplaySuppliers";
 //import SocialMedia from "./components/staff/SocialMedia";
+import Returns from "./components/staff/supplierM/Returns"
 import ListSupplier from "./components/staff/supplierM/List"
 import EditSupplier from "./components/staff/supplierM/Edit";
 import SupplierLogin from "./components/staff/supplierM/login/SupplierLogin";
+import PayButton from "./components/staff/supplierM/PayButton"
+import ReqButton from "./components/staff/supplierM/RequirementsButton";
+import ReqButton1 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton2 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton3 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton4 from "./components/staff/supplierM/RequirementsButton";
+import ReqButton5 from "./components/staff/supplierM/RequirementsButton";
+import ReturnsChatBot from "./components/staff/supplierM/ChatBot";
 import PrivateSupplierManagerStaff from "./components/staff/supplierM/login/PrivateSupplierManagerStaff";
 
  
@@ -62,7 +82,11 @@ import List_fm from "./components/staff/foodM/List"
 import Edit_fm from "./components/staff/foodM/Edit";
 import FoodManagerLogin from "./components/staff/foodM/login/FoodManagerLogin";
 import PrivateFoodManagerStaff from "./components/staff/foodM/login/PrivateFoodManagerStaff";
-
+import fchatBot from "./components/staff/foodM/chatBot";
+import fchatBot2 from "./components/staff/foodM/chatBot2";
+import AddShortcoming from "./components/staff/foodM/AddShortcomings";
+import UpdateFood from "./components/staff/foodM/UpdateFood";
+import ViewFoodOrders from "./components/staff/foodM/ViewFoodOrders";
 
 
 //Mithila section
@@ -70,6 +94,8 @@ import PrivateBranchStaffRoute from "./components/routes/PrivateBranchStaffRoute
 
 import Headerb from "./components/staff/branchM/Header";
 import AddBranch from "./components/staff/branchM/AddBranch";
+import ChatBotB from "./components/staff/branchM/ChatBotB";
+import AssignBranch from "./components/staff/branchM/AssignBranch";
 import Homeb from "./components/staff/branchM/Home";
 import DisplayBranches from "./components/staff/branchM/DisplayBranches"
 import Listb from "./components/staff/branchM/List"
@@ -105,18 +131,30 @@ import ShortcomeButton7 from "./components/staff/stockM/ShortcomeButton";
 import ShortcomingView from "./components/staff/stockM/shortcoming";
 
 
+
+
 //Raveena - Marketing Manager
 
 import PrivateMarketingManagerStaffRoute from "./components/routes/PrivateMarketingManagerStaffRoute";
 import Header_MM from "./components/staff/MarketingM/Header";
 import AddPromotions_MM from "./components/staff/MarketingM/AddPromotions";
+import AddNewFoods_MM from "./components/staff/MarketingM/AddNewFoods";
+import Campaigns_MM from "./components/staff/MarketingM/Campaigns";
 import Home_MM from "./components/staff/MarketingM/Home";
 import DisplayPromotions_MM from "./components/staff/MarketingM/DisplayPromotions"
+import DisplayNewFood_MM from "./components/staff/MarketingM/DisplayNewFood"
 import List_MM from "./components/staff/MarketingM/List"
 import Edit_MM from "./components/staff/MarketingM/Edit";
 import MarketingLogin from "./components/staff/MarketingM/login/MarketingLogin";
 import PrivateMarketingStaff from "./components/staff/MarketingM/login/PrivateMarketingStaff";
- 
+import CampaignsButton from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton1 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton2 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton3 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton4 from  "./components/staff/MarketingM/CampaignsButton";
+import CampaignsButton5 from  "./components/staff/MarketingM/CampaignsButton";
+import promochatBot from"./components/staff/MarketingM/chatBot";
+import StatusButton from  "./components/staff/MarketingM/StatusButton";
 
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -127,7 +165,7 @@ import RegisterScreen from "./components/screens/Register";
 import ForgotPasswordScreen from "./components/screens/ForgotPassword";
 import ResetPasswordScreen from "./components/screens/ResetPassword";
 import PrivateScreen from "./components/screens/Private";
-//import AddChef from "./components/staff/foodM/AddChef";
+
 
 export default function App() {
   return (
@@ -158,6 +196,17 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {DisplayCustomers} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {List} /> 
             <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {Edit} /> 
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {Complaints} />
+            <PrivateCustomerStaffRoute path = "/staff-customerM" exact component = {PromotionButton} /> 
+            <PrivateCustomerStaffRoute path = "/add-customerM" exact component = {PromotionButton1} /> 
+            <PrivateCustomerStaffRoute path = "/display-customerM" exact component = {PromotionButton2} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM" exact component = {PromotionButton3} /> 
+            <PrivateCustomerStaffRoute path = "/edit-customerM/:id/:name/:age/:gender/:address/:phone/:email" exact component = {PromotionButton4} /> 
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {PromotionButton5} />
+            <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {chatBot} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {chatBotPromo} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} /> 
+
 
 
  
@@ -181,16 +230,22 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/staff-foodM" exact component = {PrivateFoodManagerStaff} /> 
             <PrivateFoodManagerStaffRoute path = "/staff-foodM" exact component = {Home_fm} /> 
             <PrivateFoodManagerStaffRoute path = "/add-foodM" exact component = {AddChef} /> 
+            <PrivateFoodManagerStaffRoute path = "/addSC-foodM" exact component = {AddShortcoming} /> 
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {DisplayChefs} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM" exact component = {List_fm} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:id/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
-
+            <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {UpdateFood} />
+            <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {fchatBot}/>
+            <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {fchatBot2}/>
+            <PrivateFoodManagerStaffRoute path = "/view-foodM" exact component = {ViewFoodOrders}/> 
 
             <Route path="/staff-login-branchM" exact component={BranchLogin} />
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Headerb} /> 
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {PrivateBranchManagerStaff} /> 
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Homeb} /> 
             <PrivateBranchStaffRoute path = "/add-branchM" exact component = {AddBranch} /> 
+            <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {ChatBotB} />
+            <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {AssignBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
@@ -208,6 +263,7 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ListAssistant} /> 
             <PrivateAssistantStaffRoute path = "/editInven-stockM" exact component = {ListInventory} /> 
             <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {EditAssistant} /> 
+
             <PrivateAssistantStaffRoute path = "/editInven-stockM/:id/:itemId/:itemName/:stock/:stockIn/:stockOut/:unitPrice/:date/:photo" exact component = {EditeInventory} /> 
             <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {chatBotS} />
             <PrivateAssistantStaffRoute path = "/shortcomingViews-stockM" exact component = {chatBotR} />
@@ -222,12 +278,25 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/shortcomingViews-stockM" exact component = {ShortcomingView} /> 
             
 
+ 
+
+          {/*Supplier - Routes*/}
+
             <Route path="/staff-login-supplierM" exact component={SupplierLogin} />
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HeaderSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {PrivateSupplierManagerStaff} /> 
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HomeSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {ReqButton} /> 
             <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {AddSupplier} /> 
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {ReqButton1} /> 
             <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {DisplaySuppliers} /> 
+            <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {PayButton} />
+            <PrivateSupplierManagerStaffRoute path = "/display-supplierM" exact component = {ReqButton2} />
+            <PrivateSupplierManagerStaffRoute path = "/return-supplierM" exact component = {Returns} /> 
+            <PrivateSupplierManagerStaffRoute path = "/return-supplierM" exact component = {ReqButton3} /> 
+            <PrivateSupplierManagerStaffRoute path = "/return-supplierM" exact component = {ReturnsChatBot} />
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {ReqButton4} /> 
+            <PrivateSupplierManagerStaffRoute path = "/add-supplierM" exact component = {ReqButton5} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM" exact component = {ListSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:supplierID/:fullName/:address/:priorExperiance/:itemsPurchased" exact component = {EditSupplier} /> 
             
@@ -239,9 +308,22 @@ export default function App() {
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {PrivateMarketingStaff} /> 
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {Home_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {AddPromotions_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {Campaigns_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {AddNewFoods_MM} />
             <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {DisplayPromotions_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/displayfood-MarketingM" exact component = {DisplayNewFood_MM }/> 
             <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {List_MM} /> 
-            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price" exact component = {Edit_MM} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price" exact component = {Edit_MM} />
+            <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {CampaignsButton} /> 
+            <PrivateMarketingManagerStaffRoute path = "/add-MarketingM" exact component = {CampaignsButton1} /> 
+            <PrivateMarketingManagerStaffRoute path = "/display-MarketingM" exact component = {CampaignsButton2} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM" exact component = {CampaignsButton3} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {CampaignsButton4} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {CampaignsButton5} /> 
+            <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price"  exact component = {CampaignsButton4} /> 
+            <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {promochatBot} />
+            <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {StatusButton} /> 
+
             <Footer/>
 
           </div>

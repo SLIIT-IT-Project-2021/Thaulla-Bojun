@@ -35,6 +35,9 @@ export default function DisplaySuppliers() {
           <li className="nav-item">
             <Link className="nav-link active" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns </Link>
+          </li>
         </ul>
         <form className="d-flex">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -60,7 +63,7 @@ export default function DisplaySuppliers() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Student {index + 1}</h3>
+                <h3 className="badge bg-success">Supplier {index + 1}</h3>
 
                 <div className="details">
                   <div>

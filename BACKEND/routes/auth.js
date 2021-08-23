@@ -1,11 +1,6 @@
 const router = require('express').Router();
 
-
- 
- 
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM,sendAssistantEmail} = require("../controllers/auth");
-
- 
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail} = require("../controllers/auth");
 
 router.route("/register").post(register); // call the auth in controllers
 
@@ -15,7 +10,20 @@ router.route("/forgotpassword").post(forgotpassword);
 
 router.route("/passwordreset/:resetToken").put(resetpassword);
 
+
 router.route("/sendAssistantEmail").post(sendAssistantEmail);
+
+router.route("/sendSupplierEmail").post(sendSupplierEmail);
+
+
+router.route("/sendMarketingEmail").post(sendMarketingEmail);
+
+router.route("/sendCustomerEmail").post(sendCustomerEmail);
+
+router.route("/sendCustomerPromotionEmail").post(sendCustomerPromotionEmail);
+
+
+
 //--------------------------Staff Routes------------------------------------------
 
 router.route("/staff-login-customerM").post(loginStaffCustomerM);
