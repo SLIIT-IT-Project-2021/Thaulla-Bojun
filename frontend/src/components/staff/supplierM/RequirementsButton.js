@@ -5,7 +5,7 @@ import {Link}from "react-router-dom"
 export default function SocialMedia(){
     return(
         <Link to="displayNeeds-supplierM">
-        <div className="icon-bar1">
+        <div className="icon-barN1">
             <button className="btn btn-danger" >
                 <span>R</span><br/>
                 <span>E</span><br/>

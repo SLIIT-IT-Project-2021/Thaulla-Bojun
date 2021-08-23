@@ -490,17 +490,11 @@ exports.loginStaffMarketingM = async (req , res , next) =>{
 }
 
 
-
-
-//Supplier Management
-exports.sendSupplierEmail = async (req , res , next) =>{
-
  
 //--------------------------Email Sending Section--------------------------------------------
 
 //Marketing Management
 exports.sendMarketingEmail = async (req , res , next) =>{
-
 
     const {email , description} = req.body;
 
@@ -509,26 +503,13 @@ exports.sendMarketingEmail = async (req , res , next) =>{
     try {
 
 
-        const message = `
-         <h1>${description}</h1>
-        <p>Feel free to contact : 0764477674 </p>
-
-
 
         const message = `
-
         <h1>${description}</h1>
-
         <p>If any concerns , please contact : 0776135690 </p>
-
          `
 
         try {
-
-            await sendSupplierEmail({
-                to : email,
-                subject : "About Complaints",
-
 
             await sendMarketingEmail({
 
@@ -536,11 +517,9 @@ exports.sendMarketingEmail = async (req , res , next) =>{
 
                 subject : "About Campaigns",
 
-
                 text : message
 
             })
-
 
 
 
@@ -551,13 +530,9 @@ exports.sendMarketingEmail = async (req , res , next) =>{
         } catch (error) {
 
             res.status(500).json({ success : false , data : "Email could not be sent"});
-            return next(new ErrorResponse("Email could not be sent") , 500);
-
-
-
-            res.status(500).json({ success : false , data : "Email could not be sent"});
 
             return next(new ErrorResponse("Email could not be sent") , 500);
+
 
 
         }
@@ -568,9 +543,7 @@ exports.sendMarketingEmail = async (req , res , next) =>{
 
     }
 
-
 }
- 
 
 
 //---------------------------------------Email Sending Section------------------------------------------
@@ -632,4 +605,46 @@ exports.sendCustomerPromotionEmail = async (req , res , next) =>{
     }
 
 }
+
+//Supplier Management
+exports.sendSupplierEmail = async (req , res , next) =>{
+
+    const {email , description} = req.body;
+
+
+
+    try {
+
+        const message = `
+         <h1>${description}</h1>
+        <p>Feel free to contact : 0764477674 </p>
+
+         `
+
+        try {
+            await sendSupplierEmail({
+                to : email,
+                subject : "About Complaints",
+                text : message
+
+            })
+
+            res.status(200).json({ success : true , data : "Email Sent"});
+
+
+
+        } catch (error) {
+            res.status(500).json({ success : false , data : "Email could not be sent"});
+            return next(new ErrorResponse("Email could not be sent") , 500);
+
+        }
+
+    } catch (error) {
+
+        next(error);
+
+    }
+
+}
+
 

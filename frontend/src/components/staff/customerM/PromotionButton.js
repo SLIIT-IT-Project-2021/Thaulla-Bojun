@@ -10,7 +10,7 @@ export default function PromotionButton(){
     }
     return(
         
-        <div className="icon-bar1">
+        <div className="icon-barS">
             
             <Button className="btn btn-danger" onClick={redirect}>
                 <span>P</span><br/>

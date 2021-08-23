@@ -17,7 +17,7 @@ export default function StatusnButton(){
 
         
 
-        <div className="icon-bar2">
+        <div className="icon-barR2">
 
             
 
