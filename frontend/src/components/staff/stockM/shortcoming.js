@@ -4,15 +4,15 @@ import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function DisplayAssistant() {
-  const [students, setStudents] = useState(null);
+export default function DisplayInventoryt() {
+  const [viewShortComings, setviewShortComings] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/stocks'
+      'http://localhost:8070/viewShortComings'
     );
 
-    setStudents(response.data);
+    setviewShortComings(response.data);
    
   };
 
@@ -33,13 +33,13 @@ export default function DisplayAssistant() {
               <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
+              <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
+                <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
             </li> 
             <li className="nav-item">
-                <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+                <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li> 
           </ul>
         <form className="d-flex">
@@ -50,43 +50,34 @@ export default function DisplayAssistant() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Assistant</h1>
+      <h1>All Shortcomings</h1>
 
       {/* Fetch data from API */}
       <div>
         <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Assistant
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Shortcomings
         </button>
         <br />
       </div>
 
       {/* Display data from API */}
-      <div className="students">
-        {students &&
-          students.map((student, index) => {
+      <div className="students" style = {{width: "70%"}}>
+        {viewShortComings &&
+          viewShortComings.map((shortcoming, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Assistant {index + 1}</h3>
+                <h3 className="badge bg-success">Item {index + 1}</h3>
 
                 <div className="details">
                   <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
-                    <p >👨 <b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃 <b style={{color:"green"}}>Age   : </b>{student.age} years old</p>
-                    <p >👫 <b style={{color:"blue"}}>Gender   : </b>{student.gender}</p>
-                    <p >❤️ <b style={{color:"orange"}}>DOB    : </b>{student.birthdate}</p>
-                    <p >🏡 <b style={{color:"red"}}>Address   : </b>{student.address}</p>
-                    <p >📳 <b style={{color:"green"}}>phone   : </b>{student.phone}</p>
-                    <p >💌 <b style={{color:"blue"}}>Email   : </b>{student.email}</p>
+                    <p ><b style={{color:"red"}}>Shortcoming Id   : </b>{shortcoming.scid}</p>
+                    <p ><b style={{color:"green"}}>Shortcoming Name   : </b>{shortcoming.scitem}</p>
+                    <p ><b style={{color:"blue"}}>Item Id   : </b>{shortcoming.itemid}</p>
+                    <p ><b style={{color:"orange"}}>Quantity    : </b>{shortcoming.qty}</p>
+                    <p ><b style={{color:"red"}}>Request Date   : </b>{shortcoming.reqdate}</p>
+                   
                   </div>
-                
-                  <a href="/edit-stockM"><button className="btn btn-secondary">Edit</button></a>
                   
-    
                 </div>
               </div>
             );

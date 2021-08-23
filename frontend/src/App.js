@@ -82,14 +82,28 @@ import PrivateAssistantStaffRoute from "./components/routes/PrivateCustomerStaff
 
 import HeaderStock from "./components/staff/stockM/Header";
 import AddAssistant from "./components/staff/stockM/AddAssistant";
+import AddInventory from "./components/staff/stockM/AddInventory";
 import HomeAssistant from "./components/staff/stockM/Home";
-//import Footer from "./components/staff/Footer";
 import DisplayAssistant from "./components/staff/stockM/DisplayAssistant"
-//import SocialMedia from "./components/staff/SocialMedia";
-import ListAssistant from "./components/staff/stockM/List"
+import DisplayInventory from "./components/staff/stockM/DisplayInventory"
+import ListAssistant from "./components/staff/stockM/List";
+import ListInventory from "./components/staff/stockM/InventoryList";
 import EditAssistant from "./components/staff/stockM/Edit";
+import EditeInventory from "./components/staff/stockM/InventoryEdit";
 import AssistantLogin from "./components/staff/stockM/login/AssistantLogin";
 import PrivateAssistantStaff from "./components/staff/stockM/login/PrivateAssistantStaff";
+import chatBotS from "./components/staff/stockM/chatBot";
+import chatBotR from "./components/staff/stockM/chatBotS";
+import ShortcomeButton from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton1 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton2 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton3 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton4 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton5 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton6 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomeButton7 from "./components/staff/stockM/ShortcomeButton";
+import ShortcomingView from "./components/staff/stockM/shortcoming";
+
 
 //Raveena - Marketing Manager
 
@@ -181,18 +195,32 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
 
-             {/*Thamali - Stock Management*/}
+             {/*Thamali - Stock Management - Assistant Route*/}
 
              <Route path="/staff-login-stockM" exact component={AssistantLogin} />
             <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {HeaderStock} /> 
             <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {PrivateAssistantStaff} /> 
             <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {HomeAssistant} /> 
-            <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {AddAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {AddAssistant} />
+            <PrivateAssistantStaffRoute path = "/addInven-stockM" exact component = {AddInventory} />
             <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {DisplayAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/displayInven-stockM" exact component = {DisplayInventory} /> 
             <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ListAssistant} /> 
+            <PrivateAssistantStaffRoute path = "/editInven-stockM" exact component = {ListInventory} /> 
             <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {EditAssistant} /> 
- 
-
+            <PrivateAssistantStaffRoute path = "/editInven-stockM/:id/:itemId/:itemName/:stock/:stockIn/:stockOut/:unitPrice/:date/:photo" exact component = {EditeInventory} /> 
+            <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {chatBotS} />
+            <PrivateAssistantStaffRoute path = "/shortcomingViews-stockM" exact component = {chatBotR} />
+            <PrivateAssistantStaffRoute path = "/staff-stockM" exact component = {ShortcomeButton} />
+            <PrivateAssistantStaffRoute path = "/addInven-stockM" exact component = {ShortcomeButton1} />
+            <PrivateAssistantStaffRoute path = "/display-stockM" exact component = {ShortcomeButton2} />
+            <PrivateAssistantStaffRoute path = "/displayInven-stockM" exact component = {ShortcomeButton3} />
+            <PrivateAssistantStaffRoute path = "/edit-stockM" exact component = {ShortcomeButton4} />
+            <PrivateAssistantStaffRoute path = "/add-stockM" exact component = {ShortcomeButton5} />
+            <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {ShortcomeButton6} /> 
+            <PrivateAssistantStaffRoute path = "/editInven-stockM/:id/:itemId/:itemName/:stock/:stockIn/:stockOut/:unitPrice/:date/:photo" exact component = {ShortcomeButton7} /> 
+            <PrivateAssistantStaffRoute path = "/shortcomingViews-stockM" exact component = {ShortcomingView} /> 
+            
 
             <Route path="/staff-login-supplierM" exact component={SupplierLogin} />
             <PrivateSupplierManagerStaffRoute path = "/staff-supplierM" exact component = {HeaderSupplier} /> 

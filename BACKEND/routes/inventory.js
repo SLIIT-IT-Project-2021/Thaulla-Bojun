@@ -2,7 +2,7 @@ const router = require('express').Router();
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 let path = require('path');
-let Assistant = require('../models/assistant');
+let Inventory = require('../models/inventory');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -25,37 +25,37 @@ const fileFilter = (req, file, cb) => {
 let upload = multer({ storage, fileFilter });
 
 router.route('/add').post(upload.single('photo'), (req, res) => {
-    const name = req.body.name;
-    const age = Number(req.body.age);
-    const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
-    const address = req.body.address;
-    const phone = Number(req.body.phone);
-    const email = req.body.email;
+    const itemId = Number(req.body.itemId);
+    const itemName = req.body.itemName;
+    const stock = req.body.stock;
+    const stockIn = req.body.stockIn;
+    const stockOut = req.body.stockOut;
+    const unitPrice = Number(req.body.unitPrice);
+    const date = req.body.date;
     const photo = req.file.filename;
 
-    const newAssistantData = {
-        name,
-        age,
-        gender,
-        birthdate,
-        address,
-        phone,
-        email,
-        photo
+    const newInventoryData = {
+        itemId,
+        itemName,
+        stock,
+        stockIn,
+        photo,
+        stockOut, 
+        unitPrice,
+        date
     }
 
-    const newAssistant = new Assistant(newAssistantData);
+    const newInventory = new Inventory(newInventoryData);
 
-    newAssistant.save()
-           .then(() => res.json('assistant Added'))
+    newInventory.save()
+           .then(() => res.json('Inventory Added'))
            .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route("/").get((req , res)=>{ //route for display all
     
-    Assistant.find().then((students)=>{
-        res.json(students);
+    Inventory.find().then((Inventorys)=>{
+        res.json(Inventorys);
     }).catch((err)=>{
         console.log(err);
     });
@@ -63,21 +63,22 @@ router.route("/").get((req , res)=>{ //route for display all
 });
 
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
-    let AssistantID = req.params.id;
-    const name = req.body.name;
-    const age = req.body.age;
-    const gender = req.body.gender;
-    const birthdate = req.body.birthdate;
-    const address = req.body.address;
-    const phone = req.body.phone;
-    const email = req.body.email;
+    let InventoryID = req.params.id;
+    const itemId = Number(req.body.itemId);
+    const itemName = req.body.itemName;
+    const stock = req.body.stock;
+    const stockIn = req.body.stockIn;
+    const stockOut = req.body.stockOut;
+    const unitPrice = Number(req.body.unitPrice);
+    const date = req.body.date;
     const photo = req.file.filename;
 
-    const updateStudent = {name , age , gender , birthdate ,address, phone, email, photo};
 
-    await Assistant.findByIdAndUpdate(AssistantID , updateStudent)
+    const updateInventory = {itemId , itemName , stock , stockIn , photo , stockOut , unitPrice,date};
+
+    await Inventory.findByIdAndUpdate(InventoryID , updateInventory)
     .then(()=>{
-        res.status(200).send({status : "Assistant Updated"});
+        res.status(200).send({status : "Inventory Updated"});
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status : "Error with updating data" , error : err.message});
@@ -85,11 +86,11 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
 });
 
 router.route("/delete/:id").delete(async (req , res)=>{  //delete data
-    let AssistantID = req.params.id;
+    let InventoryID = req.params.id;
 
-    await Assistant.findByIdAndDelete(AssistantID)
+    await Inventory.findByIdAndDelete(InventoryID)
     .then(()=>{
-        res.status(200).send({status : "Assistant has successfully deleted"});
+        res.status(200).send({status : "Inventory has successfully deleted"});
 
     }).catch((err)=>{
         console.log(err);
@@ -98,11 +99,11 @@ router.route("/delete/:id").delete(async (req , res)=>{  //delete data
 });
 
 router.route("/get/:id").get(async (req , res)=>{  //search data
-    let AssistantID = req.params.id; 
+    let InventoryID = req.params.id; 
 
-    await Assistant.findById(AssistantID)
-    .then((students)=>{
-        res.status(200).send({students});
+    await Inventory.findById(InventoryID)
+    .then((Inventorys)=>{
+        res.status(200).send({Inventorys});
 
     }).catch((err)=>{
         console.log(err);
