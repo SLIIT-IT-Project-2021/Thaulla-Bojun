@@ -24,10 +24,14 @@ const sendSupplierEmail = require("../utils/sendSupplierEmail");
 
 const crypto = require("crypto");
 
+
+const sendAssistantEmail = require("../utils/sendAssistantEmail")
+
 const sendMarketingEmail = require("../utils/sendMarketingEmail");
 
 
 const sendCustomerEmail = require("../utils/sendCustomerEmail");
+
 
 
 
@@ -248,7 +252,7 @@ exports.loginStaffBranchM = async (req , res , next) =>{
     }
  }
 
-//Thamali
+//Thamali stock register
  exports.registerStaffStockM = async (req , res , next) =>{  
    
     const {email , password} = req.body; //destructure method
@@ -263,7 +267,7 @@ exports.loginStaffBranchM = async (req , res , next) =>{
        next(error);
     }
 }
-
+//Thamali stock login
 exports.loginStaffStockM = async (req , res , next) =>{
     const {email , password} = req.body;
  
@@ -488,6 +492,38 @@ exports.loginStaffMarketingM = async (req , res , next) =>{
     const token = staff.getStaffSignedToken();
     res.status(200).json({success:true , token});
 }
+ 
+//Stock Management
+
+exports.sendAssistantEmail = async (req , res , next) =>{
+
+    const {email , description} = req.body;
+    try {
+        const message = `
+        <h1>${description}</h1>
+
+        <p>If any concerns , please contact : 0770113437 </p>
+         `
+        try {
+            await sendAssistantEmail({
+                to : email,
+                subject : "About Assitant Informations",
+                text : message
+            })
+            res.status(200).json({ success : true , data : "Email Sent"});
+        } catch (error) {
+
+            res.status(500).json({ success : false , data : "Email could not be sent"});
+
+            return next(new ErrorResponse("Email could not be sent") , 500);
+        }
+    } catch (error) {
+
+        next(error);
+    }
+}
+
+
 
 
  

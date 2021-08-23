@@ -50,7 +50,7 @@ const AssistantLogin = ({history})=>{
     return(
         <div className="container0">
 	
-            <h1>Assistant Login</h1>
+            <h1>Stock Manager Login</h1>
             
             <div className="bird-container bird-container--one">
                 <div className="bird bird--one"></div>

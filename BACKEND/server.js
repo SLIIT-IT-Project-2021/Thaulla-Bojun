@@ -93,10 +93,25 @@ app.use("/orders" , branchOdersRourer);
 
 
 //
-//Thmali
+//Thmali assistant route
 const assistantRouter = require("./routes/assistant.js"); //import 
 
 app.use("/stocks" , assistantRouter);
+
+//Thamali inventory route
+const inventoryRouter = require("./routes/inventory.js")
+
+app.use("/inventories" , inventoryRouter)
+
+//Thamali Shortcomings route
+const shortcomingRoutes = require("./routes/shortcomingViews.js")
+
+app.use("/viewShortComings" , shortcomingRoutes)
+
+//Thamali Request route
+const requestRoute = require("./routes/request.js")
+
+app.use("/request" , requestRoute)
 
 
 
