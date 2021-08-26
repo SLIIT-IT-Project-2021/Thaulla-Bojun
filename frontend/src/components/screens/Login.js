@@ -2,6 +2,7 @@ import {useState , useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import "./Register.css";
 
 const LoginScreen = ({history})=>{
 
@@ -53,13 +54,13 @@ const LoginScreen = ({history})=>{
             <button className="btn btn-danger" ><i class="fa fa-user-circle" aria-hidden="true"></i> <Link to="/staff-login" style={{textDecoration:"none" , color:"white"}}>Staff</Link>
             </button>
             <marquee width="10%" direction="left" >
-            <i class="fa fa-hand-o-left" aria-hidden="true"></i> <font style={{color:"white"}}>f you are a staff member please login here</font>
+            <font style={{color:"white"}}><i class="fa fa-hand-o-left" aria-hidden="true"></i> if you are a staff member please login here</font>
             </marquee>
             
-           <div className="login-form  bg-dark d-inline-block" >
+           <div className="signup-form  bg-dark " style={{opacity:"0.8"}} >
            <form onSubmit={loginHandler} >
                 <img src={"thaulla.png"} style={{width:"100px"}} />
-                <h2 className="text-center"><mark>Log in</mark> <i class="fa fa-grav" aria-hidden="true"></i></h2>   
+                <h2 className="text-center" style={{color:"white"}}>Log in <i class="fa fa-grav" aria-hidden="true"></i></h2>   
                 {error && <span className="badge bg-warning">{error}</span>}     
                 <div className="form-group">
                     <input type="email" className="form-control" placeholder="📧 Email" required="required" pattern="[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"

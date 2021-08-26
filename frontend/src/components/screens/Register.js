@@ -54,9 +54,9 @@ const RegisterScreen = ({history})=>{
 
     return(
        <div className="bg"> 
-            <div className="signup-form" style={{opacity:"0.93"}}>
+            <div className="signup-form" style={{opacity:"0.8"}}>
             <form onSubmit = {registerHandler}>
-                <h2>Sign Up</h2>
+                <h2 style={{color:"white"}}>Sign Up</h2>
                 {error && <span className="error-message" style={{color:"red"}}>{error}</span>}  {/*ternary operator*/}
                 <p>Please fill in this form to create an account!</p>
                 <hr />
