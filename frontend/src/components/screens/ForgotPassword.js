@@ -2,6 +2,7 @@ import {useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import "./Forgot.css";
+import "./Register.css";
 
 const ForgotPasswordScreen = ()=>{
 
@@ -33,13 +34,13 @@ const ForgotPasswordScreen = ()=>{
 
     return(
         <div className="bg1"> 
-            <div class="login-form">
+            <div className="signup-form  bg-dark " style={{opacity:"0.8"}}>
             <form onSubmit={forgotPasswordHandler}>
-                <h2 className="text-center">Forgot Password <i class="fa fa-frown-o" aria-hidden="true"></i></h2>      
+                <h2 className="text-center" style={{color:"white"}}>Forgot Password <i class="fa fa-frown-o" aria-hidden="true"></i></h2>      
                 {error && <span className="badge bg-warning">{error}</span>} 
                 {success && <span className="badge bg-success">{success}</span>} 
                 <div className="form-group">
-                    <p  style={{color:"red"}}>
+                    <p  style={{color:"yellow"}}>
                         Please enter the email address you register your account with. 
                         We will send you reset password confirmation to this email. 😍
                     </p>
@@ -52,10 +53,11 @@ const ForgotPasswordScreen = ()=>{
                     
                 </div>
             </form> 
-            <Link to = "/login">
+            
+        </div>
+        <Link to = "/login">
                 <button type="submit" className="btn btn-primary btn-success" style={{float:"right"}}><i class="fa fa-reply" aria-hidden="true"></i> Back</button>
             </Link>
-        </div>
         </div>
     )
 }
