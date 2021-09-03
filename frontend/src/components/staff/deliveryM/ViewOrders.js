@@ -4,12 +4,12 @@ import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function DisplayDeliveryPerson() {
+export default function ViewBranches() {
   const [students, setStudents] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/deliveryperson'//
+      'http://localhost:8070/cvieworders'//
     );
 
     setStudents(response.data);
@@ -33,14 +33,14 @@ export default function DisplayDeliveryPerson() {
             <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-plus" aria-hidden="true"></i> Create Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active " to = "/display-deliveryM"><i class="fa fa-users" aria-hidden="true"></i> Display  Profiles</Link>
+            <Link className="nav-link   " to = "/display-deliveryM"><i class="fa fa-users" aria-hidden="true"></i> Display  Profiles</Link>
           </li>
 
           <li className="nav-item">
-              <Link className="nav-link " to = "/vieworders-deliveryM"><i class="fa fa-list" aria-hidden="true"></i>  Order Details</Link>
+              <Link className="nav-link active " to = "/vieworders-deliveryM"><i class="fa fa-list" aria-hidden="true"></i>  Order Details</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to = "/viewbranchdetails-deliveryM"><i class="fa fa-building" aria-hidden="true"></i>  View Branches</Link>
+              <Link className="nav-link   " to = "/viewbranches-deliveryM"><i class="fa fa-building" aria-hidden="true"></i>  View Branches</Link>
             </li>
           <li className="nav-item">
             <Link className="nav-link " to = "/assigndeliveries-deliveryM"><i class="fa fa-truck" aria-hidden="true"></i> Assign Deliveries</Link>
@@ -54,12 +54,12 @@ export default function DisplayDeliveryPerson() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Delivery Persons</h1>
+      <h1>View Orders</h1>
 
       {/* Fetch data from API */}
       <div>
         <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Delivery Persons
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Orders
         </button>
         <br />
       </div>
@@ -70,7 +70,7 @@ export default function DisplayDeliveryPerson() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Delivery Person {index + 1}</h3>
+                <h3 className="badge bg-success">Branch {index + 1}</h3>
 
                 <div className="details">
                   <div>
@@ -79,17 +79,13 @@ export default function DisplayDeliveryPerson() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >📅<b style={{color:"blue"}}>Work Date: </b>{student.workdate}</p>
-                    <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
-                    <p >🏠<b style={{color:"red"}}>Address   : </b>{student.address}</p>
-                    <p >📱<b style={{color:"green"}}>Phone   : </b>{student.phonenumber}</p>
-                    <p >📧<b style={{color:"blue"}}>Email   : </b>{student.emailaddress}</p>
-                    <p >✨<b style={{color:"orange"}}>BranchCode   : </b>{student.branchcode}</p>
+                    <p >🙎‍♀️<b style={{color:"red"}}>Customer Name   : </b>{student.customername}</p>
+                    <p >🍔<b style={{color:"blue"}}>Order ID: </b>{student.orderID}</p>
+                    <p >🏠 <b style={{color:"orange"}}>Address: </b>{student.address}</p>
+                    <p >🚩<b style={{color:"green"}}>Destination: </b>{student.destination}</p>
                   </div>
                 
-                  <a href="/edit-deliveryM"><button className="btn btn-secondary">Edit</button></a>
+                   
                   
     
                 </div>

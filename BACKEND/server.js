@@ -54,6 +54,14 @@ const DeliveryPersonRouter = require("./routes/DeliveryPerson.js"); //import
 
 app.use("/deliveryperson" , DeliveryPersonRouter);
 
+const AssignDeliveriesRouter = require("./routes/AssignDeliveries.js"); //import 
+
+app.use("/assigndeliveries" , AssignDeliveriesRouter);
+
+const assignbranches = require("./routes/ViewBranches.js"); //import 
+
+app.use("/assignbranches" , assignbranches);
+
 const foodRouter = require("./routes/food.js"); //import 
 
 app.use("/chefs" , foodRouter);
