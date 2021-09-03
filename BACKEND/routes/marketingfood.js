@@ -24,7 +24,7 @@ router.route('/add').post( (req, res) => {
            .then(() => res.json('New Food Added'))
            .catch(err => res.status(400).json('Error: ' + err));
 });
-
+//
 router.route("/").get((req , res)=>{ //route for display all
     
     Customer.find().then((customers)=>{
