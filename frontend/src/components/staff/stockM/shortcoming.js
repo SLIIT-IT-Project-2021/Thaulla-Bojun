@@ -39,7 +39,10 @@ export default function DisplayInventoryt() {
                 <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
             </li> 
             <li className="nav-item">
-                <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+                <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Shortcomings</Link>
             </li> 
           </ul>
         <form className="d-flex">
