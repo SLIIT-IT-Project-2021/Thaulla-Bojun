@@ -7,7 +7,7 @@ export default function Home(){
        
         <div>
     
-            <center><img src = "Mithila_2.png" style={{width:"65%"}}/></center>
+            <center><img src = "Mithila_2.png" style={{width:"65%"}}/></center>// add home picture
         
         </div>
         
