@@ -2,7 +2,7 @@ const router = require('express').Router();
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 let path = require('path');
-let User = require('../models/assistant');
+let Assistant = require('../models/assistant');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -34,7 +34,7 @@ router.route('/add').post(upload.single('photo'), (req, res) => {
     const email = req.body.email;
     const photo = req.file.filename;
 
-    const newUserData = {
+    const newAssistantData = {
         name,
         age,
         gender,
@@ -45,16 +45,16 @@ router.route('/add').post(upload.single('photo'), (req, res) => {
         photo
     }
 
-    const newUser = new User(newUserData);
+    const newAssistant = new Assistant(newAssistantData);
 
-    newUser.save()
-           .then(() => res.json('User Added'))
+    newAssistant.save()
+           .then(() => res.json('assistant Added'))
            .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route("/").get((req , res)=>{ //route for display all
     
-    User.find().then((students)=>{
+    Assistant.find().then((students)=>{
         res.json(students);
     }).catch((err)=>{
         console.log(err);
@@ -63,7 +63,7 @@ router.route("/").get((req , res)=>{ //route for display all
 });
 
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
-    let userID = req.params.id;
+    let AssistantID = req.params.id;
     const name = req.body.name;
     const age = req.body.age;
     const gender = req.body.gender;
@@ -75,9 +75,9 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
 
     const updateStudent = {name , age , gender , birthdate ,address, phone, email, photo};
 
-    await User.findByIdAndUpdate(userID , updateStudent)
+    await Assistant.findByIdAndUpdate(AssistantID , updateStudent)
     .then(()=>{
-        res.status(200).send({status : "User Updated"});
+        res.status(200).send({status : "Assistant Updated"});
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status : "Error with updating data" , error : err.message});
@@ -85,11 +85,11 @@ router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  /
 });
 
 router.route("/delete/:id").delete(async (req , res)=>{  //delete data
-    let userID = req.params.id;
+    let AssistantID = req.params.id;
 
-    await User.findByIdAndDelete(userID)
+    await Assistant.findByIdAndDelete(AssistantID)
     .then(()=>{
-        res.status(200).send({status : "User has successfully deleted"});
+        res.status(200).send({status : "Assistant has successfully deleted"});
 
     }).catch((err)=>{
         console.log(err);
@@ -98,9 +98,9 @@ router.route("/delete/:id").delete(async (req , res)=>{  //delete data
 });
 
 router.route("/get/:id").get(async (req , res)=>{  //search data
-    let userID = req.params.id; 
+    let AssistantID = req.params.id; 
 
-    await User.findById(userID)
+    await Assistant.findById(AssistantID)
     .then((students)=>{
         res.status(200).send({students});
 

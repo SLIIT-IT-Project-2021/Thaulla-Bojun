@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import "./Reset.css";
+import "./Register.css";
 
 const ResetPasswordScreen = ({history , match})=>{
 
@@ -45,9 +46,9 @@ const ResetPasswordScreen = ({history , match})=>{
 
     return(
         <div className="bg2">
-            <div class="login-form">
+            <div className="signup-form  bg-dark " style={{opacity:"0.8"}}>
             <form onSubmit={resetPasswordHandler}>
-                <h2 className="text-center">Reset Password <i class="fa fa-retweet" aria-hidden="true"></i></h2>    
+                <h2 className="text-center" style={{color:"white"}}>Reset Password <i class="fa fa-retweet" aria-hidden="true"></i></h2>    
                 {error && <span className="badge bg-warning">{error}</span>} 
                 {success && <span className="badge bg-success" >{success + " "}
                 <Link to = "/login" style={{color:"yellow"}} >Login here</Link></span>}    
@@ -65,10 +66,11 @@ const ResetPasswordScreen = ({history , match})=>{
                     <button type="submit" className="btn btn-primary btn-block"><i class="fa fa-cog" aria-hidden="true"></i> Reset</button>
                 </div>
             </form>
+            
+            </div>
             <Link to = "/login">
                 <button type="submit" className="btn btn-primary btn-success" style={{float:"right"}}><i class="fa fa-reply" aria-hidden="true"></i> Back</button>
             </Link>
-            </div>
         </div>
     )
 }

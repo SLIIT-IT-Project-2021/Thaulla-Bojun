@@ -46,7 +46,7 @@ router.route('/add').post(upload.single('photo'), (req, res) => {
     const newCustomer = new Customer(newCustomerData);
 
     newCustomer.save()
-           .then(() => res.json('Customer Added'))
+           .then(() => res.json('Promotion Added'))
            .catch(err => res.status(400).json('Error: ' + err));
 });
 

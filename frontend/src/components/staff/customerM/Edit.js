@@ -113,6 +113,9 @@ export default class Edit extends Component {
                       <li className="nav-item">
                         <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profiles</Link>
                       </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to = "/complaints-customerM"><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
+                      </li>
                     </ul>
                     <form className="d-flex">
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -122,37 +125,37 @@ export default class Edit extends Component {
                 </div>
               </nav>
              
-                <div className="form-wrapper container" style={{width:"50%"}}><br/><br/>
-                <h1>Current Info 👁</h1>
+                <div className="form-wrapper container" style={{width:"100%" , marginRight:"100px" , background:"black"}}><br/><br/>
+                <h1 style={{color:"white"}}>Current Info 👁</h1>
                 <table>
 
                     <td controlId="Name">
-                    <label>Name</label>
+                    <label style={{color:"white"}}>Name</label>
                     <input type="text" value={name} onChange={this.onChangeCustomerName} required disabled/>
                     </td>
 
                     <td controlId="Age">
-                    <label>Age</label>
+                    <label style={{color:"white"}}>Age</label>
                     <input type="text" value={age} onChange={this.onChangeCustomerAge} required disabled/>
                     </td>
 
                     <td controlId="Gender">
-                    <label>Gender</label>
+                    <label style={{color:"white"}}>Gender</label>
                     <input type="text" value={gender} onChange={this.onChangeCustomerGender} required disabled/>
                     </td>
 
                     <td controlId="Address">
-                    <label>Address</label>
+                    <label style={{color:"white"}}>Address</label>
                     <input type="text" value={address} onChange={this.onChangeCustomerAddress} required disabled/>
                     </td>
 
                     <td controlId="Phone">
-                    <label>Phone</label>
+                    <label style={{color:"white"}}>Phone</label>
                     <input type="text" value={phone} onChange={this.onChangeCustomerPhone} required disabled/>
                     </td>
 
                     <td controlId="Email">
-                    <label>Email</label>
+                    <label style={{color:"white"}}>Email</label>
                     <input type="text" value={email} onChange={this.onChangeCustomerEmail} required disabled/>
                     </td>
 
