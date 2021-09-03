@@ -44,7 +44,7 @@ const ChatBot = ()=>{
                
             
                 <hr />
-                <label for="foodname" className="form-label">Food Item Name</label>
+                <label for="foodname" className="form-label"></label>
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">                    
