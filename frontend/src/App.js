@@ -68,8 +68,13 @@ import DisplayDeliveryPerson from "./components/staff/deliveryM/DisplayDeliveryP
  
 import List_dm from "./components/staff/deliveryM/List"
 import Edit_dm from "./components/staff/deliveryM/Edit";
+import AssignDeliveries from "./components/staff/deliveryM/AssignDeliveries"
 import DeliveryPersonLogin from "./components/staff/deliveryM/login/DeliveryPersonLogin";
 import PrivateDeliveryStaff from "./components/staff/deliveryM/login/PrivateDeliveryStaff";
+import deliveryChatbot from "./components/staff/deliveryM/Chatbot";
+import ViewBranches from "./components/staff/deliveryM/ViewBranches";
+import ViewOrders from "./components/staff/deliveryM/ViewOrders";
+  
  
 
 //kavi's section
@@ -165,7 +170,12 @@ import RegisterScreen from "./components/screens/Register";
 import ForgotPasswordScreen from "./components/screens/ForgotPassword";
 import ResetPasswordScreen from "./components/screens/ResetPassword";
 import PrivateScreen from "./components/screens/Private";
+ 
+ 
+//import AddChef from "./components/staff/foodM/AddChef";
+ 
 
+ 
 
 export default function App() {
   return (
@@ -218,10 +228,13 @@ export default function App() {
             <PrivateDeliveryStaffRoute path = "/staff-deliveryM" exact component = {PrivateDeliveryStaff} /> 
             <PrivateDeliveryStaffRoute path = "/staff-deliveryM" exact component = {Home_dm} /> 
             <PrivateDeliveryStaffRoute path = "/add-deliveryM" exact component = {AddDeliveryPerson} /> 
-            <PrivateDeliveryStaffRoute path = "/display-deliveryM" exact component = {DisplayDeliveryPerson} /> 
+            <PrivateDeliveryStaffRoute path = "/display-deliveryM" exact component = {DisplayDeliveryPerson} />
+            <PrivateDeliveryStaffRoute path = "/assigndeliveries-deliveryM" exact component = {AssignDeliveries} />
             <PrivateDeliveryStaffRoute path = "/edit-deliveryM" exact component = {List_dm} /> 
             <PrivateDeliveryStaffRoute path = "/edit-deliveryM/:id/:name/:age/:workdate/:birthdate/:address/:phonenumber/:emailaddress/:branchcode/:photo" exact component = {Edit_dm} /> 
-
+            <PrivateDeliveryStaffRoute path = "/assigndeliveries-deliveryM" exact component = {deliveryChatbot} />
+            <PrivateDeliveryStaffRoute path = "/viewbranches-deliveryM" exact component = {ViewBranches} /> 
+            <PrivateDeliveryStaffRoute path = "/vieworders-deliveryM" exact component = {ViewOrders} />
 
  
             {/*kavi's frontend routes*/}
