@@ -12,7 +12,7 @@ export default class TableRowInventory extends Component {
     }
 
     deleteInventoryItem() {
-        axios.delete('http://localhost:8070/inventories/delete/:id' + this.props.obj._id)
+        axios.delete('http://localhost:8070/inventories/delete/' + this.props.obj._id)
             .then((res) => {
                 alert('Item successfully deleted!')
             }).catch((error) => {
