@@ -29,11 +29,24 @@ export default function DisplayChefs() {
           <li className="nav-item">
             <Link className="nav-link " aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
+
+          <li className="nav-item">
+            <Link className="nav-link" to = "/addSC-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Shortcomings</Link>
+          </li>
+
+
           <li className="nav-item">
             <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Assign Chefs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+            <Link className="nav-link active" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Chefs</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link " to = "/view-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> View Orders</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link " to = "/update-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Update New Food Arrivals</Link>
           </li>
         </ul>
         <form className="d-flex">

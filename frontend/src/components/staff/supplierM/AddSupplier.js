@@ -77,7 +77,7 @@ const AddSupplier = () => {
                 <Link className="nav-link" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Suppliers</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
+                <Link className="nav-link" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns</Link>
               </li>
             </ul>
             <form className="d-flex">

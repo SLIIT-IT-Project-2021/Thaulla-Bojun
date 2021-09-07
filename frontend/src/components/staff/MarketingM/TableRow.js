@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 
-export default class StudentTableRow extends Component {
+export default class PromotionTableRow extends Component {
 
     constructor(props) {
         super(props);
@@ -12,9 +12,9 @@ export default class StudentTableRow extends Component {
     }
 
     deleteStudent() {
-        axios.delete('http://localhost:8070/Promotions/delete/' + this.props.obj._id)
+        axios.delete('http://localhost:8070/promotions/delete/' + this.props.obj._id)
             .then((res) => {
-                alert('Student successfully deleted!')
+                alert('Promotion successfully deleted!')
             }).catch((error) => {
                 console.log(error)
             })

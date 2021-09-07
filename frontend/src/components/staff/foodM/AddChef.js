@@ -81,14 +81,19 @@ const AddChef = () => {
                 <Link className="nav-link active" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Assign Chefs</Link>
               </li>
 
+              {/*  */}
+              <li className="nav-item">
+                <Link className="nav-link" to = "/display-foodM"><i class="fa fa-list-alt" aria-hidden="true"></i>Display Chefs</Link>
+              </li>
+
               {/* View orders tab */}
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-foodM"><i class="fa fa-list-alt" aria-hidden="true"></i>display profiles</Link>
+                <Link className="nav-link" to = "/view-foodM"><i class="fa fa-list-alt" aria-hidden="true"></i>View Orders</Link>
               </li>
 
               {/*update new food arrivals */}
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>update new food arrivals </Link>
+                <Link className="nav-link " aria-current="page" to = "/update-foodM"><i class="fa fa-fw fa-home"></i>update new food arrivals </Link>
               </li>
               
             </ul>

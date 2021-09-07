@@ -35,6 +35,9 @@ export default function DisplayCustomers() {
           <li className="nav-item">
             <Link className="nav-link active" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
           </li>
+          <li className="nav-item">
+                <Link className="nav-link" to = "/complaints-customerM"><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
+              </li>
         </ul>
         <form className="d-flex">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
@@ -55,7 +58,7 @@ export default function DisplayCustomers() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
+      <div className="students" >
         {customers &&
           customers.map((customer, index) => {
             return (
