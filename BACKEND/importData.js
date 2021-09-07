@@ -1,15 +1,15 @@
 require("dotenv").config();
 
-const BooksData = require("./data/Books");
-const Book = require("./models/book");
+const ProductData = require("./data/Product");
+const Product = require("./models/product");
 const connectDB = require("./config/db");
 
 connectDB();
 
 const importData = async ()=>{
     try {
-        await Book.deleteMany({});
-        await Book.insertMany(BooksData);
+        await Product.deleteMany({});
+        await Product.insertMany(ProductData);
 
         console.log("Data Import Success !");
         process.exit();

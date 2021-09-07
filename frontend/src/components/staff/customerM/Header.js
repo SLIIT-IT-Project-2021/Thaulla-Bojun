@@ -1,8 +1,12 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link ,useHistory} from "react-router-dom";
 
 
 function Header(){
+    let history = useHistory();
+    const redirect = ()=>{
+        history.push("/search-customerM");
+    }
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
       <div className="container-fluid">
@@ -26,8 +30,8 @@ function Header(){
             </li>
           </ul>
           <form className="d-flex">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-            <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
+            
+           <button className="btn btn-outline-success" type="submit" onClick={redirect}><i class="fa fa-fw fa-search"></i>Search</button>
           </form>
         </div>
       </div>

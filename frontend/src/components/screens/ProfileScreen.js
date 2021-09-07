@@ -1,7 +1,8 @@
-import {useEffect } from "react";
+import {useEffect , useState} from "react";
+import axios from "axios";
 import "./NavBar.css";
 import "./HomeScreen.css";
-import Product from "./Product";
+import './styles.css';
 import {Link} from "react-router-dom";
 import {useSelector , useDispatch} from "react-redux";
 
@@ -37,6 +38,18 @@ const PrivateScreen = ({history , click})=>{
     const getCartCount = () =>{
         return cartItems.reduce((qty , item) => qty + Number(item.qty) , 0)
     }
+
+    //Promotions
+    const [customers, setCustomers] = useState(null);
+
+    const fetchData = async () => {
+        const response = await axios.get(
+        'http://localhost:8070/users'
+        );
+
+        setCustomers(response.data);
+    
+    };
 
     return(
             <div>
@@ -106,30 +119,53 @@ const PrivateScreen = ({history , click})=>{
                     </div>
 
                 </nav>
-                
-                <div className="homescreen">
-                    <h2 className="homescreen__title">Latests Products</h2>
+                <div className="App">
+                    <h1>All Customers</h1>
 
-                    <div className="homescreen__products">
-                     {loading ? (
-                     <h2>Loading...</h2>
-                     ): error ? (
-                     <h2>{error}</h2>
-                     ):(
-                         products.map((product)=>(
-                         <Product
-                         key = {product._id}
-                         productId = {product._id}
-                         name ={product.name}
-                         price = {product.price}
-                         description = {product.description}
-                         imageURL={product.imageURL}
-                         />
-
-                     ))
-                     )}
+                    {/* Fetch data from API */}
+                    <div>
+                    <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
+                    <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Customers
+                    </button>
+                    <br />
                     </div>
-                </div>
+
+                    {/* Display data from API */}
+                    <div className="students" >
+                    {customers &&
+                        customers.map((customer, index) => {
+                        return (
+                            <div className="student" key={index}>
+                            <h3 className="badge bg-success">Customer {index + 1}</h3>
+
+                            <div className="details">
+                                <div>
+                                <div style={{float:"right"}}>
+                                    <img src ={"images/" + customer.photo} style={{width:"200px" , height:"200px"}}
+                                    className = "border border-danger rounded-circle"
+                                    />
+                                </div>
+                                <p >👨<b style={{color:"red"}}>Name   : </b>{customer.name}</p>
+                                <p >🏃<b style={{color:"green"}}>Age  : </b>{customer.age} years old</p>
+                                <p >👫<b style={{color:"blue"}}>Gender: </b>{customer.gender}</p>
+                                <p >🏕<b style={{color:"red"}}>Address: </b>{customer.address}</p>
+                                <p >📱<b style={{color:"green"}}>Phone: </b>{customer.phone}</p>
+                                <p >💌<b style={{color:"blue"}}>Email: </b>{customer.email}</p>
+                                
+                                </div>
+                            
+                                
+                                
+
+                            </div>
+                            </div>
+                        );
+                        })}
+                        </div><br/><br/>
+                    </div>
+                
+                
+                
             </div>
     )
 

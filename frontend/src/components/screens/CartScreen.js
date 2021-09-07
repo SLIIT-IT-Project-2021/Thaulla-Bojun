@@ -1,15 +1,15 @@
+import "./CartScreen.css";
+import { Link } from "react-router-dom";
 import {useEffect } from "react";
-import "./NavBar.css";
-import "./HomeScreen.css";
-import Product from "./Product";
-import {Link} from "react-router-dom";
-import {useSelector , useDispatch} from "react-redux";
+import CartItem from "./CartItem";
+import { useDispatch, useSelector } from "react-redux";
 
 //Actions
-import {getProducts as listProducts} from "../../Redux/actions/productActions";
 
-const PrivateScreen = ({history , click})=>{
+import { addToCart , removeFromCart} from "../../Redux/actions/cartActions";
 
+
+const CartScreen =({history})=>{
     useEffect(()=>{
         if(!localStorage.getItem("authToken")){  //push a user if he already logged in
             history.push("/login");
@@ -24,23 +24,27 @@ const PrivateScreen = ({history , click})=>{
 
     const dispatch = useDispatch();
 
-    const getProducts = useSelector(state => state.getProducts);
-    const {products , loading , error} = getProducts;
-
-    useEffect(()=>{
-        dispatch(listProducts())
-    },[dispatch])
-
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
 
+    const qtyChangeHandler = (id , qty)=>{
+        dispatch(addToCart(id , qty))
+    }
+
+    const removeHandler = (id)=>{
+        dispatch(removeFromCart(id))
+    }
+    
     const getCartCount = () =>{
-        return cartItems.reduce((qty , item) => qty + Number(item.qty) , 0)
+        return cartItems.reduce((qty , item) => Number(item.qty) + qty , 0)
+    }
+    const getCartSubTotal = ()=>{
+        return cartItems.reduce((price , item) => item.price * item.qty + price , 0)
     }
 
     return(
-            <div>
-                <nav className="navbar sticky-top">
+        <div>
+            <nav className="navbar sticky-top">
                     {/*logo*/}
                     <div className="navbar__logo">
                         <h2>Thaulla Bojun</h2>
@@ -106,33 +110,31 @@ const PrivateScreen = ({history , click})=>{
                     </div>
 
                 </nav>
-                
-                <div className="homescreen">
-                    <h2 className="homescreen__title">Latests Products</h2>
-
-                    <div className="homescreen__products">
-                     {loading ? (
-                     <h2>Loading...</h2>
-                     ): error ? (
-                     <h2>{error}</h2>
-                     ):(
-                         products.map((product)=>(
-                         <Product
-                         key = {product._id}
-                         productId = {product._id}
-                         name ={product.name}
-                         price = {product.price}
-                         description = {product.description}
-                         imageURL={product.imageURL}
-                         />
-
-                     ))
-                     )}
+                <div className="cartscreen">
+                    <div className="cartscreen__left">
+                        <h2>Shoping Cart</h2>
+                        {cartItems.length === 0 ? (
+                            <div>
+                                Your cart is empty <Link to ="/">Go Back</Link>
+                            </div>
+                        ):(
+                            cartItems.map((item) => <CartItem key={item.product} item={item} qtyChangeHandler={qtyChangeHandler} removeHandler={removeHandler}/>)
+                        )}
+                        
                     </div>
-                </div>
-            </div>
-    )
+                    <div className="cartscreen__right">
+                        <p style={{marginLeft:"8px", marginTop:"8px"}}>Subtotal ({getCartCount()}) items</p>
+                        <p style={{marginLeft:"8px", marginTop:"8px"}}>Rs.{getCartSubTotal().toFixed(2)}</p>
+                        <div>
+                            <button>Proceed to Checkout</button>
+                        </div>
+                    </div>
+                   
 
+                </div>
+        </div>
+       
+    )
 }
 
-export default PrivateScreen;
+export default CartScreen;

@@ -1,7 +1,8 @@
-import {useEffect } from "react";
+import {useEffect , useState} from "react";
+import axios from "axios";
 import "./NavBar.css";
 import "./HomeScreen.css";
-import Product from "./Product";
+import './styles.css';
 import {Link} from "react-router-dom";
 import {useSelector , useDispatch} from "react-redux";
 
@@ -37,6 +38,18 @@ const PrivateScreen = ({history , click})=>{
     const getCartCount = () =>{
         return cartItems.reduce((qty , item) => qty + Number(item.qty) , 0)
     }
+
+    //Promotions
+    const [promotions, setPromotions] = useState(null);
+
+    const fetchData = async () => {
+        const response = await axios.get(
+        'http://localhost:8070/promotions'
+        );
+
+        setPromotions(response.data);
+    
+    };
 
     return(
             <div>
@@ -106,30 +119,52 @@ const PrivateScreen = ({history , click})=>{
                     </div>
 
                 </nav>
-                
-                <div className="homescreen">
-                    <h2 className="homescreen__title">Latests Products</h2>
+                <div className="App">
+                    <h1>All Promotions</h1>
 
-                    <div className="homescreen__products">
-                     {loading ? (
-                     <h2>Loading...</h2>
-                     ): error ? (
-                     <h2>{error}</h2>
-                     ):(
-                         products.map((product)=>(
-                         <Product
-                         key = {product._id}
-                         productId = {product._id}
-                         name ={product.name}
-                         price = {product.price}
-                         description = {product.description}
-                         imageURL={product.imageURL}
-                         />
-
-                     ))
-                     )}
+                    {/* Fetch data from API */}
+                    <div>
+                        <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
+                        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Promotions
+                        </button>
+                        <br />
                     </div>
+
+                    {/* Display data from API */}
+                    <div className="students">
+                        {promotions &&
+                        promotions.map((promotion, index) => {
+                            return (
+                            <div className="student" key={index}>
+                                <h3 className="badge bg-success">Promotion {index + 1}</h3>
+
+                                <div className="details">
+                                <div>
+                                    <div style={{float:"right"}}>
+                                    <img src ={"images/" + promotion.photo} style={{width:"200px" , height:"200px"}}
+                                    className = "border border-danger rounded-circle"
+                                    />
+                                    </div>
+                                    <p >🥘<b style={{color:"red"}}>Food Item Name   : </b>{promotion.foodItemName}</p>
+                                    <p >🍲<b style={{color:"green"}}>Quantity  : </b>{promotion.quantity} </p>
+                                    <p >🍲<b style={{color:"purple"}}>Description  : </b>{promotion.description} </p>
+                                    <p >➗<b style={{color:"blue"}}>Discount Rate: </b>{promotion.discountRate}</p>
+                                    <p >💲<b style={{color:"orange"}}> Prior Price: </b>Rs.{promotion.priorPrice}.00</p>
+                                    <p >💲<b style={{color:"orange"}}> Present Price: </b>Rs.{promotion.presentPrice}.00</p>
+                                </div>
+                                
+                               
+                                
+                    
+                                </div>
+                            </div>
+                            );
+                        })}
+                    </div><br/><br/>
                 </div>
+                
+                
+                
             </div>
     )
 
