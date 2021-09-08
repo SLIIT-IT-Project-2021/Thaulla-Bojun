@@ -30,8 +30,6 @@ import PromotionButton5 from "./components/staff/customerM/PromotionButton";
 import chatBot from "./components/staff/customerM/chatBot";
 import chatBotPromo from "./components/staff/customerM/chatBotPromo";
 import PromotionView from "./components/staff/customerM/Promotions";
-import Search from "./components/staff/customerM/Search";
-
 
 //Supplier part
 import PrivateSupplierManagerStaffRoute from "./components/routes/PrivateSupplierManagerStaffRoute";
@@ -234,8 +232,6 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {chatBot} /> 
             <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {chatBotPromo} /> 
             <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} /> 
-            <PrivateCustomerStaffRoute path = "/search-customerM" exact component = {Search} /> 
-
 
 
  
