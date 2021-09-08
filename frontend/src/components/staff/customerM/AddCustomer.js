@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddCustomer = () => {
+
+  
+    const notify = () => toast("Success! Customer Added 😘");
 
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
@@ -40,7 +46,6 @@ const AddCustomer = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Customer is uploaded successfully")
                 setNewUser({name :'' , age : '' , gender : '' , address : '' , photo : '' , email:'', phone:''})
              })
              .catch(err => {
@@ -172,9 +177,11 @@ const AddCustomer = () => {
                      <button
                         type="submit"
                         className="btn btn-primary mt-3"
+                        onClick={notify}
                         disabled={loading}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
+                     <ToastContainer />
                     
             </div>
         </form>
