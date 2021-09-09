@@ -69,6 +69,10 @@ app.use("/chefs" , foodRouter);
 const branchRouter = require("./routes/branch.js"); //import 
 
 app.use("/branches" , branchRouter);
+//chandima edited
+const AssignDeliveries = require("./routes/AssignDeliveries.js"); //import 
+
+app.use("/AssignDeliveries" , AssignDeliveries);
 
 
 //
