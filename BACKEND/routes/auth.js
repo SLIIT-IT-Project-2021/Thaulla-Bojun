@@ -1,14 +1,7 @@
 const router = require('express').Router();
 
-   
 
- 
- 
- 
-
- 
- 
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail} = require("../controllers/auth");
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail, sendChefEmail } = require("../controllers/auth");
  
 
 router.route("/register").post(register); // call the auth in controllers
@@ -34,7 +27,7 @@ router.route("/sendCustomerEmail").post(sendCustomerEmail);
 
 router.route("/sendCustomerPromotionEmail").post(sendCustomerPromotionEmail);
 
-
+router.route("/sendChefEmail").post(sendChefEmail);
 
 
 

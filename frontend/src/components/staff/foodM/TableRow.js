@@ -24,7 +24,7 @@ export default class StudentTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.id}</td>
+                <td>{this.props.obj.chefid}</td>
                 
                 <td>{this.props.obj.name}</td>
                 <td>{this.props.obj.address}</td>
@@ -35,7 +35,7 @@ export default class StudentTableRow extends Component {
                 className = "border border-danger rounded-circle"
                 /></td>
                 <td style={{width:"250px"}}>
-                    <Link className="edit-link" to={`/edit-foodM/${this.props.obj._id}/${this.props.obj.id}/${this.props.obj.name}/${this.props.obj.address}/${this.props.obj.phone}/${this.props.obj.email}/${this.props.obj.exp}`}>
+                    <Link className="edit-link" to={`/edit-foodM/${this.props.obj._id}/${this.props.obj.chefid}/${this.props.obj.name}/${this.props.obj.address}/${this.props.obj.phone}/${this.props.obj.email}/${this.props.obj.exp}`}>
                         <Button size="sm" variant="success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</Button>
                     </Link >
                     

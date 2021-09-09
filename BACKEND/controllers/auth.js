@@ -32,7 +32,7 @@ const sendMarketingEmail = require("../utils/sendMarketingEmail");
 
 const sendCustomerEmail = require("../utils/sendCustomerEmail");
 
-
+const sendChefEmail = require("../utils/sendChefEmail");
 
 
 //when we use asynchrones function we need try catch block
@@ -688,3 +688,33 @@ exports.sendSupplierEmail = async (req , res , next) =>{
 
 
   
+//---------------------------------------Email Sending Section------------------------------------------
+
+//Food Management
+exports.sendChefEmail = async (req , res , next) =>{
+    const {email , description} = req.body;
+
+    try {
+
+        const message = `
+        <h1>${description}</h1>
+        <p>If any concerns , please contact : 0774458521 </p>
+         `
+        try {
+            await sendChefEmail({
+                to : email,
+                subject : "About work",
+                text : message
+            })
+
+            res.status(200).json({ success : true , data : "Email Sent"});
+
+        } catch (error) {
+            res.status(500).json({ success : false , data : "Email could not be sent"});
+            return next(new ErrorResponse("Email could not be sent") , 500);
+
+        }
+    } catch (error) {
+        next(error);
+    }
+}

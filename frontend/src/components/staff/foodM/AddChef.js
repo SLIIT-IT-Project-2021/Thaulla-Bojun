@@ -10,7 +10,7 @@ const AddChef = () => {
 
     const [newUser, setNewUser] = useState(
         {
-            id: '',
+            chefid: '',
             name: '',
             address : '',
             phone : '',
@@ -28,7 +28,7 @@ const AddChef = () => {
 
 
         const formData = new FormData();
-        formData.append('id', newUser.id);
+        formData.append('chefid', newUser.chefid);
         formData.append('name', newUser.name);
         formData.append('address', newUser.address);
         formData.append('phone', newUser.phone);
@@ -41,7 +41,7 @@ const AddChef = () => {
                 console.log(res);
                 setLoading(false);
                 alert("Image is uploaded successfully")
-                setNewUser({id : '', name :'' , address : '' , phone : '' , email : '', exp : '' , photo : ''})
+                setNewUser({chefid : '', name :'' , address : '' , phone : '' , email : '', exp : '' , photo : ''})
              })
              .catch(err => {
                 console.log(err);
@@ -111,13 +111,13 @@ const AddChef = () => {
             <form onSubmit={handleSubmit} encType='multipart/form-data' >
             <h3>Add Chef Details</h3>
             <div className="cmb-3" >
-              <label for="id" className="form-label">Chef ID</label>
+              <label for="chefid" className="form-label">Chef ID</label>
                 <input 
                     type="text"
                     className="form-control"
                     placeholder="Enter Chef ID :"
-                    name="id"
-                    value={newUser.id}
+                    name="chefid"
+                    value={newUser.chefid}
                     onChange={handleChange} required
                 />
 
