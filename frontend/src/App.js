@@ -380,7 +380,7 @@ export default function App() {
             <PrivateOrderManagerStaffRoute path = "/display-OrderM" exact component = {DisplayOrders_OM} /> 
             <PrivateOrderManagerStaffRoute path = "/edit-OrderM" exact component = {List_OM} /> 
             <PrivateOrderManagerStaffRoute path = "/edit-OrderM/:id/:orderId/:category/:itemNumber/:customerName/:address/:contactNumber" exact component = {Edit_OM} /> 
-            <Footer/>
+           
 
             <Footer/>
 
