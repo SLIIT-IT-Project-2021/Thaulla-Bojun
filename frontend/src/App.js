@@ -159,6 +159,22 @@ import CampaignsButton5 from  "./components/staff/MarketingM/CampaignsButton";
 import promochatBot from"./components/staff/MarketingM/chatBot";
 import StatusButton from  "./components/staff/MarketingM/StatusButton";
 
+
+
+//Order part
+
+import PrivateOrderManagerStaffRoute from "./components/routes/PrivateOrderManagerStaffRoute";
+import Header_OM from "./components/staff/orderM/Header";
+import AddComplaint from "./components/staff/orderM/AddComplaint";
+import Home_OM from "./components/staff/orderM/Home";
+import DisplayOrders_OM from "./components/staff/orderM/DisplayOrders"
+import List_OM from "./components/staff/orderM/List"
+import Edit_OM from "./components/staff/orderM/Edit";
+import OrderManagerLogin from "./components/staff/orderM/login/orderManagerLogin";
+import PrivateOrderManagerStaff from "./components/staff/orderM/login/PrivateOrderManagerStaff";
+import chatbotOrder from "./components/staff/orderM/chatbotOrder";
+ 
+
 //user section
 import PrivateRoute from "./components/routes/PrivateRoute";
 
@@ -351,6 +367,20 @@ export default function App() {
             <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price"  exact component = {CampaignsButton4} /> 
             <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {promochatBot} />
             <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {StatusButton} /> 
+
+            
+             {/*Chathura -Routes*/}
+            
+             <Route path="/staff-login-OrderM" exact component={OrderManagerLogin} />
+            <PrivateOrderManagerStaffRoute path = "/staff-OrderM" exact component = {Header_OM} /> 
+            <PrivateOrderManagerStaffRoute path = "/staff-OrderM" exact component = {PrivateOrderManagerStaff} /> 
+            <PrivateOrderManagerStaffRoute path = "/staff-OrderM" exact component = {Home_OM} /> 
+            <PrivateOrderManagerStaffRoute path = "/add-OrderM" exact component = {AddComplaint} />
+            <PrivateOrderManagerStaffRoute path = "/display-OrderM" exact component = {chatbotOrder} />
+            <PrivateOrderManagerStaffRoute path = "/display-OrderM" exact component = {DisplayOrders_OM} /> 
+            <PrivateOrderManagerStaffRoute path = "/edit-OrderM" exact component = {List_OM} /> 
+            <PrivateOrderManagerStaffRoute path = "/edit-OrderM/:id/:orderId/:category/:itemNumber/:customerName/:address/:contactNumber" exact component = {Edit_OM} /> 
+            <Footer/>
 
             <Footer/>
 
