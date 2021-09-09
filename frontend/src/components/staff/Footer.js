@@ -2,31 +2,12 @@ import React from "react";
 
 export default function Footer(){
     return(
-        <footer className="text-center text-lg-start bg-light text-muted">
+        <footer className="text-center text-lg-start bg-dark text-muted">
            
             <section
                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
             >
-                <div>
-                <a href="" className="me-4 text-reset">
-                    <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="" className="me-4 text-reset">
-                    <i className="fab fa-twitter"></i>
-                </a>
-                <a href="" className="me-4 text-reset">
-                    <i className="fab fa-google"></i>
-                </a>
-                <a href="" className="me-4 text-reset">
-                    <i className="fab fa-instagram"></i>
-                </a>
-                <a href="" className="me-4 text-reset">
-                    <i className="fab fa-linkedin"></i>
-                </a>
-                <a href="" className="me-4 text-reset">
-                    <i className="fab fa-github"></i>
-                </a>
-                </div>
+           
                
             </section>
             
@@ -88,13 +69,13 @@ export default function Footer(){
                     <h6 className="text-uppercase fw-bold mb-4">
                         CONTACT
                     </h6>
-                    <p><i className="fas fa-home me-3"></i> NO 07,Seevali Road,Colombo 07</p>
+                    <p>NO 07,Seevali Road,Colombo 07</p>
                     <p>
-                        <i className="fas fa-envelope me-3"></i>
+                        
                         infothaulla@gmail.com
                     </p>
-                    <p><i className="fas fa-phone me-3"></i> + 94 11 2355381</p>
-                    <p><i className="fas fa-print me-3"></i> + 94 77 0113437</p>
+                    <p> + 94 11 2355381</p>
+                    <p> + 94 77 0113437</p>
                     </div>
                 
                 </div>

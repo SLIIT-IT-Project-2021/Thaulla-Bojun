@@ -7,7 +7,7 @@ export default function Home(){
        
         <div>
     
-            <center><img src = "school-software.png" style={{width:"65%"}}/></center>
+            <center><img src = "Nila.png" style={{width:"65%"}}/></center>
         
         </div>
         
