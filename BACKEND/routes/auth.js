@@ -1,20 +1,8 @@
 const router = require('express').Router();
 
- 
- 
- 
- 
- 
- 
- 
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM, loginStafforderM , registerStafforderM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail, sendChefEmail,sendDeliveryEmail } = require("../controllers/auth");
  
 
- 
- 
- 
- 
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail, sendChefEmail,sendDeliveryEmail } = require("../controllers/auth");
- 
  
 
 router.route("/register").post(register); // call the auth in controllers
@@ -69,6 +57,9 @@ router.route("/staff-register-stockM").post(registerStaffStockM);
 
 router.route("/staff-login-MarketingM").post(loginStaffMarketingM);
 router.route("/staff-register-MarketingM").post(registerStaffMarketingM);
+
+router.route("/staff-login-orderM").post(loginStafforderM);
+router.route("/staff-register-orderM").post(registerStafforderM);
 
  //
 module.exports = router;

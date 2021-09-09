@@ -168,6 +168,19 @@ app.use("/complaints" , complaintRouter);
 const promotionViewRouter = require("./routes/promotionView");
 
 app.use("/promotionView" , promotionViewRouter);
+
+
+const orderRouter = require("./routes/order.js");//import 
+
+app.use("/ordercomplaint" , orderRouter ); 
+
+const orderRegisterRouter = require("./routes/orderRegister.js");//import 
+
+app.use("/orderManager" , orderRegisterRouter ); 
+
+const orderChatRouter = require("./routes/orderChat.js");//import 
+
+app.use("/orderchat" , orderChatRouter ); 
 //
 
 //this catches front-end URL
@@ -178,4 +191,6 @@ app.use("/products" , require("./routes/product"));
 
 //Error Handler (Should be the last piece of middleware)
 app.use(errorHandler);
+
+
 
