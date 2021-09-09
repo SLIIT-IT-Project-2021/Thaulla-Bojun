@@ -174,7 +174,7 @@ app.use("/promotionView" , promotionViewRouter);
 /* http://localhost/8070/student */
 
 app.use("/api/auth" , require("./routes/auth"));
-app.use("/books" , require("./routes/book"));
+app.use("/products" , require("./routes/product"));
 
 //Error Handler (Should be the last piece of middleware)
 app.use(errorHandler);

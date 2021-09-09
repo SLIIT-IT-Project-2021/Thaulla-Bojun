@@ -31,8 +31,6 @@ import chatBot from "./components/staff/customerM/chatBot";
 import chatBotPromo from "./components/staff/customerM/chatBotPromo";
 import PromotionView from "./components/staff/customerM/Promotions";
 
-
-
 //Supplier part
 import PrivateSupplierManagerStaffRoute from "./components/routes/PrivateSupplierManagerStaffRoute";
 
@@ -175,6 +173,14 @@ import PrivateScreen from "./components/screens/Private";
 //import AddChef from "./components/staff/foodM/AddChef";
  
 
+//Thaulla Bojun
+import ProductScreen from "./components/screens/ProductScreen";
+import CartScreen from "./components/screens/CartScreen";
+import PromotionScreen from "./components/screens/PromotionScreen";
+import ProfileScreen from "./components/screens/ProfileScreen";
+
+//component
+
  
 
 export default function App() {
@@ -183,16 +189,26 @@ export default function App() {
     <Router>
           <div>
             
-            <Switch>
+            <main>
+              <Switch>
+
                 <PrivateRoute path = "/" exact component = {PrivateScreen} />
+                <PrivateRoute path = "/product/:id" exact component = {ProductScreen} />
+                <PrivateRoute path = "/cart" exact component = {CartScreen} />
+                <PrivateRoute path = "/promotions" exact component = {PromotionScreen} />
+                <PrivateRoute path = "/profiles" exact component = {ProfileScreen} />
+
+
+
                 <Route path="/login" exact component = {LoginScreen} />
                 <Route path="/register" exact component = {RegisterScreen} />
                 <Route path="/forgotpassword" exact component = {ForgotPasswordScreen} />
                 <Route path="/passwordreset/:resetToken" exact component = {ResetPasswordScreen} />
-               
 
-            </Switch>
 
+              </Switch>
+
+            </main>
 
             
 
@@ -216,7 +232,6 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {chatBot} /> 
             <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {chatBotPromo} /> 
             <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} /> 
-
 
 
  
@@ -246,7 +261,7 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/addSC-foodM" exact component = {AddShortcoming} /> 
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {DisplayChefs} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM" exact component = {List_fm} /> 
-            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:id/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
+            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:chefid/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
             <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {UpdateFood} />
             <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {fchatBot}/>
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {fchatBot2}/>

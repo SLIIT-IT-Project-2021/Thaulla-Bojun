@@ -95,12 +95,12 @@ router.route("/delete/:id").delete(async (req , res)=>{  //delete data
     });
 });
 
-router.route("/get/:id").get(async (req , res)=>{  //search data
-    let CustomerID = req.params.id; 
+router.route("/get/:name").get(async (req , res)=>{  //search data
+    let name = req.params.name; 
 
-    await Customer.findById(CustomerID)
+    await Customer.findOne(name)
     .then((customers)=>{
-        res.status(200).send({customers});
+        res.status(200).json({customers});
 
     }).catch((err)=>{
         console.log(err);

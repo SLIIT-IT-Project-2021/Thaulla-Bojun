@@ -40,7 +40,7 @@ const AddAssistant = () => {
         //formData.append('qualification', newUser.qualification);
         formData.append('addreass', newUser.addreass);
 
-        axios.post('http://localhost:8070/stocks/add', formData)
+        axios.post('http://localhost:8070/stocks/add', formData) //add assistant data
              .then(res => {
                 console.log(res);
                 setLoading(false);
