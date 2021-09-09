@@ -90,6 +90,10 @@ app.use("/viewfoodord" , viewFoodOrdRouter);
 const branchRouter = require("./routes/branch.js"); //import 
 
 app.use("/branches" , branchRouter);
+//chandima edited
+const AssignDeliveries = require("./routes/AssignDeliveries.js"); //import 
+
+app.use("/AssignDeliveries" , AssignDeliveries);
 
 const assignbranchRouter = require("./routes/assignbranch.js"); //import 
 
