@@ -1,14 +1,8 @@
 const router = require('express').Router();
 
-   
-
- 
- 
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM, loginStafforderM , registerStafforderM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail, sendChefEmail,sendDeliveryEmail } = require("../controllers/auth");
  
 
- 
- 
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM, loginStafforderM , registerStafforderM, sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail} = require("../controllers/auth");
  
 
 router.route("/register").post(register); // call the auth in controllers
@@ -18,6 +12,7 @@ router.route("/login").post(login);
 router.route("/forgotpassword").post(forgotpassword);
 
 router.route("/passwordreset/:resetToken").put(resetpassword);
+router.route("/sendDeliveryEmail").post(sendDeliveryEmail);
 
  
  
@@ -34,7 +29,7 @@ router.route("/sendCustomerEmail").post(sendCustomerEmail);
 
 router.route("/sendCustomerPromotionEmail").post(sendCustomerPromotionEmail);
 
-
+router.route("/sendChefEmail").post(sendChefEmail);
 
 
 

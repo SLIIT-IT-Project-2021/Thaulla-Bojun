@@ -277,7 +277,7 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/addSC-foodM" exact component = {AddShortcoming} /> 
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {DisplayChefs} /> 
             <PrivateFoodManagerStaffRoute path = "/edit-foodM" exact component = {List_fm} /> 
-            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:id/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
+            <PrivateFoodManagerStaffRoute path = "/edit-foodM/:id/:chefid/:name/:address/:phone/:email/:exp" exact component = {Edit_fm} /> 
             <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {UpdateFood} />
             <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {fchatBot}/>
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {fchatBot2}/>

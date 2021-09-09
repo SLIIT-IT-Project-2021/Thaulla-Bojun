@@ -34,7 +34,11 @@ const sendMarketingEmail = require("../utils/sendMarketingEmail");
 
 const sendCustomerEmail = require("../utils/sendCustomerEmail");
 
+const sendChefEmail = require("../utils/sendChefEmail");
 
+const sendCustomerPromotionEmail = require("../utils/sendCustomerPromotionEmail");
+
+const sendDeliveryEmail = require("../utils/sendDeliveryEmail");
 
 
 //when we use asynchrones function we need try catch block
@@ -736,4 +740,127 @@ exports.sendSupplierEmail = async (req , res , next) =>{
     }
 
 }
+
+
+
+
+  
+//---------------------------------------Email Sending Section------------------------------------------
+
+//Food Management
+exports.sendChefEmail = async (req , res , next) =>{
+    const {email , description} = req.body;
+
+    try {
+
+        const message = `
+        <h1>${description}</h1>
+        <p>If any concerns , please contact : 0774458521 </p>
+         `
+        try {
+            await sendChefEmail({
+                to : email,
+                subject : "About work",
+                text : message
+            })
+
+            res.status(200).json({ success : true , data : "Email Sent"});
+
+        } catch (error) {
+            res.status(500).json({ success : false , data : "Email could not be sent"});
+            return next(new ErrorResponse("Email could not be sent") , 500);
+
+        }
+    } catch (error) {
+        next(error);
+    }
+} 
+
+//----------------Email sending section--------------------
+
+ //chandima-delivery
+
+ //-----------------------delivery email sending ---------------
+
+ exports.sendDeliveryEmail = async (req , res , next) =>{
+
+
+
+    const {email , description} = req.body;
+
+     try {
+
+     const message = `
+
+    
+
+    <h1>${description}</h1>
+
+    
+
+    <p>If any concerns , please contact : 0703945048 </p>
+
+    
+
+    `
+
+    
+
+    try {
+
+    
+
+    await sendDeliveryEmail({
+
+    
+
+    to : email,
+
+    
+
+    subject : "About Delivery",
+
+    
+
+    text : message
+
+    
+
+    })
+
+    
+
+    res.status(200).json({ success : true , data : "Email Sent"});
+
+  } catch (error) {
+
+    
+
+    res.status(500).json({ success : false , data : "Email could not be sent"});
+
+    
+
+    return next(new ErrorResponse("Email could not be sent") , 500);
+
+    
+
+     }
+
+    
+
+    } catch (error) {
+
+    
+
+    next(error);
+
+    
+
+    }
+
+    
+
+    }
+
+    //----------------------------------------------------------------//
 
