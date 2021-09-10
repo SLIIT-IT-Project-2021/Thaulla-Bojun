@@ -69,3 +69,20 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+div > .info__button{
+  display: block;
+  width:180px;
+  text-decoration: none;
+  text-align: center;
+  color: #171717;
+  background: #fff;
+  padding: 8px 16px;
+  border:1px solid #00aa00;
+  font-size: 1rem;;
+
+}
+.info__button:hover{
+  background: #171717;
+  color: #f4f4f4;
+}

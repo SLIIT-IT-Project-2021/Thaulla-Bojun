@@ -182,6 +182,8 @@ const orderChatRouter = require("./routes/orderChat.js");//import
 
 app.use("/orderchat" , orderChatRouter ); 
 //
+app.use("/deliveryscreen" , require("./routes/deliveryscreen"));
+
 
 //this catches front-end URL
 /* http://localhost/8070/student */
