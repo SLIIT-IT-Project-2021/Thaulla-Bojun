@@ -58,7 +58,7 @@ export default function DisplayBranches() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
+      <div className="students"style={{width:"70%",marginLeft:"50px"}}>
         {managers &&
           managers.map((manager, index) => {
             return (

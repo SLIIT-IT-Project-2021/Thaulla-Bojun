@@ -40,6 +40,11 @@ const sendCustomerPromotionEmail = require("../utils/sendCustomerPromotionEmail"
 
 const sendDeliveryEmail = require("../utils/sendDeliveryEmail");
 
+const sendBranchEmail = require("../utils/sendBranchEmail");
+
+
+
+
 
 //when we use asynchrones function we need try catch block
 exports.register = async (req , res , next) =>{  
@@ -863,4 +868,32 @@ exports.sendChefEmail = async (req , res , next) =>{
     }
 
     //----------------------------------------------------------------//
-
+    //----------------Branch Email sending section--------------------
+    exports.sendBranchEmail = async (req , res , next) =>{
+        const {email , description} = req.body;
+    
+        try {
+    
+            const message = `
+            <h1>${description}</h1>
+            <p>If any concerns , please contact : 0711888933 </p>
+             `
+            try {
+                await sendBranchEmail({
+                    to : email,
+                    subject : "About Promotions",
+                    text : message
+                })
+    
+                res.status(200).json({ success : true , data : "Email Sent"});
+    
+            } catch (error) {
+                res.status(500).json({ success : false , data : "Email could not be sent"});
+                return next(new ErrorResponse("Email could not be sent") , 500);
+    
+            }
+        } catch (error) {
+            next(error);
+        }
+    
+    }
