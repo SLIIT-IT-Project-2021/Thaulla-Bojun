@@ -130,7 +130,7 @@ const CartScreen =({history})=>{
                         <p style={{marginLeft:"8px", marginTop:"8px"}}>Subtotal ({getCartCount()}) items</p>
                         <p style={{marginLeft:"8px", marginTop:"8px"}}>Rs.{getCartSubTotal().toFixed(2)}</p>
                         <div>
-                            <button>Proceed to Cash on Delivery</button><br/><br/>
+                            <Link to = "/delivery"><button>Proceed to Cash on Delivery</button></Link><br/><br/>
                             <h1><i class="fa fa-cc-stripe" aria-hidden="true"></i></h1>
                             <StripeCheckout
                                 stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"

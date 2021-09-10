@@ -3,7 +3,7 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import TableRow from './TableRow';
 import {Link} from "react-router-dom";
-
+import "./chatBot.css"
 
 export default class CustomerList extends Component {
 
@@ -31,7 +31,6 @@ export default class CustomerList extends Component {
       return <TableRow obj={res} key={i} />;
     });
   }
-
 
   render() {
     return (
@@ -64,6 +63,12 @@ export default class CustomerList extends Component {
             </div>
             </div>
         </nav><br/>
+        <Link to = "/generate-pdf">
+          <div>
+              <button className="info__button" type="primary" style={{float:"right"}}><i class="fa fa-cogs" aria-hidden="true"></i> Generate Report</button> 
+          </div>
+        </Link>
+        
         <div className="table-wrapper container">
             <Table striped bordered hover>
                 <thead>

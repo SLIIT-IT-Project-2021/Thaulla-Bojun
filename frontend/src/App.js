@@ -30,6 +30,7 @@ import PromotionButton5 from "./components/staff/customerM/PromotionButton";
 import chatBot from "./components/staff/customerM/chatBot";
 import chatBotPromo from "./components/staff/customerM/chatBotPromo";
 import PromotionView from "./components/staff/customerM/Promotions";
+import CustomerReportGenerator from "./components/staff/customerM/Customers";
 
 //Supplier part
 import PrivateSupplierManagerStaffRoute from "./components/routes/PrivateSupplierManagerStaffRoute";
@@ -196,6 +197,7 @@ import ProductScreen from "./components/screens/ProductScreen";
 import CartScreen from "./components/screens/CartScreen";
 import PromotionScreen from "./components/screens/PromotionScreen";
 import ProfileScreen from "./components/screens/ProfileScreen";
+import DeliveryScreen from "./components/screens/DeliveryScreen";
 
 //component
 
@@ -215,6 +217,7 @@ export default function App() {
                 <PrivateRoute path = "/cart" exact component = {CartScreen} />
                 <PrivateRoute path = "/promotions" exact component = {PromotionScreen} />
                 <PrivateRoute path = "/profiles" exact component = {ProfileScreen} />
+                <PrivateRoute path = "/delivery" exact component = {DeliveryScreen} />
 
 
 
@@ -249,7 +252,8 @@ export default function App() {
             <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {PromotionButton5} />
             <PrivateCustomerStaffRoute path = "/complaints-customerM" exact component = {chatBot} /> 
             <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {chatBotPromo} /> 
-            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} /> 
+            <PrivateCustomerStaffRoute path = "/promotion-customerM" exact component = {PromotionView} />
+            <PrivateCustomerStaffRoute path = "/generate-pdf" exact component = {CustomerReportGenerator} /> 
 
 
  
