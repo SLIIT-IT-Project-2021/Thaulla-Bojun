@@ -106,6 +106,7 @@ import Listb from "./components/staff/branchM/List"
 import Editb from "./components/staff/branchM/Edit";
 import BranchLogin from "./components/staff/branchM/login/BranchManagerLogin";
 import emailSendingB from "./components/staff/branchM/emailSendingB"
+import managers from "./components/staff/branchM/managers"
 import PrivateBranchManagerStaff from "./components/staff/branchM/login/PrivateBranchManagerStaff";
 
 //Thamali part
@@ -295,6 +296,7 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {AssignBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {emailSendingB} /> 
+            <PrivateBranchStaffRoute path = "/GenerateReportB-branchM" exact component = {managers} />
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
 
