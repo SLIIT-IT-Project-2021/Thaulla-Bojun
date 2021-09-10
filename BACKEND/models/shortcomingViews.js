@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ImageSchema = new Schema({
+const ShortcomingViewSchema = new Schema({
     scid: {
         type: String,
         required: true,
@@ -37,6 +37,6 @@ const ImageSchema = new Schema({
     
 });
 
-const Image = mongoose.model('shortcomings', ImageSchema);
+const ShortcomingView = mongoose.model('shortcomings', ShortcomingViewSchema);
 
-module.exports = Image;
+module.exports = ShortcomingView;

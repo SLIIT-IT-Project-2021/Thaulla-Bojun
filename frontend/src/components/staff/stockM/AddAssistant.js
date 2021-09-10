@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddAssistant = () => {
 
@@ -44,7 +46,6 @@ const AddAssistant = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
                 setNewUser({name :'' , age : '' , gender : '', birthdate : '' , phone : '' , addreass : '' , email : '' , photo : ''})
              })
              .catch(err => {
@@ -62,6 +63,8 @@ const AddAssistant = () => {
     const handlePhoto = (e) => {
         setNewUser({...newUser, photo: e.target.files[0]});
     }
+
+    const notify = () => toast("Assistant Successfully Added 😘");
 
     return (
         <div>
@@ -186,8 +189,10 @@ const AddAssistant = () => {
                         type="submit"
                         className="btn btn-primary mt-3"
                         disabled={loading}
+                        onClick = {notify}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
+                     <ToastContainer />
                     
             </div>
         </form>
