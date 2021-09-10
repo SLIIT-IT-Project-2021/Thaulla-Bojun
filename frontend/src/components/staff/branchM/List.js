@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import TableRow from './TableRow';
+import "./chatBot.css";
 import {Link} from "react-router-dom";
+
+
 
 
 export default class StudentList extends Component {
@@ -31,7 +34,7 @@ export default class StudentList extends Component {
       return <TableRow obj={res} key={i} />;
     });
   }
-
+  
 
   render() {
     return (
@@ -64,6 +67,13 @@ export default class StudentList extends Component {
             </div>
             </div>
         </nav><br/>
+
+        <Link to = "/GenerateReportB-branchM">
+        <div>
+            <button className="info__button" onClick={this.generatePDF} type="primary" style={{float:"right"}}><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generate Report</button> 
+       </div>
+       </Link>
+       
         <div className="table-wrapper container">
             <Table striped bordered hover>
                 <thead>
