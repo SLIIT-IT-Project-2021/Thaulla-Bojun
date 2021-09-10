@@ -3,8 +3,6 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import TableRow from './TableRow';
 import {Link} from "react-router-dom";
-
-
 export default class StudentList extends Component {
 
   constructor(props) {
@@ -61,6 +59,11 @@ export default class StudentList extends Component {
             </div>
             </div>
         </nav><br/>
+        <Link to = "/generate-pdfA">
+        <div>
+          <button className = "info__button" onClick={this.generatePDF} type = "primary" style={{float:"right"}}><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download PDF</button>
+        </div>
+        </Link>
         <div className="table-wrapper container">
             <Table striped bordered hover>
                 <thead>

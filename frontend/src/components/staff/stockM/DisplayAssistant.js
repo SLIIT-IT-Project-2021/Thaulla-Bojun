@@ -61,7 +61,7 @@ export default function DisplayAssistant() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
+      <div className="students" style = {{width: "78%", marginLeft: "50px"}}>
         {students &&
           students.map((student, index) => {
             return (
