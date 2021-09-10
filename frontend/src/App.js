@@ -105,6 +105,7 @@ import DisplayBranches from "./components/staff/branchM/DisplayBranches"
 import Listb from "./components/staff/branchM/List"
 import Editb from "./components/staff/branchM/Edit";
 import BranchLogin from "./components/staff/branchM/login/BranchManagerLogin";
+import emailSendingB from "./components/staff/branchM/emailSendingB"
 import PrivateBranchManagerStaff from "./components/staff/branchM/login/PrivateBranchManagerStaff";
 
 //Thamali part
@@ -284,6 +285,7 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {fchatBot2}/>
             <PrivateFoodManagerStaffRoute path = "/view-foodM" exact component = {ViewFoodOrders}/> 
 
+             {/*mithila's frontend routes*/}
             <Route path="/staff-login-branchM" exact component={BranchLogin} />
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {Headerb} /> 
             <PrivateBranchStaffRoute path = "/staff-branchM" exact component = {PrivateBranchManagerStaff} /> 
@@ -292,6 +294,7 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {ChatBotB} />
             <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {AssignBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
+            <PrivateBranchStaffRoute path = "/display-branchM" exact component = {emailSendingB} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
 

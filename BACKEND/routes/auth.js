@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM, loginStafforderM , registerStafforderM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail, sendChefEmail,sendDeliveryEmail } = require("../controllers/auth");
+const { register , login , forgotpassword , resetpassword , loginStaffCustomerM , registerStaffCustomerM , loginStaffStockM , registerStaffStockM , loginStaffBranchM , registerStaffBranchM, loginStafffoodM, registerStafffoodM , loginStaffDeliveryM ,registerStaffDeliveryM , loginStaffSupplierM , registerStaffSupplierM,loginStaffMarketingM,registerStaffMarketingM, loginStafforderM , registerStafforderM , sendCustomerEmail , sendCustomerPromotionEmail , sendMarketingEmail , sendSupplierEmail , sendAssistantEmail, sendChefEmail,sendDeliveryEmail,sendBranchEmail} = require("../controllers/auth");
  
 
  
@@ -30,6 +30,8 @@ router.route("/sendCustomerEmail").post(sendCustomerEmail);
 router.route("/sendCustomerPromotionEmail").post(sendCustomerPromotionEmail);
 
 router.route("/sendChefEmail").post(sendChefEmail);
+
+router.route("/sendBranchEmail").post(sendBranchEmail);
 
 
 
