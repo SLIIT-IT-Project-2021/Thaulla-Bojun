@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "./Add.css";
 
 
 const AddCustomer = () => {
@@ -66,7 +67,7 @@ const AddCustomer = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
         <div className="container-fluid">
           <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,16 +76,16 @@ const AddCustomer = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                <Link className="nav-link " aria-current="page" to = "/staff-customerM" style={{color:"#00ff00"}}><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                <Link className="nav-link active" to = "/add-customerM" style={{color:"#00ff00"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                <Link className="nav-link" to = "/display-customerM" style={{color:"#00ff00"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/complaints-customerM"><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
+                <Link className="nav-link" to = "/complaints-customerM" style={{color:"#00ff00"}}><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -94,8 +95,8 @@ const AddCustomer = () => {
           </div>
         </div>
       </nav>
-        <div className="container" style={{width:"50%"}}><br/><br/>
-            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+        <div className="container" style={{width:"100%"}} className="bg3"><br/><br/>
+            <form onSubmit={handleSubmit} encType='multipart/form-data' style={{width:"50%" , marginLeft:"auto" , marginRight:"auto" , display:"block" , background:"#171717" , padding:"10px 10px 10px 10px" , opacity:"0.8"}}>
             <div className="cmb-3">
                 <label for="name" className="form-label">Name</label>
                 <input 
@@ -156,18 +157,18 @@ const AddCustomer = () => {
 
             
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Customer</h1>
-                <p className="lead">
+                <h1 className="display-4" style={{color:"white"}}>Upload a Photo of Customer</h1>
+                <p className="lead" style={{color:"white"}}>
                 Please choose a valid relavant photo 👩‍🎓
                 </p>
                 <hr className="my-4" />
             </div>
-            <i class="fa fa-folder-open" aria-hidden="true"></i>
+            <i class="fa fa-folder-open" aria-hidden="true" style={{color:"white"}}></i>
             <input 
                 type="file" 
                 accept=".png, .jpg, .jpeg"
                 name="photo"
-                onChange={handlePhoto} required
+                onChange={handlePhoto} required style={{color:"white"}}
             />
 
             <br/>
@@ -186,11 +187,6 @@ const AddCustomer = () => {
             </div>
         </form>
         <br/>
-        <a href="/add-customerM"><button
-                        type="submit"
-                        className="btn btn-success"
-                        
-                        ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button></a>
         <br/><br/><br/><br/><br/><br/>
         </div>
         </div>

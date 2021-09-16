@@ -64,7 +64,7 @@ export default function DisplayInventoryt() {
       </div>
 
       {/* Display data from API */}
-      <div className="students" style = {{width: "70%"}}>
+      <div className="students" style = {{width: "70%", marginLeft: "50px"}}>
         {viewShortComings &&
           viewShortComings.map((shortcoming, index) => {
             return (

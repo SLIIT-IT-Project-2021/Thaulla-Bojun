@@ -107,6 +107,7 @@ import Listb from "./components/staff/branchM/List"
 import Editb from "./components/staff/branchM/Edit";
 import BranchLogin from "./components/staff/branchM/login/BranchManagerLogin";
 import emailSendingB from "./components/staff/branchM/emailSendingB"
+import managers from "./components/staff/branchM/managers"
 import PrivateBranchManagerStaff from "./components/staff/branchM/login/PrivateBranchManagerStaff";
 
 //Thamali part
@@ -135,6 +136,7 @@ import ShortcomeButton5 from "./components/staff/stockM/ShortcomeButton";
 import ShortcomeButton6 from "./components/staff/stockM/ShortcomeButton";
 import ShortcomeButton7 from "./components/staff/stockM/ShortcomeButton";
 import ShortcomingView from "./components/staff/stockM/shortcoming";
+import AssistantReportGenerator from "./components/staff/stockM/Assistants"
 
 
 
@@ -299,6 +301,7 @@ export default function App() {
             <PrivateBranchStaffRoute path = "/assign-branchM" exact component = {AssignBranch} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {DisplayBranches} /> 
             <PrivateBranchStaffRoute path = "/display-branchM" exact component = {emailSendingB} /> 
+            <PrivateBranchStaffRoute path = "/GenerateReportB-branchM" exact component = {managers} />
             <PrivateBranchStaffRoute path = "/edit-branchM" exact component = {Listb} /> 
             <PrivateBranchStaffRoute path = "/edit-branchM/:id/:name/:city/:branchID/:address/:contactNo/:email/:photo" exact component = {Editb} />
 
@@ -328,6 +331,7 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/edit-stockM/:id/:name/:age/:gender/:birthdate/:address/:phone/:email/:photo" exact component = {ShortcomeButton6} /> 
             <PrivateAssistantStaffRoute path = "/editInven-stockM/:id/:itemId/:itemName/:stock/:stockIn/:stockOut/:unitPrice/:date/:photo" exact component = {ShortcomeButton7} /> 
             <PrivateAssistantStaffRoute path = "/shortcomingViews-stockM" exact component = {ShortcomingView} /> 
+            <PrivateAssistantStaffRoute path = "/generate-pdfA" exact component = {AssistantReportGenerator} /> 
             
 
  

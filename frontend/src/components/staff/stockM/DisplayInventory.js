@@ -61,7 +61,7 @@ export default function DisplayInventoryt() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
+      <div className="students" style = {{width: "80%", marginLeft: "170px"}}>
         {Inventories &&
           Inventories.map((Inventorie, index) => {
             return (

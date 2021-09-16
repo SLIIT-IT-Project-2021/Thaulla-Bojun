@@ -15,7 +15,7 @@ const Product=({imageURL , name , price , description , productId})=>{
 
                 <p className="info__price">Rs.{price}.00</p>
 
-                <Link to = {`/product/${productId}`} className="info__button">View</Link>
+                <Link to = {`/product/${productId}`} className="info__button" style={{width:"100%"}}>View</Link>
             </div>
         </div>
     )

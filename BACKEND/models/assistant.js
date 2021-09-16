@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ImageSchema = new Schema({
+const AssistantSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -47,6 +47,6 @@ const ImageSchema = new Schema({
     }
 });
 
-const Image = mongoose.model('assistant', ImageSchema);
+const Assistant = mongoose.model('assistant', AssistantSchema);
 
-module.exports = Image;
+module.exports = Assistant;

@@ -24,12 +24,12 @@ export default class CustomerTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.age}</td>
-                <td>{this.props.obj.gender}</td>
-                <td>{this.props.obj.address}</td>
-                <td>{this.props.obj.phone}</td>
-                <td>{this.props.obj.email}</td>
+                <td style={{color:"gray"}}>{this.props.obj.name}</td>
+                <td style={{color:"gray"}}>{this.props.obj.age}</td>
+                <td style={{color:"gray"}}>{this.props.obj.gender}</td>
+                <td style={{color:"gray"}}>{this.props.obj.address}</td>
+                <td style={{color:"gray"}}>{this.props.obj.phone}</td>
+                <td style={{color:"gray"}}>{this.props.obj.email}</td>
                 <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
