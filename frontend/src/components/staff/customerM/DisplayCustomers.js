@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../../../styles.css';
+import React, { useState , useEffect} from 'react';
+import "./CustomerScreen.css";
+import "./Customer.css";
 import {Link} from "react-router-dom";
 
+ const  DisplayCustomers =() => {
+  const [customers, setCustomers] = useState("");
 
-export default function DisplayCustomers() {
-  const [customers, setStudents] = useState(null);
+  useEffect(() => {
+    getData();
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      'http://localhost:8070/users'
-    );
+    async function getData() {
+      const response = await fetch("http://localhost:8070/users");
+      const data = await response.json();
 
-    setStudents(response.data);
-   
-  };
-
+      setCustomers(data) ;
+    }
+  }, []); 
+    
   return (
    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div className="container-fluid">
       <a className="navbar-brand" href="#" style={{color:"red"}}><b>Customer Management System</b></a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,16 +28,16 @@ export default function DisplayCustomers() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
           <li className="nav-item">
-            <Link className="nav-link " aria-current="page" to = "/staff-customerM"><i class="fa fa-fw fa-home"></i>Home</Link>
+            <Link className="nav-link " aria-current="page" to = "/staff-customerM" style={{color:"#00ff00"}}><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to = "/add-customerM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+            <Link className="nav-link" to = "/add-customerM" style={{color:"#00ff00"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-customerM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+            <Link className="nav-link active" to = "/display-customerM" style={{color:"#00ff00"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
           </li>
           <li className="nav-item">
-                <Link className="nav-link" to = "/complaints-customerM"><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
+                <Link className="nav-link" to = "/complaints-customerM" style={{color:"#00ff00"}}><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
               </li>
         </ul>
         <form className="d-flex">
@@ -46,50 +47,40 @@ export default function DisplayCustomers() {
       </div>
     </div>
   </nav>
-    <div className="App">
-      <h1>All Customers</h1>
+    <div className="bg4">
+    <div className="homescreen">
+      <h2 className="homescreen__title" style={{color:"white"}}>All Customer Profiles</h2>
 
-      {/* Fetch data from API */}
-      <div>
-        <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Customers
-        </button>
-        <br />
-      </div>
+      <div className="homescreen__products">
+        {/* display books from the API */}
+          {customers && customers.map((customer, index) => (
+            <div className="product">
+            <img src={"images/"+customer.photo} border="0'"/>
 
-      {/* Display data from API */}
-      <div className="students"  style={{marginLeft:"50px"}}>
-        {customers &&
-          customers.map((customer, index) => {
-            return (
-              <div className="student" key={index}>
-                <h3 className="badge bg-success">Customer {index + 1}</h3>
-
-                <div className="details">
-                  <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + customer.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
+            <div className="product__info">
                     <p >👨<b style={{color:"red"}}>Name   : </b>{customer.name}</p>
                     <p >🏃<b style={{color:"green"}}>Age  : </b>{customer.age} years old</p>
                     <p >👫<b style={{color:"blue"}}>Gender: </b>{customer.gender}</p>
                     <p >🏕<b style={{color:"red"}}>Address: </b>{customer.address}</p>
                     <p >📱<b style={{color:"green"}}>Phone: </b>{customer.phone}</p>
                     <p >💌<b style={{color:"blue"}}>Email: </b>{customer.email}</p>
-                  
-                  </div>
-                
-                  <a href="/edit-customerM"><button className="btn btn-secondary">Edit</button></a>
-                  
-    
-                </div>
-              </div>
-            );
-          })}
-      </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+                <Link to = {`/edit-customerM`} className="info__button" style={{width:"100%"}}>View</Link>
+            </div>
+        </div>
+          ))}
+
+        </div>
+  </div>
     </div>
-   </div>
+</div>
+ 
   );
 }
+
+export default DisplayCustomers;
+
+
+
+
+
