@@ -158,7 +158,7 @@ const AddInventory = () => {
             <div className="jumbotron">
                 <h1 className="display-4">Upload a Photo of Item</h1>
                 <p className="lead">
-                Please choose a valid relavant photo 👩‍🎓
+                Please choose a valid relavant photo 🍩
                 </p>
                 <hr className="my-4" />
             </div>

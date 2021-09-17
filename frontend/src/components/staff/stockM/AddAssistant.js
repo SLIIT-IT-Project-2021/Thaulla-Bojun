@@ -39,7 +39,6 @@ const AddAssistant = () => {
         formData.append('address', newUser.address);
         formData.append('birthdate', newUser.birthdate);
         formData.append('email', newUser.email);
-        //formData.append('qualification', newUser.qualification);
         formData.append('addreass', newUser.addreass);
 
         axios.post('http://localhost:8070/stocks/add', formData) //add assistant data

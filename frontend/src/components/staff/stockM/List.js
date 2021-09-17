@@ -51,6 +51,12 @@ export default class StudentList extends Component {
                 <li className="nav-item">
                     <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
                 </li>
+                <li className="nav-item">
+                <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
+            </li> 
+            <li className="nav-item">
+                <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+            </li> 
                 </ul>
                 <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>

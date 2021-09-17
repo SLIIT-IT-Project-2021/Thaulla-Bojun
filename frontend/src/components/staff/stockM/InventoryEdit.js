@@ -119,13 +119,13 @@ export default class Edit extends Component {
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
-            </li> 
-            <li className="nav-item">
-                <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Assistant</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
-            </li> 
+            </li>  
+            <li className="nav-item">
+                <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Inventory</Link>
+            </li>
           </ul>
                     <form className="d-flex">
                       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
