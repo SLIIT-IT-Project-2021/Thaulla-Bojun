@@ -72,9 +72,9 @@ export default function DisplayNeeds() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >👨<b style={{color:"red"}}>Item ID  : </b>{student.itemID}</p>
+                    <p >👨<b style={{color:"red"}}>Item ID  : </b>{student.itemId}</p>
                     <p >👨<b style={{color:"red"}}>Item Name   : </b>{student.itemName}</p>
-                    <p >🏃<b style={{color:"green"}}>Date Purchased  : </b>{student.datePurchased}</p>
+                    <p >🏃<b style={{color:"green"}}>Date Purchased  : </b>{student.date}</p>
                     <p >👫<b style={{color:"blue"}}>Quantity: </b>{student.quantity}</p>
                   </div>
                 

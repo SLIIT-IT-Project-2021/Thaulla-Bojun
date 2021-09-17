@@ -24,7 +24,7 @@ export default class Edit extends Component {
 
     // State
     this.state = {
-      id: '',
+      chefid: '',
       name: '',
       address: '',
       phone: '',
@@ -36,7 +36,7 @@ export default class Edit extends Component {
   }
 
   onChangeChefId(e) {
-    this.setState({ id: e.target.value })
+    this.setState({ chefid: e.target.value })
   }
 
   onChangeChefName(e) {
@@ -67,7 +67,7 @@ export default class Edit extends Component {
     e.preventDefault()
 
     const formData = new FormData();
-        formData.append('id', this.state.id);
+        formData.append('chefid', this.state.chefid);
         formData.append('name', this.state.name);
         formData.append('address', this.state.address);
         formData.append('phone', this.state.phone);
@@ -83,6 +83,8 @@ export default class Edit extends Component {
         alert('Chef successfully updated')
       }).catch((error) => {
         console.log(error)
+        alert(error)
+        
       })
       // Redirect to Customer List 
     this.props.history.push('/edit-foodM')
@@ -91,7 +93,7 @@ export default class Edit extends Component {
 
 
   render() {
-    const {id, name , address , phone , email, exp , photo} = this.props.match.params;
+    const {chefid, name , address , phone , email, exp , photo} = this.props.match.params;
     return (
         <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
@@ -129,7 +131,7 @@ export default class Edit extends Component {
 
                     <td controlId="Id">
                     <label>Chef Id</label>
-                    <input type="text" value={id} onChange={this.onChangeChefId} required disabled/>
+                    <input type="text" value={chefid} onChange={this.onChangeChefId} required disabled/>
                     </td>
 
                     <td controlId="Name">
@@ -169,7 +171,7 @@ export default class Edit extends Component {
                
                     <Form.Group controlId="Id">
                     <Form.Label>Chef Id</Form.Label>
-                    <Form.Control type="text" value={this.state.id} onChange={this.onChangeChefId} placeholder="✍🏻 Edit Id" required />
+                    <Form.Control type="text" value={this.state.chefid} onChange={this.onChangeChefId} placeholder="✍🏻 Edit Id" required />
                     </Form.Group>
 
                     <Form.Group controlId="Name">

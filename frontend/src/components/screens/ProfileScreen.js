@@ -131,7 +131,7 @@ const PrivateScreen = ({history , click})=>{
                     </div>
 
                     {/* Display data from API */}
-                    <div className="students" >
+                    <div className="students" style={{marginLeft:"50px"}}>
                     {customers &&
                         customers.map((customer, index) => {
                         return (

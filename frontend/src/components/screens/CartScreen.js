@@ -1,8 +1,9 @@
 import "./CartScreen.css";
 import { Link } from "react-router-dom";
-import {useEffect } from "react";
+import React ,{useEffect } from "react";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
 
 //Actions
 
@@ -41,6 +42,9 @@ const CartScreen =({history})=>{
     const getCartSubTotal = ()=>{
         return cartItems.reduce((price , item) => item.price * item.qty + price , 0)
     }
+
+    //Payment
+
 
     return(
         <div>
@@ -126,7 +130,15 @@ const CartScreen =({history})=>{
                         <p style={{marginLeft:"8px", marginTop:"8px"}}>Subtotal ({getCartCount()}) items</p>
                         <p style={{marginLeft:"8px", marginTop:"8px"}}>Rs.{getCartSubTotal().toFixed(2)}</p>
                         <div>
-                            <button>Proceed to Checkout</button>
+                            <Link to = "/delivery"><button>Proceed to Cash on Delivery</button></Link><br/><br/>
+                            <h1><i class="fa fa-cc-stripe" aria-hidden="true"></i></h1>
+                            <StripeCheckout
+                                stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                                name="Thaulla Bojun"
+                                image="thaulla.png"
+                                billingAddress
+                                shippingAddress
+                            />
                         </div>
                     </div>
                    

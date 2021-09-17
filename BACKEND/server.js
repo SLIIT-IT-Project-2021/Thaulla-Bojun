@@ -90,6 +90,10 @@ app.use("/viewfoodord" , viewFoodOrdRouter);
 const branchRouter = require("./routes/branch.js"); //import 
 
 app.use("/branches" , branchRouter);
+//chandima edited
+const AssignDeliveries = require("./routes/AssignDeliveries.js"); //import 
+
+app.use("/AssignDeliveries" , AssignDeliveries);
 
 const assignbranchRouter = require("./routes/assignbranch.js"); //import 
 
@@ -164,7 +168,22 @@ app.use("/complaints" , complaintRouter);
 const promotionViewRouter = require("./routes/promotionView");
 
 app.use("/promotionView" , promotionViewRouter);
+
+
+const orderRouter = require("./routes/order.js");//import 
+
+app.use("/ordercomplaint" , orderRouter ); 
+
+const orderRegisterRouter = require("./routes/orderRegister.js");//import 
+
+app.use("/orderManager" , orderRegisterRouter ); 
+
+const orderChatRouter = require("./routes/orderChat.js");//import 
+
+app.use("/orderchat" , orderChatRouter ); 
 //
+app.use("/deliveryscreen" , require("./routes/deliveryscreen"));
+
 
 //this catches front-end URL
 /* http://localhost/8070/student */
@@ -174,4 +193,6 @@ app.use("/products" , require("./routes/product"));
 
 //Error Handler (Should be the last piece of middleware)
 app.use(errorHandler);
+
+
 

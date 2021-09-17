@@ -5,14 +5,14 @@ import {Link} from "react-router-dom";
 
 
 export default function AssignBranch() {
-  const [students, setStudents] = useState(null);
+  const [managers, setManagers] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
       'http://localhost:8070/orders'
     );
 
-    setStudents(response.data);
+    setManagers(response.data);
    
   };
 
@@ -58,12 +58,12 @@ export default function AssignBranch() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
-        {students &&
-          students.map((student, index) => {
+      <div className="students" style={{width:"70%",marginLeft:"50px"}}>
+        {managers &&
+          managers.map((manager, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Branch {index + 1}</h3>
+                <h3 className="badge bg-success">Order {index + 1}</h3>
 
                 <div className="details">
                   <div>
@@ -72,12 +72,12 @@ export default function AssignBranch() {
                       
                       
                     </div>
-                    <p >👨<b style={{color:"red"}}>Order ID :</b>{student.orderId}</p>
-                    <p >👫<b style={{color:"blue"}}>Cetegory: </b>{student.category}</p>
-                    <p >🏃<b style={{color:"green"}}>Item Number: </b>{student.itemNumber} </p>
-                    <p >👫<b style={{color:"blue"}}>Name: </b>{student.customerName}</p>
-                    <p >❤️<b style={{color:"orange"}}>Address: </b>{student.address}</p>
-                    <p >👨<b style={{color:"red"}}>Date: </b>{student.date}</p>
+                    <p >👨<b style={{color:"red"}}>Order ID :</b>{manager.orderId}</p>
+                    <p >👫<b style={{color:"blue"}}>Cetegory: </b>{manager.category}</p>
+                    <p >🏃<b style={{color:"green"}}>Item Number: </b>{manager.itemNumber} </p>
+                    <p >👫<b style={{color:"blue"}}>Name: </b>{manager.customerName}</p>
+                    <p >❤️<b style={{color:"orange"}}>Address: </b>{manager.address}</p>
+                    <p >👨<b style={{color:"red"}}>Date: </b>{manager.date}</p>
                   </div>
                 </div>
               </div>
