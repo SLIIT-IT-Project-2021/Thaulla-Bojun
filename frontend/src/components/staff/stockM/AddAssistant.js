@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 const AddAssistant = () => {
 
     const [loading, setLoading] = useState(false); //additional 
@@ -67,28 +69,28 @@ const AddAssistant = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{color:"red"}}><b>Stock Management System</b></a>
+          <a className="navbar-brand" href="#" style={{color:"#CD5C5C"}}><b>Stock Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
             <li className="nav-item">
-              <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
+              <Link className="nav-link " aria-current="page" to = "/staff-stockM" style={{color:"#008080"}}><i class="fa fa-fw fa-home"></i>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
+              <Link className="nav-link active" to = "/add-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
+              <Link className="nav-link" to = "/display-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
+                <Link className="nav-link" to = "/addInven-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
             </li> 
             <li className="nav-item">
-                <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+                <Link className="nav-link" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li> 
           </ul>
             <form className="d-flex">
@@ -98,9 +100,9 @@ const AddAssistant = () => {
           </div>
         </div>
       </nav>
-        <div className="container" style={{width:"50%"}}><br/><br/>
-            <form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <div className="cmb-3">
+        <div className="container" style={{width:"100%"}}  className="stockImage" ><br/><br/><br/>
+            <form onSubmit={handleSubmit} encType='multipart/form-data' style={{width:"50%" , marginLeft:"auto" , marginRight:"auto" , display:"block" , background:"black" , padding:" 10px 10px 10px 10px" , opacity:"0.8"}}>
+            <div className="cmb-3"><br/>
                 <label for="name" className="form-label">Name</label>
                 <input 
                     type="text"
@@ -158,8 +160,8 @@ const AddAssistant = () => {
             </div><br/>
             
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Assistant</h1>
-                <p className="lead">
+                <h1 className="display-4" style={{color:"white"}}>Upload a Photo of Assistant</h1>
+                <p className="lead" style={{color:"white"}}>
                 Please choose a valid relavant photo 👩‍🎓
                 </p>
                 <hr className="my-4" />
@@ -169,7 +171,7 @@ const AddAssistant = () => {
                 type="file" 
                 accept=".png, .jpg, .jpeg"
                 name="photo"
-                onChange={handlePhoto} required
+                onChange={handlePhoto} required style={{color:"white"}}
             />
 
             <input 
@@ -191,17 +193,18 @@ const AddAssistant = () => {
                         onClick = {notify}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
-                     <ToastContainer />
+                     <ToastContainer style = {{marginTop:"50px"}}/>
                     
             </div>
-        </form>
-        <br/>
-        <a href="/add-stockM"><button
+            <br/>
+            <a href="/add-stockM"><button
                         type="submit"
                         className="btn btn-success"
                         
-                        ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button></a>
-        <br/><br/><br/><br/><br/><br/>
+                        ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button></a><br/><br/>
+        </form>
+        
+        <br/><br/><br/>
         </div>
         </div>
         

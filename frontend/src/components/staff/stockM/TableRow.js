@@ -24,14 +24,14 @@ export default class StudentTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.age}</td>
-                <td>{this.props.obj.gender}</td>
-                <td>{this.props.obj.birthdate}</td>
-                <td>{this.props.obj.address}</td>
-                <td>{this.props.obj.phone}</td>
-                <td>{this.props.obj.email}</td>
-                <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
+                <td style={{color:"darkgray"}}>{this.props.obj.name}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.age}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.gender}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.birthdate}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.address}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.phone}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.email}</td>
+                <td style={{color:"darkgray"}}><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
                 <td style={{width:"250px"}}>

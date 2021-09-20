@@ -100,31 +100,31 @@ export default class Edit extends Component {
     const { itemId , itemName , stock , stockIn , stockOut, unitPrice, date} = this.props.match.params;
     return (
         <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
                 <div className="container-fluid">
-                  <a className="navbar-brand" href="#" style={{color:"red"}}><b>Stock Management System</b></a>
+                  <a className="navbar-brand" href="#" style={{color:"#CD5C5C"}}><b>Stock Management System</b></a>
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
             <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
+              <Link className="nav-link" aria-current="page" to = "/staff-stockM" style={{color:"#008080"}}><i class="fa fa-fw fa-home"></i>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
+              <Link className="nav-link" to = "/add-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
+              <Link className="nav-link" to = "/display-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
+                <Link className="nav-link" to = "/addInven-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+                <Link className="nav-link" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li>  
             <li className="nav-item">
-                <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Inventory</Link>
+                <Link className="nav-link active" to = "#" style={{color:"#008080"}}><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Inventory</Link>
             </li>
           </ul>
                     <form className="d-flex">
@@ -134,9 +134,10 @@ export default class Edit extends Component {
                   </div>
                 </div>
               </nav>
-             
-                <div className="form-wrapper container" style={{width:"50%"}}><br/><br/>
-                <h1>Current Info 👁</h1>
+
+              <div className="stockImage"><br/><br/>             
+                <div className="form-wrapper container"style={{width:"100%", background:"#000000" , padding:"5px 5px 5px 5px" , opacity:"0.8"}}><br/>
+                <h1 style = {{color: "white"}}>Current Info 👁</h1>
                 <table>
 
                     <td controlId="Name">
@@ -176,26 +177,26 @@ export default class Edit extends Component {
 
 
 
-                </table>
-                </div>
-                <div className="form-wrapper container" style={{width:"50%"}}><br/><br/>
-                <h1>Need to Update ? 🤔</h1>
+                </table><br/>
+                </div><br/>
+                <div className="form-wrapper container" style={{width:"50%"  , background:"#000000" , padding:"5px 5px 10px 10px" , opacity:"0.8"}}><br/>
+                <h1 style = {{color: "white"}}>Need to Update ? 🤔</h1>
                 <Form onSubmit={this.onSubmit}>
                
                     <Form.Group controlId="itemId">
                     <Form.Label>Item Id</Form.Label>
                     <Form.Control type="text" value={this.state.itemId} onChange={this.onChangeItemId} placeholder="✍🏻 Edit Item Id" required />
-                    </Form.Group>
+                    </Form.Group><br/>
 
                     <Form.Group controlId="itemName">
                     <Form.Label>Item Name</Form.Label>
                     <Form.Control type="text" value={this.state.itemName} onChange={this.onChangeItemName} placeholder="✍🏻 Edit Item Name" required/>
-                    </Form.Group>
+                    </Form.Group><br/>
 
                     <Form.Group controlId="Stock">
                     <Form.Label>Stock</Form.Label>
                     <Form.Control type="text" value={this.state.stock} onChange={this.onChangeStock} placeholder="✍🏻 Edit Stock" required/>
-                    </Form.Group>
+                    </Form.Group><br/>
 
                     <Form.Group controlId="stockIn">
                     <Form.Label>Stock In </Form.Label>
@@ -224,7 +225,7 @@ export default class Edit extends Component {
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangePhoto} required
+                        onChange={this.onChangePhoto} required style={{color:"white"}}
                     />
                    
                     </Form.Group>
@@ -233,9 +234,10 @@ export default class Edit extends Component {
                     <Button variant="danger" size="lg" block="block" type="submit">
                     <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Item
                     </Button>
-                </Form><br/><br/><br/><br/>
+                </Form><br/>
                 </div>
-             
+                <br/><br/>
+              </div>
         </div>
        );
   }

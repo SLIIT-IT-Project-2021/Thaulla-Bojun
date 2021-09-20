@@ -24,14 +24,14 @@ export default class TableRowInventory extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.itemId}</td>
-                <td>{this.props.obj.itemName}</td>
-                <td>{this.props.obj.stock}</td>
-                <td>{this.props.obj.stockIn}</td>
-                <td>{this.props.obj.stockOut}</td>
-                <td>{this.props.obj.unitPrice}</td>
-                <td>{this.props.obj.date}</td>
-                <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
+                <td style={{color:"darkgray"}}>{this.props.obj.itemId}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.itemName}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.stock}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.stockIn}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.stockOut}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.unitPrice}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.date}</td>
+                <td style={{color:"darkgray"}}><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
                 <td style={{width:"250px"}}>
