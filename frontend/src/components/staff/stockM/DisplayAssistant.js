@@ -18,28 +18,28 @@ export default function DisplayAssistant() {
 
   return (
    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div className="container-fluid">
-      <a className="navbar-brand" href="#" style={{color:"red"}}><b>Stock Management System</b></a>
+      <a className="navbar-brand" href="#" style={{color:"#CD5C5C"}}><b>Stock Management System</b></a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
             <li className="nav-item">
-              <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
+              <Link className="nav-link " aria-current="page" to = "/staff-stockM" style={{color:"#008080"}}><i class="fa fa-fw fa-home"></i>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
+              <Link className="nav-link" to = "/add-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
+              <Link className="nav-link active" to = "/display-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
+                <Link className="nav-link" to = "/addInven-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
             </li> 
             <li className="nav-item">
-                <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+                <Link className="nav-link" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li> 
           </ul>
         <form className="d-flex">
@@ -49,23 +49,23 @@ export default function DisplayAssistant() {
       </div>
     </div>
   </nav>
-    <div className="App">
-      <h1>All Assistant</h1>
+    <div className="App stockImage2" >
+      <h1 style ={{color:"white", marginRight: "270px"}}>All Assistant</h1>
 
       {/* Fetch data from API */}
       <div>
-        <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
+        <button className="fetch-button" onClick={fetchData} style={{color:"white", marginRight: "270px"}}>
         <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Assistant
         </button>
         <br />
       </div>
 
       {/* Display data from API */}
-      <div className="students" style = {{width: "78%", marginLeft: "50px"}}>
+      <div className="students" style = {{width: "75%", marginLeft: "70px"}}>
         {students &&
           students.map((student, index) => {
             return (
-              <div className="student" key={index}>
+              <div className="student" style={{background:"#DCDCDC"}} key={index}>
                 <h3 className="badge bg-success">Assistant {index + 1}</h3>
 
                 <div className="details">
