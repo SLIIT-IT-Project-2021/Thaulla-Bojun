@@ -8,9 +8,6 @@ import "./Add.css";
 
 const AddCustomer = () => {
 
-  
-    const notify = () => toast("Success! Customer Added 😘");
-
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
 
@@ -48,13 +45,15 @@ const AddCustomer = () => {
                 console.log(res);
                 setLoading(false);
                 setNewUser({name :'' , age : '' , gender : '' , address : '' , photo : '' , email:'', phone:''})
+                toast("Success! Customer Added 😘")
              })
              .catch(err => {
                 console.log(err);
                 setLoading(false);
                 setIsError(true);
-                alert(err);
+                toast("Error! Customer not Added Duplicate Key Found: Email must be unique")
              });
+        
     }
 
     const handleChange = (e) => {
@@ -141,7 +140,7 @@ const AddCustomer = () => {
                     className="form-control"
                     name="phone"
                     value={newUser.phone}
-                    onChange={handleChange} required 
+                    onChange={handleChange} required pattern = "[0-9]{10}"
                 />
                  <label for="email" className="form-label">Email</label>
                 <input 
@@ -150,7 +149,7 @@ const AddCustomer = () => {
                     className="form-control"
                     name="email"
                     value={newUser.email}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"
                 />
 
             </div>
@@ -178,11 +177,10 @@ const AddCustomer = () => {
                      <button
                         type="submit"
                         className="btn btn-primary mt-3"
-                        onClick={notify}
                         disabled={loading}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
-                     <ToastContainer />
+                     <ToastContainer style={{marginTop:"50px"}}/>
                     
             </div>
         </form>

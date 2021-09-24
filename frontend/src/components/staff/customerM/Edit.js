@@ -191,12 +191,12 @@ export default class Edit extends Component {
                       
                       <Form.Group controlId="Phone">
                       <Form.Label>Phone</Form.Label>
-                      <Form.Control type="text" value={this.state.phone} onChange={this.onChangeCustomerPhone} placeholder="✍🏻 Edit Phone" required/>
+                      <Form.Control type="text" value={this.state.phone} onChange={this.onChangeCustomerPhone} placeholder="✍🏻 Edit Phone" required pattern="[0-9]{10}"/>
                       </Form.Group>
 
                       <Form.Group controlId="Email">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="text" value={this.state.email} onChange={this.onChangeCustomerEmail} placeholder="✍🏻 Edit Email" required/>
+                      <Form.Control type="text" value={this.state.email} onChange={this.onChangeCustomerEmail} placeholder="✍🏻 Edit Email" required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"/>
                       </Form.Group><br/>
 
 
