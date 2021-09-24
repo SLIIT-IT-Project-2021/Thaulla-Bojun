@@ -38,7 +38,8 @@ const AssistantSchema = new Schema({
     email: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     birthdate: {
         type: String,

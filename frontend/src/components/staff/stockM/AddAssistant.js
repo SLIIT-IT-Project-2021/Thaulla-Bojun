@@ -47,13 +47,15 @@ const AddAssistant = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
+                toast("Success! Assistent Added");
                 setNewUser({name :'' , age : '' , gender : '', birthdate : '' , phone : '' , addreass : '' , email : '' , photo : ''})
              })
              .catch(err => {
                 console.log(err);
                 setLoading(false);
                 setIsError(true);
-                alert(err);
+                toast("Error Assistent Not Added dupplicate key found, Email must be unique");
+                
              });
     }
 
@@ -65,7 +67,6 @@ const AddAssistant = () => {
         setNewUser({...newUser, photo: e.target.files[0]});
     }
 
-    const notify = () => toast("Assistant Successfully Added 😘");
 
     return (
         <div>
@@ -190,7 +191,6 @@ const AddAssistant = () => {
                         type="submit"
                         className="btn btn-primary mt-3"
                         disabled={loading}
-                        onClick = {notify}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
                      <ToastContainer style = {{marginTop:"50px"}}/>
