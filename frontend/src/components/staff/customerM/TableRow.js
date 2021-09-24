@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default class CustomerTableRow extends Component {
@@ -14,7 +16,7 @@ export default class CustomerTableRow extends Component {
     deleteCustomer() {
         axios.delete('http://localhost:8070/users/delete/' + this.props.obj._id)
             .then((res) => {
-                alert('Customer successfully deleted!')
+                toast("Success! Customer Deleted 😘")
             }).catch((error) => {
                 console.log(error)
             })
@@ -45,6 +47,7 @@ export default class CustomerTableRow extends Component {
                         ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</Button></a>
                     
                 </td>
+                <ToastContainer style={{marginTop:"50px"}}/>
             </tr>
         );
     }
