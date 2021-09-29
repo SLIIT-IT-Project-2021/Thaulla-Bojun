@@ -64,7 +64,24 @@ const AddCustomer = () => {
         setNewUser({...newUser, photo: e.target.files[0]});
     }
 
-    return (
+    //dynamic search box
+    const [myOptions, setMyOptions] = useState([])
+  
+  const getDataFromAPI = () => {
+    console.log("Options Fetched from API")
+  
+    axios.get('http://localhost:8070/users').then((response) => {
+      return response.json()
+    }).then((res) => {
+      console.log(res.data)
+      for (var i = 0; i < res.data.length; i++) {
+        myOptions.push(res.data[i].customer_name)
+      }
+      setMyOptions(myOptions)
+    })
+  }
+
+  return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
         <div className="container-fluid">
@@ -86,11 +103,10 @@ const AddCustomer = () => {
               <li className="nav-item">
                 <Link className="nav-link" to = "/complaints-customerM" style={{color:"#00ff00"}}><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
               </li>
+              <li>
+                <img src = "customer.gif" style={{width:"17%" , float:"right"}}/>
+              </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-              <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-            </form>
           </div>
         </div>
       </nav>
