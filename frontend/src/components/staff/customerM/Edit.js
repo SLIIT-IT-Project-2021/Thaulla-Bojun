@@ -117,11 +117,8 @@ export default class Edit extends Component {
                       <li className="nav-item">
                         <Link className="nav-link" to = "/complaints-customerM" style={{color:"#00ff00"}}><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
                       </li>
+                        <img src = "https://i.ibb.co/M5qJphr/customer.gif" style={{width:"7%" , marginLeft:"300px"}}/>
                     </ul>
-                    <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-                      <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-                    </form>
                   </div>
                 </div>
               </nav>
