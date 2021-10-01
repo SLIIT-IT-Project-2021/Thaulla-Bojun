@@ -8,9 +8,6 @@ import "./Add.css";
 
 const AddCustomer = () => {
 
-  
-    const notify = () => toast("Success! Customer Added 😘");
-
     const [loading, setLoading] = useState(false); //additional 
     const [isError, setIsError] = useState(false);
 
@@ -48,13 +45,15 @@ const AddCustomer = () => {
                 console.log(res);
                 setLoading(false);
                 setNewUser({name :'' , age : '' , gender : '' , address : '' , photo : '' , email:'', phone:''})
+                toast("Success! Customer Added 😘")
              })
              .catch(err => {
                 console.log(err);
                 setLoading(false);
                 setIsError(true);
-                alert(err);
+                toast("Error! Customer not Added Duplicate Key Found: Email must be unique")
              });
+        
     }
 
     const handleChange = (e) => {
@@ -65,7 +64,24 @@ const AddCustomer = () => {
         setNewUser({...newUser, photo: e.target.files[0]});
     }
 
-    return (
+    //dynamic search box
+    const [myOptions, setMyOptions] = useState([])
+  
+  const getDataFromAPI = () => {
+    console.log("Options Fetched from API")
+  
+    axios.get('http://localhost:8070/users').then((response) => {
+      return response.json()
+    }).then((res) => {
+      console.log(res.data)
+      for (var i = 0; i < res.data.length; i++) {
+        myOptions.push(res.data[i].customer_name)
+      }
+      setMyOptions(myOptions)
+    })
+  }
+
+  return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
         <div className="container-fluid">
@@ -87,11 +103,10 @@ const AddCustomer = () => {
               <li className="nav-item">
                 <Link className="nav-link" to = "/complaints-customerM" style={{color:"#00ff00"}}><i class="fa fa-comments" aria-hidden="true"></i> Complaints</Link>
               </li>
+              <li>
+                <img src = "customer.gif" style={{width:"17%" , float:"right"}}/>
+              </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-              <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -141,7 +156,7 @@ const AddCustomer = () => {
                     className="form-control"
                     name="phone"
                     value={newUser.phone}
-                    onChange={handleChange} required 
+                    onChange={handleChange} required pattern = "[0-9]{10}"
                 />
                  <label for="email" className="form-label">Email</label>
                 <input 
@@ -150,7 +165,7 @@ const AddCustomer = () => {
                     className="form-control"
                     name="email"
                     value={newUser.email}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"
                 />
 
             </div>
@@ -178,11 +193,10 @@ const AddCustomer = () => {
                      <button
                         type="submit"
                         className="btn btn-primary mt-3"
-                        onClick={notify}
                         disabled={loading}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
-                     <ToastContainer />
+                     <ToastContainer style={{marginTop:"50px"}}/>
                     
             </div>
         </form>
