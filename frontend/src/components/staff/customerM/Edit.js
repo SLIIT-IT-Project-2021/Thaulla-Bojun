@@ -162,55 +162,55 @@ export default class Edit extends Component {
 
                   </table>
                   </div>
-                  <div className="form-wrapper container" style={{width:"50%" , background:"#171717" , padding:"10px 10px 10px 10px" , opacity:"0.8"}}><br/><br/>
+                  <div className="form-wrapper container" style={{width:"50%" , background:"#171717" , padding:"10px 10px 10px 10px" , opacity:"0.8" , marginRight:"auto" , marginLeft:"auto" , display:"block"}} className="polaroid"><br/><br/>
                   <h1 style={{color:"white"}}>Need to Update ? 🤔</h1>
                   <Form onSubmit={this.onSubmit}>
                 
                       <Form.Group controlId="Name">
-                      <Form.Label>Name</Form.Label>
-                      <Form.Control type="text" value={this.state.name} onChange={this.onChangeCustomerName} placeholder="✍🏻 Edit Name" required />
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Name</Form.Label>
+                      <Form.Control type="text" value={this.state.name} onChange={this.onChangeCustomerName} placeholder="✍🏻 Edit Name" required pattern="[A-Za-z]+" title="Name cannot contain any numbers or special characters"/>
                       </Form.Group>
 
                       <Form.Group controlId="Age">
-                      <Form.Label>Age</Form.Label>
-                      <Form.Control type="text" value={this.state.age} onChange={this.onChangeCustomerAge} placeholder="✍🏻 Edit Age" required/>
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Age</Form.Label>
+                      <Form.Control type="text" value={this.state.age} onChange={this.onChangeCustomerAge} placeholder="✍🏻 Edit Age" required pattern="[1-9]{1,3}" title="Age cannot contain any letters or special characters  and Age > 0"/>
                       </Form.Group>
 
                       <Form.Group controlId="Gender">
-                      <Form.Label>Gender</Form.Label>
-                      <Form.Control type="text" value={this.state.gender} onChange={this.onChangeCustomerGender} placeholder="✍🏻 Edit Gender" required/>
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Gender</Form.Label>
+                      <Form.Control type="text" value={this.state.gender} onChange={this.onChangeCustomerGender} placeholder="✍🏻 Edit Gender" required pattern="[A-Za-z]+" title="Gender cannot contain any numbers or special characters"/>
                       </Form.Group>
 
                       <Form.Group controlId="Address">
-                      <Form.Label>Address</Form.Label>
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Address</Form.Label>
                       <Form.Control type="text" value={this.state.address} onChange={this.onChangeCustomerAddress} placeholder="✍🏻 Edit Address" required/>
                       </Form.Group>
                       
                       <Form.Group controlId="Phone">
-                      <Form.Label>Phone</Form.Label>
-                      <Form.Control type="text" value={this.state.phone} onChange={this.onChangeCustomerPhone} placeholder="✍🏻 Edit Phone" required pattern="[0-9]{10}"/>
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Phone</Form.Label>
+                      <Form.Control type="text" value={this.state.phone} onChange={this.onChangeCustomerPhone} placeholder="✍🏻 Edit Phone" required pattern = "[0-9]{10}" title="Phone cannot contain any letters or special characters and cannot exceeded 10 digits"/>
                       </Form.Group>
 
                       <Form.Group controlId="Email">
-                      <Form.Label>Email</Form.Label>
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Email</Form.Label>
                       <Form.Control type="text" value={this.state.email} onChange={this.onChangeCustomerEmail} placeholder="✍🏻 Edit Email" required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"/>
                       </Form.Group><br/>
 
 
-                      <Form.Group controlId="Photo">
-                      <Form.Label>Photo</Form.Label>
+                      <Form.Group controlId="Photo" style={{textAlign:"center"}}>
+                      <label style={{fontSize:"30px" , color:"red"}}>*</label><Form.Label>Photo</Form.Label>
                       <i class="fa fa-folder-open" aria-hidden="true"></i>
                       <input 
                           type="file" 
                           accept=".png, .jpg, .jpeg"
                           name="photo"
-                          onChange={this.onChangeCustomerPhoto} required style={{color:"white"}}
+                          onChange={this.onChangeCustomerPhoto} required style={{color:"white" , backgroundColor:"black"}}
                       />
                     
                       </Form.Group>
 
                       <br/>
-                      <Button variant="danger" size="lg" block="block" type="submit">
+                      <Button variant="danger" size="lg" block="block" type="submit" style={{marginLeft:"auto", marginRight:"auto" , display:"block"}}>
                       <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Customer
                       </Button>
                   </Form>
