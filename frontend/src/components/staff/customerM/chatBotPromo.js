@@ -53,7 +53,7 @@ const ChatBot = ()=>{
                 value={description}
                 onChange={(e)=>setDescription(e.target.value)}></textarea>
                 <div className="cmb-3">
-                <input type="text" className="form-control" placeholder="📧 Email" required="required" 
+                <input type="text" className="form-control" placeholder="📧 Email" required="required" pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}" 
                     value = {email} onChange = {(e)=>setEmail(e.target.value)}
                     />
                 </div><br/>

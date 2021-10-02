@@ -111,36 +111,36 @@ const AddCustomer = () => {
         </div>
       </nav>
         <div className="container" style={{width:"100%"}} className="bg3"><br/><br/>
-            <form onSubmit={handleSubmit} encType='multipart/form-data' style={{width:"50%" , marginLeft:"auto" , marginRight:"auto" , display:"block" , background:"#171717" , padding:"10px 10px 10px 10px" , opacity:"0.8"}}>
+            <form onSubmit={handleSubmit} encType='multipart/form-data' style={{width:"50%" , marginLeft:"auto" , marginRight:"auto" , display:"block" , background:"#171717" , padding:"10px 10px 10px 10px" , opacity:"0.8"}} className="polaroid">
             <div className="cmb-3">
-                <label for="name" className="form-label">Name</label>
+                <label style={{fontSize:"30px" , color:"red"}}>*</label><label for="name" className="form-label">Name</label>
                 <input 
                     type="text"
                     className="form-control"
                     placeholder="Enter the name"
                     name="name"
                     value={newUser.name}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern="[A-Za-z]+" title="Name cannot contain any numbers or special characters"
                 />
-                <label for="age" className="form-label">Age</label>
+                <label style={{fontSize:"30px" , color:"red"}}>*</label><label for="age" className="form-label">Age</label>
                 <input 
                     type="text"
                     placeholder="Enter the age"
                     className="form-control"
                     name="age"
                     value={newUser.age}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern="[1-9]{1,3}" title="Age cannot contain any letters or special characters  and Age > 0"
                 />
-                <label for="gender" className="form-label">Gender</label>
+                <label style={{fontSize:"30px" , color:"red"}}>*</label><label for="gender" className="form-label">Gender</label>
                 <input 
                     type="text"
                     placeholder="Enter the gender"
                     className="form-control"
                     name="gender"
                     value={newUser.gender}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern="[A-Za-z]+" title="Gender cannot contain any numbers or special characters"
                 />
-                 <label for="address" className="form-label">Address</label>
+                 <label style={{fontSize:"30px" , color:"red"}}>*</label><label for="address" className="form-label">Address</label>
                 <textarea
                     rows = "5" cols ="50"
                     placeholder="Enter the Address"
@@ -149,45 +149,47 @@ const AddCustomer = () => {
                     value={newUser.address}
                     onChange={handleChange} required
                  />
-                  <label for="phone" className="form-label">Phone</label>
+                  <label style={{fontSize:"30px" , color:"red"}}>*</label><label for="phone" className="form-label">Phone</label>
                  <input 
                     type="text"
                     placeholder="Enter the Phone"
                     className="form-control"
                     name="phone"
                     value={newUser.phone}
-                    onChange={handleChange} required pattern = "[0-9]{10}"
+                    onChange={handleChange} required pattern = "[0-9]{10}" title="Phone cannot contain any letters or special characters and cannot exceeded 10 digits"
                 />
-                 <label for="email" className="form-label">Email</label>
+                 <label style={{fontSize:"30px" , color:"red"}}>*</label><label for="email" className="form-label">Email</label>
                 <input 
                     type="email"
                     placeholder="Enter the Email"
                     className="form-control"
                     name="email"
                     value={newUser.email}
-                    onChange={handleChange} required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"
+                    onChange={handleChange} required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}" 
                 />
 
             </div>
 
             
-            <div className="jumbotron">
+            <div className="jumbotron" style={{textAlign:"center"}}>
                 <h1 className="display-4" style={{color:"white"}}>Upload a Photo of Customer</h1>
                 <p className="lead" style={{color:"white"}}>
-                Please choose a valid relavant photo 👩‍🎓
+                <label style={{fontSize:"30px" , color:"red"}}>*</label>Please choose a valid relavant photo 👩‍🎓
                 </p>
                 <hr className="my-4" />
             </div>
-            <i class="fa fa-folder-open" aria-hidden="true" style={{color:"white"}}></i>
-            <input 
-                type="file" 
-                accept=".png, .jpg, .jpeg"
-                name="photo"
-                onChange={handlePhoto} required style={{color:"white"}}
-            />
+            <div style={{textAlign:"center"}}>
+              <i class="fa fa-folder-open" aria-hidden="true" style={{color:"white"}}></i>
+              <input 
+                  type="file" 
+                  accept=".png, .jpg, .jpeg"
+                  name="photo"
+                  onChange={handlePhoto} required style={{color:"white" , backgroundColor:"black"}}
+              />
+            </div>
 
             <br/>
-            <div>
+            <div style={{textAlign:"center"}}>
                      {isError && <small className="mt-3 d-inline-block text-danger">Something went wrong. Please try again later.</small>}
                      {/*decision*/}
                      <button
