@@ -117,16 +117,13 @@ export default class Edit extends Component {
                         <Link className="nav-link active" to = "#" style={{color:"orange"}}><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Branch</Link>
                       </li>
                     </ul>
-                    <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-                      <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-                    </form>
                   </div>
                 </div>
               </nav>
              
-                <div className="form-wrapper container" style={{width:"50%"}}><br/><br/>
-                <h1>Current Info 👁</h1>
+                <div className="bgM"><br/><br/>
+                <div className="form-wrapper container" style={{width:"100%",background:"#000000",padding:"5px 5px 5px 5px",opacity:"0.8"}}><br/>
+                <h1 style={{color:"white"}}>Current Info 👁</h1>
                 <table>
 
                     <td controlId="Name">
@@ -215,7 +212,7 @@ export default class Edit extends Component {
                     </Button>
                 </Form><br/><br/><br/><br/>
                 </div>
-             
+                </div>
         </div>
        );
   }

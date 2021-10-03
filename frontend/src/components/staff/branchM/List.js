@@ -60,10 +60,6 @@ export default class StudentList extends Component {
                 <Link className="nav-link" to = "/assign-branchM" style={{color:"orange"}}><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
               </li>
                 </ul>
-                <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-                <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-                </form>
             </div>
             </div>
         </nav><br/>
@@ -73,24 +69,26 @@ export default class StudentList extends Component {
             <button className="info__button" onClick={this.generatePDF} type="primary" style={{float:"right"}}><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generate Report</button> 
        </div>
        </Link>
-       
+       <div className= "bgM">
         <div className="table-wrapper container">
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{background:"#000000",padding:"20px 20px 20px 20px",opacity:"0.9"}}>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>City</th>
-                        <th>BranchID</th>
-                        <th>Address</th>
-                        <th>ContactNO</th>
-                        <th>Email</th>
-                        <th>Photo</th>
+                        <th style={{color:"white"}}>Name</th>
+                        <th style={{color:"white"}}>City</th>
+                        <th style={{color:"white"}}>BranchID</th>
+                        <th style={{color:"white"}}>Address</th>
+                        <th style={{color:"white"}}>ContactNO</th>
+                        <th style={{color:"white"}}>Email</th>
+                        <th style={{color:"white"}}>Photo</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.DataTable()}
                 </tbody>
             </Table>
+        </div>
+        <br/><br/>
         </div>
     </div>
     );
