@@ -12,19 +12,19 @@
 
 }*/
 
-/*.bg4 {
+.bgM {
     /* The image used */
-   /* background-image: url("addCus.jpg");
+    background-image: url("BackgrounM.jpg");
 
     /* Full height */
-    /*height: 100%;
+    height: 100%;
 
     /* Center and scale the image nicely */
-   /* background-position: center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-}*/
+}
 
 .each-slide > div {
     display: flex;

@@ -43,13 +43,15 @@ const AddBranch = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
+                toast("Succcessfully Branch Added !");
                 setNewUser({name :'' , city : '' , branchID : '' , address : '' , photo : '' , contactNo : '' , email : ''})
              })
              .catch(err => {
                 console.log(err);
                 setLoading(false);
                 setIsError(true);
-                alert(err);
+                toast("Error Branch not added dupplicate key found,Email must be unique");
+               
              });
     }
 
@@ -60,7 +62,7 @@ const AddBranch = () => {
     const handlePhoto = (e) => {
         setNewUser({...newUser, photo: e.target.files[0]});
     }
-    const notify = () => toast("Successfully Delivered 😘");
+   
     
 
     return (
@@ -86,15 +88,11 @@ const AddBranch = () => {
                 <Link className="nav-link" to = "/assign-branchM" style={{color:"orange"}}><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
               </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-              <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-            </form>
           </div>
         </div>
       </nav>
-        <div className="container" style={{width:"50%"}}><br/><br/>
-            <form onSubmit={handleSubmit} encType='multipart/form-data'style={{background:"#171717",padding:"10px 10px 10px 10px",opacity:"0.900"}}>
+        <div className="container" style={{width:"100%"}} className= "bgM"><br/><br/>
+            <form onSubmit={handleSubmit} encType='multipart/form-data'style={{background:"#171717",padding:"10px 10px 10px 10px",opacity:"0.900",width:"50%",marginLeft:"auto",marginRight:"auto",display:"block"}}>
             <div className="cmb-3">
                 <label for="name" className="form-label"style={{color:'white'}}>Branch Name</label>
                 <input 
@@ -103,7 +101,7 @@ const AddBranch = () => {
                     placeholder="Enter the Branch name"
                     name="name"
                     value={newUser.name}
-                    onChange={handleChange} required
+                    onChange={handleChange}  required pattern = "[a-zA-Z'-'\s]*"
                 />
                 <label for="city" className="form-label"style={{color:'white'}}>City</label>
                 <input 
@@ -180,7 +178,6 @@ const AddBranch = () => {
                         type="submit"
                         className="btn btn-primary mt-3"
                         disabled={loading}
-                        onClick={notify}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
                      <ToastContainer style={{marginTop:"50px"}}/>

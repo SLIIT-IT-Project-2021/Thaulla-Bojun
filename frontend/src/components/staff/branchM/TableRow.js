@@ -24,12 +24,12 @@ export default class StudentTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.city}</td>
-                <td>{this.props.obj.branchID}</td>
-                <td>{this.props.obj.address}</td>
-                <td>{this.props.obj.contactNo}</td>
-                <td>{this.props.obj.email}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.name}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.city}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.branchID}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.address}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.contactNo}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.email}</td>
                 <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
