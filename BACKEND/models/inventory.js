@@ -4,9 +4,10 @@ const Schema = mongoose.Schema;
 
 const InventorySchema = new Schema({
     itemId: {
-        type: Number,
+        type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     }, 
 
     itemName: {

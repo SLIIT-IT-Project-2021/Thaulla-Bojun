@@ -25,7 +25,7 @@ const fileFilter = (req, file, cb) => {
 let upload = multer({ storage, fileFilter });
 
 router.route('/add').post(upload.single('photo'), (req, res) => {
-    const itemId = Number(req.body.itemId);
+    const itemId = req.body.itemId;
     const itemName = req.body.itemName;
     const stock = req.body.stock;
     const stockIn = req.body.stockIn;

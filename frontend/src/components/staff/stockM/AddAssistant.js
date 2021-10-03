@@ -47,14 +47,14 @@ const AddAssistant = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                toast("Success! Assistent Added");
+                toast("Success! Assistant Added");
                 setNewUser({name :'' , age : '' , gender : '', birthdate : '' , phone : '' , addreass : '' , email : '' , photo : ''})
              })
              .catch(err => {
                 console.log(err);
                 setLoading(false);
                 setIsError(true);
-                toast("Error Assistent Not Added dupplicate key found, Email must be unique");
+                toast("Error Assistant Not Added dupplicate key found, Email must be unique");
                 
              });
     }
@@ -94,10 +94,6 @@ const AddAssistant = () => {
                 <Link className="nav-link" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li> 
           </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-              <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -111,7 +107,7 @@ const AddAssistant = () => {
                     placeholder="Enter the name"
                     name="name"
                     value={newUser.name}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern = "[A-Za-z]+"
                 /><br/>
                 <label for="age" className="form-label">Age</label>
                 <input 
@@ -120,7 +116,7 @@ const AddAssistant = () => {
                     className="form-control"
                     name="age"
                     value={newUser.age}
-                    onChange={handleChange} required
+                    onChange={handleChange} required  pattern="[1-9]{1,3}"
                 /><br/>
                 <label for="gender" className="form-label">Gender</label>
                 <input 
@@ -129,7 +125,7 @@ const AddAssistant = () => {
                     className="form-control"
                     name="gender"
                     value={newUser.gender}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern = "[A-Za-z]+"
                 /><br/> 
                 <label for="address" className="form-label">Address</label>
                 <textarea 

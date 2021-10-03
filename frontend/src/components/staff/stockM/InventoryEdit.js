@@ -127,10 +127,6 @@ export default class Edit extends Component {
                 <Link className="nav-link active" to = "#" style={{color:"#008080"}}><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Inventory</Link>
             </li>
           </ul>
-                    <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-                      <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-                    </form>
                   </div>
                 </div>
               </nav>
@@ -140,32 +136,32 @@ export default class Edit extends Component {
                 <h1 style = {{color: "white"}}>Current Info 👁</h1>
                 <table>
 
-                    <td controlId="Name">
+                    <td controlId="itemID">
                     <label>Item Id</label>
                     <input type="text" value={itemId} onChange={this.onChangeItemId} required disabled/>
                     </td>
 
-                    <td controlId="Age">
+                    <td controlId="itemName">
                     <label>Item Name</label>
                     <input type="text" value={itemName} onChange={this.onChangeItemName} required disabled/>
                     </td>
 
-                    <td controlId="Gender">
+                    <td controlId="stock">
                     <label>Stock</label>
                     <input type="text" value={stock} onChange={this.onChangeStock} required disabled/>
                     </td>
 
-                    <td controlId="Birthdate">
+                    <td controlId="stockIn">
                     <label>Stock In</label>
                     <input type="text" value={stockIn} onChange={this.onChangeStockIn} required disabled/>
                     </td>
 
-                    <td controlId="Address">
+                    <td controlId="stockOut">
                     <label>stock Out</label>
                     <input type="text" value={stockOut} onChange={this.onChangeUnitPrice} required disabled/>
                     </td>
 
-                    <td controlId="Phone">
+                    <td controlId="unitPrice">
                     <label>Unit Price</label>
                     <input type="text" value={unitPrice} onChange={this.onChangeStockOut} required disabled/>
                     </td>
@@ -185,12 +181,12 @@ export default class Edit extends Component {
                
                     <Form.Group controlId="itemId">
                     <Form.Label>Item Id</Form.Label>
-                    <Form.Control type="text" value={this.state.itemId} onChange={this.onChangeItemId} placeholder="✍🏻 Edit Item Id" required />
+                    <Form.Control type="text" value={this.state.itemId} onChange={this.onChangeItemId} placeholder="✍🏻 Edit Item Id" required pattern="[1-9]{1,5}" />
                     </Form.Group><br/>
 
                     <Form.Group controlId="itemName">
                     <Form.Label>Item Name</Form.Label>
-                    <Form.Control type="text" value={this.state.itemName} onChange={this.onChangeItemName} placeholder="✍🏻 Edit Item Name" required/>
+                    <Form.Control type="text" value={this.state.itemName} onChange={this.onChangeItemName} placeholder="✍🏻 Edit Item Name" required pattern="[A-Za-z]+"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Stock">
