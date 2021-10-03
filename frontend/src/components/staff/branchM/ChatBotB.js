@@ -56,7 +56,7 @@ const ChatBotB = ()=>{
                     <div className="input-group">
                         <div className="input-group-prepend">                    
                         </div>
-                        <input type="text" className="form-control" name="name" placeholder="Enter Branch Name" required="required" 
+                        <input type="text" className="form-control" name="name" placeholder="Enter Branch Name" required pattern = "[a-zA-Z'-'\s]*" 
                         value = {name}  onChange = {(e)=>setName(e.target.value)}
                         />
                     </div>

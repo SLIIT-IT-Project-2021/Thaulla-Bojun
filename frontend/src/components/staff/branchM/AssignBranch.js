@@ -69,12 +69,12 @@ export default function AssignBranch() {
                       
                       
                     </div>
-                    <p >👨<b style={{color:"red"}}>Order ID :</b>{manager.orderId}</p>
-                    <p >👫<b style={{color:"blue"}}>Cetegory: </b>{manager.category}</p>
-                    <p >🏃<b style={{color:"green"}}>Item Number: </b>{manager.itemNumber} </p>
-                    <p >👫<b style={{color:"blue"}}>Name: </b>{manager.customerName}</p>
-                    <p >❤️<b style={{color:"orange"}}>Address: </b>{manager.address}</p>
-                    <p >👨<b style={{color:"red"}}>Date: </b>{manager.date}</p>
+                    <p ><b style={{color:"red"}}>Order ID :</b>{manager.orderId}</p>
+                    <p ><b style={{color:"blue"}}>Cetegory: </b>{manager.category}</p>
+                    <p ><b style={{color:"green"}}>Item Number: </b>{manager.itemNumber} </p>
+                    <p ><b style={{color:"blue"}}>Name: </b>{manager.customerName}</p>
+                    <p ><b style={{color:"orange"}}>Address: </b>{manager.address}</p>
+                    <p ><b style={{color:"red"}}>Date: </b>{manager.date}</p>
                   </div>
                 </div>
               </div>
