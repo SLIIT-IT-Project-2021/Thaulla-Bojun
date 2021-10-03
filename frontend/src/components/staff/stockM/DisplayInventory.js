@@ -42,10 +42,6 @@ export default function DisplayInventoryt() {
                 <Link className="nav-link active" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li> 
           </ul>
-        <form className="d-flex">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-          <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-        </form>
       </div>
     </div>
   </nav>

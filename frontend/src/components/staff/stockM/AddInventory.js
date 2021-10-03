@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddInventory = () => {
 
@@ -44,14 +46,14 @@ const AddInventory = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
+                toast("Success! Item Added");
                 setinventory({itemId :'' , itemName : '' , stock : '', stockIn : '' , stockOut : '' , unitPrice : '' , date : '' , photo : ''})
              })
              .catch(err => {
                 console.log(err);
                 setLoading(false);
                 setIsError(true);
-                alert(err);
+                toast("Error Item ID must be unique");
              });
     }
 
@@ -89,10 +91,6 @@ const AddInventory = () => {
                 <Link className="nav-link " to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
             </li> 
           </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-              <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -106,7 +104,7 @@ const AddInventory = () => {
                     placeholder="Enter the item Id"
                     name="itemId"
                     value={inventory.itemId}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern="[A-Za-z0-9]+"
                 /><br/>
                 <label for="itemName" className="form-label">itemName</label>
                 <input 
@@ -115,7 +113,7 @@ const AddInventory = () => {
                     className="form-control"
                     name="itemName"
                     value={inventory.itemName}
-                    onChange={handleChange} required
+                    onChange={handleChange} required pattern = "[A-Za-z]+"
                 /><br/>
                 <label for="stock" className="form-label">Stock</label>
                 <input 
@@ -143,7 +141,7 @@ const AddInventory = () => {
                     name="stockOut"
                     value={inventory.stockOut}
                     onChange={handleChange} required 
-                /> 
+                /><br/>
                 <label for="unitPrice" className="form-label">unit Price</label>  
                  <input 
                     type="text"
@@ -188,6 +186,7 @@ const AddInventory = () => {
                         disabled={loading}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
+                     <ToastContainer style = {{marginTop:"50px"}}/>
                     
             </div>
             <br/>

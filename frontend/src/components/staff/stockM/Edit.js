@@ -127,10 +127,6 @@ export default class Edit extends Component {
                         <Link className="nav-link" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
                     </li> 
                     </ul>
-                    <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-                      <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-                    </form>
                   </div>
                 </div>
               </nav>
@@ -185,17 +181,17 @@ export default class Edit extends Component {
                
                     <Form.Group controlId="Name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required />
+                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required pattern="[A-Za-z]+"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Age">
                     <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
+                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required pattern="[1-9]{1,3}"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Gender">
                     <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
+                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required pattern="[A-Za-z]+"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Birthdate">
@@ -210,15 +206,15 @@ export default class Edit extends Component {
 
                     <Form.Group controlId="Phone">
                     <Form.Label>Phone</Form.Label>
-                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeStudentPhone} placeholder="✍🏻 Edit Phone" required/>
+                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeStudentPhone} placeholder="✍🏻 Edit Phone" required pattern = "[0-9]{10}"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeStudentEmail} placeholder="✍🏻 Edit Email" required/>
+                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeStudentEmail} placeholder="✍🏻 Edit Email" required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"/>
                     </Form.Group><br/>
 
-                    <Form.Group controlId="Email">
+                    <Form.Group controlId="Photo">
                     <Form.Label>Photo</Form.Label>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <input 
