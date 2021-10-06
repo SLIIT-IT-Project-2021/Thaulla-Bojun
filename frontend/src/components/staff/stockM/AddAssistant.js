@@ -116,7 +116,7 @@ const AddAssistant = () => {
                     className="form-control"
                     name="age"
                     value={newUser.age}
-                    onChange={handleChange} required  pattern="[1-9]{1,3}"
+                    onChange={handleChange} required  pattern="[0-9]{1,3}"
                 /><br/>
                 <label for="gender" className="form-label">Gender</label>
                 <input 
@@ -144,7 +144,7 @@ const AddAssistant = () => {
                     name="phone"
                     value={newUser.phone}
                     onChange={handleChange} required pattern = "[0-9]{10}"
-                /> 
+                /><br/>
                 <label for="email" className="form-label">Email</label>  
                  <input 
                     type="text"
@@ -168,14 +168,14 @@ const AddAssistant = () => {
                 type="file" 
                 accept=".png, .jpg, .jpeg"
                 name="photo"
-                onChange={handlePhoto} required style={{color:"white"}}
+                onChange={handlePhoto} required style={{color:"#000000"}}
             />
 
             <input 
                 type="date"
                 name="birthdate"
                 value={newUser.date}
-                onChange={handleChange} required
+                onChange={handleChange} required style={{color:"#000000", marginLeft: "50px"}}
             />
 
             

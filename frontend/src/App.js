@@ -137,6 +137,8 @@ import ShortcomeButton6 from "./components/staff/stockM/ShortcomeButton";
 import ShortcomeButton7 from "./components/staff/stockM/ShortcomeButton";
 import ShortcomingView from "./components/staff/stockM/shortcoming";
 import AssistantReportGenerator from "./components/staff/stockM/Assistants"
+import InventoryReportGenerator from "./components/staff/stockM/Inventories"
+
 
 
 
@@ -332,6 +334,7 @@ export default function App() {
             <PrivateAssistantStaffRoute path = "/editInven-stockM/:id/:itemId/:itemName/:stock/:stockIn/:stockOut/:unitPrice/:date/:photo" exact component = {ShortcomeButton7} /> 
             <PrivateAssistantStaffRoute path = "/shortcomingViews-stockM" exact component = {ShortcomingView} /> 
             <PrivateAssistantStaffRoute path = "/generate-pdfA" exact component = {AssistantReportGenerator} /> 
+            <PrivateAssistantStaffRoute path = "/generate-pdfInven" exact component = {InventoryReportGenerator} />
             
 
  

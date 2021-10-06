@@ -165,14 +165,14 @@ const AddInventory = () => {
                 type="file" 
                 accept=".png, .jpg, .jpeg"
                 name="photo"
-                onChange={handlePhoto} required style={{color:"white"}}
+                onChange={handlePhoto} required style={{color:"#000000"}}
             />
 
             <input 
                 type="date"
                 name="date"
                 value={inventory.date}
-                onChange={handleChange} required
+                onChange={handleChange} required style={{color:"#000000", marginLeft: "50px"}}
             />
 
             

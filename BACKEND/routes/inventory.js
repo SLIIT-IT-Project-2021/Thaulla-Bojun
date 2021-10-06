@@ -64,7 +64,7 @@ router.route("/").get((req , res)=>{ //route for display all
 
 router.route("/update/:id").put(upload.single('photo') , async (req , res)=>{  //update data
     let InventoryID = req.params.id;
-    const itemId = Number(req.body.itemId);
+    const itemId = req.body.itemId;
     const itemName = req.body.itemName;
     const stock = req.body.stock;
     const stockIn = req.body.stockIn;

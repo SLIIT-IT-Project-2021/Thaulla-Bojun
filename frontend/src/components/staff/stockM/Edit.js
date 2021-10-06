@@ -186,7 +186,7 @@ export default class Edit extends Component {
 
                     <Form.Group controlId="Age">
                     <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required pattern="[1-9]{1,3}"/>
+                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required pattern="[0-9]{1,3}"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Gender">
@@ -221,7 +221,7 @@ export default class Edit extends Component {
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangeStudentPhoto} required style={{color:"white"}}
+                        onChange={this.onChangeStudentPhoto} required style={{color:"#000000"}}
                     />
                    
                     </Form.Group>

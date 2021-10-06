@@ -63,6 +63,11 @@ export default class InventoryList extends Component {
             </div>
             </div>
         </nav>
+        <Link to = "/generate-pdfInven">
+        <div>
+          <button className = "info__button" onClick={this.generatePDF} type = "primary" style={{float:"right"}}><i class="fa fa-cogs" aria-hidden="true"></i> Genarate PDF</button>
+        </div>
+        </Link>
         
         <div className=" stockImage"><br/><br/>
             <div className="table-wrapper container">
