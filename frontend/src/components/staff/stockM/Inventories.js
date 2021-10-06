@@ -13,11 +13,11 @@ import html2canvas from 'html2canvas';
 import path from "path"
 import { Link } from 'react-router-dom';
   
-export default class Assistant extends Component {  
+export default class Inventory extends Component {  
   constructor(props) {  
     super(props)  
     this.state = {  
-      AssistantData: []  
+      InventoryData: []  
   
     }  
   }  
@@ -41,7 +41,7 @@ export default class Assistant extends Component {
         doc.text(85, 10, 'Thaulla Bojun')
         doc.setTextColor(0 , 0 , 255)
         doc.setFontSize(16);
-        doc.text(10, 70, 'Assistant Management')
+        doc.text(10, 70, 'Inventory Management')
         doc.setTextColor(0 , 255 , 0)
         doc.setFontSize(12);
         doc.text(145, 85, 'Signature :')
@@ -69,48 +69,48 @@ export default class Assistant extends Component {
         doc.addImage(imgData, 'JPEG', 5 , 100, 200, imgHeight);  
         const date = Date().split(" ");
         // we use a date string to generate our filename.
-        const dateStr = "AssistantManagement_" + date[0] + date[1] + date[2] + date[3] + date[4];
+        const dateStr = "InventoryManagement_" + date[0] + date[1] + date[2] + date[3] + date[4];
         doc.save(`report_${dateStr}.pdf`);
       });  
   }  
   
   componentDidMount() {  
-    axios.get('http://localhost:8070/stocks').then(response => {  
+    axios.get('http://localhost:8070/inventories').then(response => {  
       console.log(response.data);  
       this.setState({  
-        AssistantData: response.data  
+        InventoryData: response.data  
       });  
     });  
   }  
   render() {  
-    console.log(this.state.AssistantData);  
+    console.log(this.state.InventoryData);  
     return (  
       <div>  
         <TableContainer id="pdfdiv" className="txt" component={Paper}>  
           <Table stickyHeader aria-label="sticky table">  
             <TableHead>  
               <TableRow>  
-                <TableCell align="right">Name</TableCell>  
-                <TableCell align="right">Age</TableCell>  
-                <TableCell align="right">Gender</TableCell>  
-                <TableCell align="right">Address</TableCell>  
-                <TableCell align="right">Phone</TableCell>  
-                <TableCell align="right">Email</TableCell>
-                <TableCell align="right">Birthdate</TableCell> 
+                <TableCell align="right">Item Id</TableCell>  
+                <TableCell align="right">Item Name</TableCell>  
+                <TableCell align="right">Stock</TableCell>  
+                <TableCell align="right">Stock In</TableCell>  
+                <TableCell align="right">Stock Out</TableCell>  
+                <TableCell align="right">Unit Price</TableCell>
+                <TableCell align="right">Date</TableCell> 
                 <TableCell align="right">Photo</TableCell> 
               </TableRow>  
             </TableHead>  
             <TableBody>  
               {  
-                this.state.AssistantData.map((p, index) => {  
+                this.state.InventoryData.map((p, index) => {  
                   return <TableRow key={index}>  
-                    <TableCell align="right">{p.name}</TableCell>  
-                    <TableCell align="right">{p.age}</TableCell>  
-                    <TableCell align="right">{p.gender}</TableCell>  
-                    <TableCell align="right">{p.address}</TableCell>  
-                    <TableCell align="right">{p.phone}</TableCell>  
-                    <TableCell align="right">{p.email}</TableCell> 
-                    <TableCell align="right">{p.birthdate}</TableCell> 
+                    <TableCell align="right">{p.itemId}</TableCell>  
+                    <TableCell align="right">{p.itemName}</TableCell>  
+                    <TableCell align="right">{p.stock}</TableCell>  
+                    <TableCell align="right">{p.stockIn}</TableCell>  
+                    <TableCell align="right">{p.stockOut}</TableCell>  
+                    <TableCell align="right">{p.unitPrice}</TableCell> 
+                    <TableCell align="right">{p.date}</TableCell> 
                     <TableCell align="right"><img src={"images/" + p.photo}  style={{width:"100px" , height:"100px"}}/></TableCell>   
                   </TableRow>  
                 })  
@@ -123,7 +123,7 @@ export default class Assistant extends Component {
             <button className="info__button" onClick={this.printDocument} variant="contained" color="primary" style={{marginLeft:"600px"}}>  
                 <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Pdf  
             </button>
-            <Link to = "/edit-stockM">
+            <Link to = "/editInven-stockM">
                 <button className="btn btn-danger"  variant="contained" color="primary" style={{float:"right"}}>  
                 <i class="fa fa-reply" aria-hidden="true"></i> Go Back  
                 </button>

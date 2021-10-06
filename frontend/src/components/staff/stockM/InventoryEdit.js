@@ -181,7 +181,7 @@ export default class Edit extends Component {
                
                     <Form.Group controlId="itemId">
                     <Form.Label>Item Id</Form.Label>
-                    <Form.Control type="text" value={this.state.itemId} onChange={this.onChangeItemId} placeholder="✍🏻 Edit Item Id" required pattern="[1-9]{1,5}" />
+                    <Form.Control type="text" value={this.state.itemId} onChange={this.onChangeItemId} placeholder="✍🏻 Edit Item Id" required pattern="[A-Za-z0-9]+" />
                     </Form.Group><br/>
 
                     <Form.Group controlId="itemName">
@@ -221,7 +221,7 @@ export default class Edit extends Component {
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangePhoto} required style={{color:"white"}}
+                        onChange={this.onChangePhoto} required style={{color:"#000000"}}
                     />
                    
                     </Form.Group>

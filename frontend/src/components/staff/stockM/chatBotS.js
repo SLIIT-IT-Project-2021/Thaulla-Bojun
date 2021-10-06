@@ -50,7 +50,7 @@ const ChatBotS = ()=>{
 
                 
              
-                <hr />
+               
                 <label for="itemId" className="form-label">Item Id</label>
                 <div className="form-group">
                     <div className="input-group">
