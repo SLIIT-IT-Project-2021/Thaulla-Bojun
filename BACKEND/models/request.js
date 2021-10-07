@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ImageSchema = new Schema({
+const RequestSchema = new Schema({
     itemId: {
         type: Number,
         required: true,
@@ -31,6 +31,6 @@ const ImageSchema = new Schema({
     
 });
 
-const Image = mongoose.model('request', ImageSchema);
+const Request = mongoose.model('request', RequestSchema);
 
-module.exports = Image;
+module.exports = Request;

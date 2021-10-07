@@ -30,13 +30,20 @@ export default function DisplayDeliveryPerson() {
             <Link className="nav-link active" aria-current="page" to = "/staff-deliveryM"><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Delivery Profile</Link>
+            <Link className="nav-link" to = "/add-deliveryM"><i class="fa fa-user-plus" aria-hidden="true"></i> Create Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active " to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Delivery Profiles</Link>
+            <Link className="nav-link active " to = "/display-deliveryM"><i class="fa fa-users" aria-hidden="true"></i> Display  Profiles</Link>
           </li>
+
           <li className="nav-item">
-            <Link className="nav-link " to = "/display-deliveryM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Deliveries</Link>
+              <Link className="nav-link " to = "/vieworders-deliveryM"><i class="fa fa-list" aria-hidden="true"></i>  Order Details</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link " to = "/viewbranchdetails-deliveryM"><i class="fa fa-building" aria-hidden="true"></i>  View Branches</Link>
+            </li>
+          <li className="nav-item">
+            <Link className="nav-link " to = "/assigndeliveries-deliveryM"><i class="fa fa-truck" aria-hidden="true"></i> Assign Deliveries</Link>
           </li>
         </ul>
         <form className="d-flex">
@@ -74,7 +81,7 @@ export default function DisplayDeliveryPerson() {
                     </div>
                     <p >👨<b style={{color:"red"}}>Name   : </b>{student.name}</p>
                     <p >🏃<b style={{color:"green"}}>Age  : </b>{student.age} years old</p>
-                    <p >👫<b style={{color:"blue"}}>Work Date: </b>{student.workdate}</p>
+                    <p >📅<b style={{color:"blue"}}>Work Date: </b>{student.workdate}</p>
                     <p >❤️<b style={{color:"orange"}}>DOB: </b>{student.birthdate}</p>
                     <p >🏠<b style={{color:"red"}}>Address   : </b>{student.address}</p>
                     <p >📱<b style={{color:"green"}}>Phone   : </b>{student.phonenumber}</p>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default class StudentTableRow extends Component {
@@ -12,9 +14,9 @@ export default class StudentTableRow extends Component {
     }
 
     deleteStudent() {
-        axios.delete('http://localhost:8070/stocks/delete/:id' + this.props.obj._id)
+        axios.delete('http://localhost:8070/stocks/delete/' + this.props.obj._id)
             .then((res) => {
-                alert('Assitant successfully deleted!')
+                toast("Success! Assistent Deleted");
             }).catch((error) => {
                 console.log(error)
             })
@@ -24,14 +26,14 @@ export default class StudentTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.age}</td>
-                <td>{this.props.obj.gender}</td>
-                <td>{this.props.obj.birthdate}</td>
-                <td>{this.props.obj.address}</td>
-                <td>{this.props.obj.phone}</td>
-                <td>{this.props.obj.email}</td>
-                <td><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
+                <td style={{color:"darkgray"}}>{this.props.obj.name}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.age}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.gender}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.birthdate}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.address}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.phone}</td>
+                <td style={{color:"darkgray"}}>{this.props.obj.email}</td>
+                <td style={{color:"darkgray"}}><img src ={"images/" + this.props.obj.photo} style={{width:"100px" , height:"100px"}} 
                 className = "border border-danger rounded-circle"
                 /></td>
                 <td style={{width:"250px"}}>
@@ -46,6 +48,7 @@ export default class StudentTableRow extends Component {
                         ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</Button></a>
                     
                 </td>
+                <ToastContainer style = {{marginTop:"50px"}}/>
             </tr>
         );
     }

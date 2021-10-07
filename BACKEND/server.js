@@ -54,7 +54,17 @@ const DeliveryPersonRouter = require("./routes/DeliveryPerson.js"); //import
 
 app.use("/deliveryperson" , DeliveryPersonRouter);
 
+ 
+const AssignDeliveriesRouter = require("./routes/AssignDeliveries.js"); //import 
+
+app.use("/assigndeliveries" , AssignDeliveriesRouter);
+
+const assignbranches = require("./routes/ViewBranches.js"); //import 
+
+app.use("/assignbranches" , assignbranches);
+ 
 //kavi
+ 
 const foodRouter = require("./routes/food.js"); //import 
 
 app.use("/chefs" , foodRouter);
@@ -80,6 +90,10 @@ app.use("/viewfoodord" , viewFoodOrdRouter);
 const branchRouter = require("./routes/branch.js"); //import 
 
 app.use("/branches" , branchRouter);
+//chandima edited
+const AssignDeliveries = require("./routes/AssignDeliveries.js"); //import 
+
+app.use("/AssignDeliveries" , AssignDeliveries);
 
 const assignbranchRouter = require("./routes/assignbranch.js"); //import 
 
@@ -145,7 +159,7 @@ app.use("/marketingcampaign" , marketingcampaignRouter);
 //Raveena displayfoods
 const marketingDisplayfoodRouter = require("./routes/displayfood.js"); //import 
 
-app.use("/displayfood" , marketingDisplayfoodRouter);
+app.use("/status" , marketingDisplayfoodRouter);
 
 const complaintRouter = require("./routes/complaintView");
 
@@ -154,14 +168,31 @@ app.use("/complaints" , complaintRouter);
 const promotionViewRouter = require("./routes/promotionView");
 
 app.use("/promotionView" , promotionViewRouter);
+
+
+const orderRouter = require("./routes/order.js");//import 
+
+app.use("/ordercomplaint" , orderRouter ); 
+
+const orderRegisterRouter = require("./routes/orderRegister.js");//import 
+
+app.use("/orderManager" , orderRegisterRouter ); 
+
+const orderChatRouter = require("./routes/orderChat.js");//import 
+
+app.use("/orderchat" , orderChatRouter ); 
 //
+app.use("/deliveryscreen" , require("./routes/deliveryscreen"));
+
 
 //this catches front-end URL
 /* http://localhost/8070/student */
 
 app.use("/api/auth" , require("./routes/auth"));
-app.use("/books" , require("./routes/book"));
+app.use("/products" , require("./routes/product"));
 
 //Error Handler (Should be the last piece of middleware)
 app.use(errorHandler);
+
+
 

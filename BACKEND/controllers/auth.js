@@ -17,6 +17,8 @@ const supplierStaff= require("../models/supplierStaff");
 const assistantStaff = require("../models/assistantStaff");
 const branchStaff = require("../models/branchStaff");
 
+const orderStaff = require("../models/orderStaff");
+
 const ErrorResponse = require("../utils/errorResponse");
 const sendEmail = require("../utils/sendEmail");
 
@@ -31,6 +33,15 @@ const sendMarketingEmail = require("../utils/sendMarketingEmail");
 
 
 const sendCustomerEmail = require("../utils/sendCustomerEmail");
+
+const sendChefEmail = require("../utils/sendChefEmail");
+
+const sendCustomerPromotionEmail = require("../utils/sendCustomerPromotionEmail");
+
+const sendDeliveryEmail = require("../utils/sendDeliveryEmail");
+
+const sendBranchEmail = require("../utils/sendBranchEmail");
+
 
 
 
@@ -492,6 +503,58 @@ exports.loginStaffMarketingM = async (req , res , next) =>{
     const token = staff.getStaffSignedToken();
     res.status(200).json({success:true , token});
 }
+
+//order Managment
+exports.registerStafforderM = async (req , res , next) =>{  
+   
+    const {email , password} = req.body; //destructure method
+
+    try {
+        const staff = await orderStaff.create({
+            email , password //this.password filed of user.js in models
+        })
+        sendStaffToken(staff , 200 , res);
+
+    } catch (error) {
+       next(error);
+    }
+}
+
+exports.loginStafforderM = async (req , res , next) =>{
+    const {email , password} = req.body;
+ 
+    if(!email || !password){ //backend validation
+        return next(new ErrorResponse("Please provide an email and password" , 400)); //throws a new error
+    }                                                                           //400 Bad Request
+ 
+    try {
+     
+         const staff = await orderStaff.findOne({email}).select("+password");
+ 
+         if(!staff){ //true
+             return next(new ErrorResponse("Invalid Credentials" , 401));
+         }
+ 
+         const isMatch = await staff.matchStaffPasswords(password); //matching the passwords from the received from request and from the db
+         
+         if(!isMatch){
+             return next(new ErrorResponse("Invalid Credentials" , 401)); //401 for unauthorized
+         }
+ 
+         sendStaffToken(staff , 200 , res);
+ 
+    } catch (error) {
+         res.status(500).json({ // 500 internal server error
+             success:false,
+             error:error.message
+     })       
+    }
+ }
+  
+
+ 
+   
+ 
  
 //Stock Management
 
@@ -684,3 +747,153 @@ exports.sendSupplierEmail = async (req , res , next) =>{
 }
 
 
+
+
+  
+//---------------------------------------Email Sending Section------------------------------------------
+
+//Food Management
+exports.sendChefEmail = async (req , res , next) =>{
+    const {email , description} = req.body;
+
+    try {
+
+        const message = `
+        <h1>${description}</h1>
+        <p>If any concerns , please contact : 0774458521 </p>
+         `
+        try {
+            await sendChefEmail({
+                to : email,
+                subject : "About work",
+                text : message
+            })
+
+            res.status(200).json({ success : true , data : "Email Sent"});
+
+        } catch (error) {
+            res.status(500).json({ success : false , data : "Email could not be sent"});
+            return next(new ErrorResponse("Email could not be sent") , 500);
+
+        }
+    } catch (error) {
+        next(error);
+    }
+} 
+
+//----------------Email sending section--------------------
+
+ //chandima-delivery
+
+ //-----------------------delivery email sending ---------------
+
+ exports.sendDeliveryEmail = async (req , res , next) =>{
+
+
+
+    const {email , description} = req.body;
+
+     try {
+
+     const message = `
+
+    
+
+    <h1>${description}</h1>
+
+    
+
+    <p>If any concerns , please contact : 0703945048 </p>
+
+    
+
+    `
+
+    
+
+    try {
+
+    
+
+    await sendDeliveryEmail({
+
+    
+
+    to : email,
+
+    
+
+    subject : "About Delivery",
+
+    
+
+    text : message
+
+    
+
+    })
+
+    
+
+    res.status(200).json({ success : true , data : "Email Sent"});
+
+  } catch (error) {
+
+    
+
+    res.status(500).json({ success : false , data : "Email could not be sent"});
+
+    
+
+    return next(new ErrorResponse("Email could not be sent") , 500);
+
+    
+
+     }
+
+    
+
+    } catch (error) {
+
+    
+
+    next(error);
+
+    
+
+    }
+
+    
+
+    }
+
+    //----------------------------------------------------------------//
+    //----------------Branch Email sending section--------------------
+    exports.sendBranchEmail = async (req , res , next) =>{
+        const {email , description} = req.body;
+    
+        try {
+    
+            const message = `
+            <h1>${description}</h1>
+            <p>If any concerns , please contact : 0711888933 </p>
+             `
+            try {
+                await sendBranchEmail({
+                    to : email,
+                    subject : "About Promotions",
+                    text : message
+                })
+    
+                res.status(200).json({ success : true , data : "Email Sent"});
+    
+            } catch (error) {
+                res.status(500).json({ success : false , data : "Email could not be sent"});
+                return next(new ErrorResponse("Email could not be sent") , 500);
+    
+            }
+        } catch (error) {
+            next(error);
+        }
+    
+    }

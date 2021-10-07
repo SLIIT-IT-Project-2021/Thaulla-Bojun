@@ -39,7 +39,7 @@ const ChatBotS = ()=>{
     return(
         <div>
         
-            <button class="open-button " onClick={openForm}><i class="fa fa-android" aria-hidden="true"></i>Assign</button>
+            <button class="open-button " onClick={openForm}><i class="fa fa-android" aria-hidden="true"></i> Requests</button>
             <div className="bg"> 
             <div class="chat-popup open-button" id="myForm" style={{float:"right"}}>
             <form onSubmit={registerHandler} encType='multipart/form-data' class="form-container">

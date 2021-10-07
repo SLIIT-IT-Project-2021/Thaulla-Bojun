@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddBranch = () => {
 
@@ -40,7 +43,6 @@ const AddBranch = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
                 setNewUser({name :'' , city : '' , branchID : '' , address : '' , photo : '' , contactNo : '' , email : ''})
              })
              .catch(err => {
@@ -58,10 +60,12 @@ const AddBranch = () => {
     const handlePhoto = (e) => {
         setNewUser({...newUser, photo: e.target.files[0]});
     }
+    const notify = () => toast("Successfully Delivered 😘");
+    
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
         <div className="container-fluid">
           <a className="navbar-brand" href="#" style={{color:"red"}}><b>Branch Management System</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,16 +74,16 @@ const AddBranch = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to = "/staff-branchM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                <Link className="nav-link " aria-current="page" to = "/staff-branchM" style={{color:"orange"}}><i class="fa fa-fw fa-home"></i>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to = "/add-branchM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Branch</Link>
+                <Link className="nav-link active" to = "/add-branchM" style={{color:"orange"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Create Branch</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
+                <Link className="nav-link" to = "/display-branchM" style={{color:"orange"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+                <Link className="nav-link" to = "/assign-branchM" style={{color:"orange"}}><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -90,9 +94,9 @@ const AddBranch = () => {
         </div>
       </nav>
         <div className="container" style={{width:"50%"}}><br/><br/>
-            <form onSubmit={handleSubmit} encType='multipart/form-data'>
+            <form onSubmit={handleSubmit} encType='multipart/form-data'style={{background:"#171717",padding:"10px 10px 10px 10px",opacity:"0.900"}}>
             <div className="cmb-3">
-                <label for="name" className="form-label">Branch Name</label>
+                <label for="name" className="form-label"style={{color:'white'}}>Branch Name</label>
                 <input 
                     type="text"
                     className="form-control"
@@ -101,7 +105,7 @@ const AddBranch = () => {
                     value={newUser.name}
                     onChange={handleChange} required
                 />
-                <label for="city" className="form-label">City</label>
+                <label for="city" className="form-label"style={{color:'white'}}>City</label>
                 <input 
                     type="text"
                     placeholder="Enter the City"
@@ -110,7 +114,7 @@ const AddBranch = () => {
                     value={newUser.city}
                     onChange={handleChange} required
                 />
-                <label for="branchID" className="form-label">Branch ID</label>
+                <label for="branchID" className="form-label"style={{color:'white'}}>Branch ID</label>
                 <input 
                     type="text"
                     placeholder="Enter the Branch ID"
@@ -120,7 +124,7 @@ const AddBranch = () => {
                     onChange={handleChange} required 
                 />  
 
-                <label for="address" className="form-label">Address</label>
+                <label for="address" className="form-label"style={{color:'white'}}>Address</label>
                 <input 
                     type="text"
                     placeholder="Enter the Address"
@@ -129,7 +133,7 @@ const AddBranch = () => {
                     value={newUser.address}
                     onChange={handleChange} required 
                 />  
-                <label for="contactNo" className="form-label">Contact No</label>
+                <label for="contactNo" className="form-label"style={{color:'white'}}>Contact No</label>
                 <input 
                     type="text"
                     placeholder="Enter Contact No"
@@ -139,7 +143,7 @@ const AddBranch = () => {
                     onChange={handleChange} required pattern="[0-9]{10}"
                 />  
 
-                <label for="email" className="form-label">Email</label>
+                <label for="email" className="form-label"style={{color:'white'}}>Email</label>
                 <input 
                     type="text"
                     placeholder="Enter the email"
@@ -151,14 +155,14 @@ const AddBranch = () => {
             </div>
           
             <div className="jumbotron">
-                <h1 className="display-4">Upload a Photo of Branch</h1>
-                <p className="lead">
-                Please choose a valid relavant photo 👩‍🎓
+                <h1 className="display-4"style={{color:'white'}}>Upload a Photo of Branch</h1>
+                <p className="lead" style={{color:'white'}}>
+                Please choose a valid relavant photo
                 </p>
                 <hr className="my-4" />
             </div>
-            <i class="fa fa-folder-open" aria-hidden="true"></i>
-            <input 
+            <i class="fa fa-folder-open" aria-hidden="true"style={{color:'white'}}></i>
+            <input style={{color:'white'}}
                 type="file" 
                 accept=".png, .jpg, .jpeg"
                 name="photo"
@@ -172,12 +176,14 @@ const AddBranch = () => {
             <div>
                      {isError && <small className="mt-3 d-inline-block text-danger">Something went wrong. Please try again later.</small>}
                      {/*decision*/}
-                     <button
+                     <button 
                         type="submit"
                         className="btn btn-primary mt-3"
                         disabled={loading}
+                        onClick={notify}
                         ><i class="fa fa-upload" aria-hidden="true"></i> {loading ? 'Uploading...' : 'Upload'}
                      </button>
+                     <ToastContainer style={{marginTop:"50px"}}/>
                          
             </div>
         </form>

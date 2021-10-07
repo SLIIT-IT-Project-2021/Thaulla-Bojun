@@ -112,7 +112,7 @@ const AddPromotions = () => {
                     className="form-control"
                     name="quantity"
                     value={newUser.quantity}
-                    onChange={handleChange} required
+                    onChange={handleChange} required 
                 />
                 <label for="description" className="form-label">Description</label>
                 <input 

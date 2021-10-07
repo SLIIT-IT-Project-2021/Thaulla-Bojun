@@ -5,20 +5,20 @@ import {Link} from "react-router-dom";
 
 
 export default function AssignBranch() {
-  const [students, setStudents] = useState(null);
+  const [managers, setManagers] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
       'http://localhost:8070/orders'
     );
 
-    setStudents(response.data);
+    setManagers(response.data);
    
   };
 
   return (
    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div className="container-fluid">
       <a className="navbar-brand" href="#" style={{color:"red"}}><b>Branch Management System</b></a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,16 +27,16 @@ export default function AssignBranch() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
           <li className="nav-item">
-            <Link className="nav-link " aria-current="page" to = "/staff-branchM"><i class="fa fa-fw fa-home"></i>Home</Link>
+            <Link className="nav-link " aria-current="page" to = "/staff-branchM" style={{color:"orange"}}><i class="fa fa-fw fa-home"></i>Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to = "/add-branchM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Branch</Link>
+            <Link className="nav-link" to = "/add-branchM" style={{color:"orange"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Create Branch</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link " to = "/display-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
+            <Link className="nav-link " to = "/display-branchM" style={{color:"orange"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Branches</Link>
           </li>
           <li className="nav-item">
-                <Link className="nav-link active" to = "/assign-branchM"><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
+                <Link className="nav-link active" to = "/assign-branchM" style={{color:"orange"}}><i class="fa fa-desktop" aria-hidden="true"></i> Assign Branch</Link>
               </li>
         </ul>
         <form className="d-flex">
@@ -58,12 +58,12 @@ export default function AssignBranch() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
-        {students &&
-          students.map((student, index) => {
+      <div className="students" style={{width:"70%",marginLeft:"50px"}}>
+        {managers &&
+          managers.map((manager, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Branch {index + 1}</h3>
+                <h3 className="badge bg-success">Order {index + 1}</h3>
 
                 <div className="details">
                   <div>
@@ -72,12 +72,12 @@ export default function AssignBranch() {
                       
                       
                     </div>
-                    <p >👨<b style={{color:"red"}}>Order ID :</b>{student.orderId}</p>
-                    <p >👫<b style={{color:"blue"}}>Cetegory: </b>{student.category}</p>
-                    <p >🏃<b style={{color:"green"}}>Item Number: </b>{student.itemNumber} </p>
-                    <p >👫<b style={{color:"blue"}}>Name: </b>{student.customerName}</p>
-                    <p >❤️<b style={{color:"orange"}}>Address: </b>{student.address}</p>
-                    <p >👨<b style={{color:"red"}}>Date: </b>{student.date}</p>
+                    <p >👨<b style={{color:"red"}}>Order ID :</b>{manager.orderId}</p>
+                    <p >👫<b style={{color:"blue"}}>Cetegory: </b>{manager.category}</p>
+                    <p >🏃<b style={{color:"green"}}>Item Number: </b>{manager.itemNumber} </p>
+                    <p >👫<b style={{color:"blue"}}>Name: </b>{manager.customerName}</p>
+                    <p >❤️<b style={{color:"orange"}}>Address: </b>{manager.address}</p>
+                    <p >👨<b style={{color:"red"}}>Date: </b>{manager.date}</p>
                   </div>
                 </div>
               </div>

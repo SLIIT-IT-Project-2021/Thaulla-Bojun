@@ -9,8 +9,12 @@ export default function DisplayPromotions() {
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/displayfood'
+      'http://localhost:8070/status'
+    
     );
+  //   .then(data => {
+  //   console.log(data)
+  // });
 
     setStudents(response.data);
    
@@ -58,7 +62,7 @@ export default function DisplayPromotions() {
       </div>
 
       {/* Display data from API */}
-      <div className="students">
+      <div className="students" style = {{width: "75%", marginLeft: "200px"}}>
         {students &&
           students.map((student, index) => {
             return (
@@ -68,8 +72,8 @@ export default function DisplayPromotions() {
                 <div className="details">
                   <div>
                    
-                    <p >🥘<b style={{color:"red"}}>foodItemName   : </b>{student.foodItemName}</p>
-                    <p >🍲<b style={{color:"green"}}>Status  : </b>{student.quantity} </p>
+                    <p >🥘<b style={{color:"red"}}>foodItemName   : </b>{student.foodname}</p>
+                    <p >🍲<b style={{color:"green"}}>Status  : </b>{student.status} </p>
                     
                   </div>
                 

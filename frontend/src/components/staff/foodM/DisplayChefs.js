@@ -82,7 +82,7 @@ export default function DisplayChefs() {
                       className = "border border-danger rounded-circle"
                       />
                     </div>
-                    <p >📋<b style={{color:"green"}}>Chef ID :</b>{student.id}</p>
+                    <p >📋<b style={{color:"green"}}>Chef ID :</b>{student.chefid}</p>
                     <p >👨<b style={{color:"green"}}>Name   : </b>{student.name}</p>
                     <p >🏃<b style={{color:"green"}}>Address  : </b>{student.address} </p>
                     <p >👫<b style={{color:"green"}}>Contact: </b>{student.phone}</p>

@@ -1,30 +1,35 @@
-import {useState , useEffect} from "react";
 import React from "react";
-import "./chatBot.css";
+import {useState} from "react";
 import axios from "axios";
-
+import "./chatBot.css";
 
 const ChatBot = ()=>{
+    const [email , setEmail] = useState("");
+    const [description , setDescription] = useState("");
+    const [error , setError] = useState("");
+    const [success , setSuccess] = useState("");
 
-    const [foodname , SetFoodname] = useState("");
-    const [status , SetStatus] = useState("");
-
-    const UpdateHandler = async (e)=>{
+    const sendEmailHandler = async (e)=>{
         e.preventDefault();
 
-        
+        const config = {
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        }
 
         try {
-            const {data} = await axios.post("http://localhost:8070/updatefood/add" , {foodname , status});
+            const {data} = await axios.post("http://localhost:8070/api/auth/sendChefEmail" , {email , description} , config);
 
-            alert('upload successfully')
+            setSuccess(data.data);
 
         } catch (error) {
-            
-            alert('error')
+            setError(error.response.data.error);
+            setTimeout(()=>{
+                setError("");
+            } , 5000); //5s
         }
     }
-
     function openForm() {
         document.getElementById("myForm").style.display = "block";
     }
@@ -35,49 +40,28 @@ const ChatBot = ()=>{
     return(
         <div>
         
-            <button class="open-button " onClick={openForm}><i class="fa fa-android" aria-hidden="true"></i>Assign</button>
-            <div className="bg"> 
-            <div class="chat-popup open-button" id="myForm" style={{float:"right"}}>
-            <form onSubmit={UpdateHandler} encType='multipart/form-data' class="form-container">
-                <h1>Send Status</h1>
+            <button className="open-button " onClick={openForm}><i className="fa fa-android" aria-hidden="true"></i> Chat</button>
 
-               
-            
-                <hr />
-                <label for="foodname" className="form-label">Food Item Name</label>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">                    
-                        </div>
-                        <input type="text" className="form-control" name="foodname" placeholder="Enter Food Item Name" required="required" 
-                        value = {foodname}  onChange = {(e)=>SetFoodname(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <label for="status" className="form-label">Status</label>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">                    
-                        </div>
-                        <input type="text" className="form-control" name="status" placeholder="Enter status" required="required" 
-                        value = {status} onChange = {(e)=>SetStatus(e.target.value)}
-                        />
-                    </div>
-                </div>
+            <div className="chat-popup open-button" id="myForm" >
+            <form onSubmit={sendEmailHandler} className="form-container">
+                {error && <span className="badge bg-warning">{error}</span>} 
+                {success && <span className="badge bg-success">{success}</span>} 
+                <h1>Send Email</h1>
+
                 
-                <br></br>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-lg">Send</button>
-                </div>
-            
-            
-       
-      
-                <button type="button" class="btn cancel" onClick={closeForm}>Close</button>
+                <textarea cols ="3" rows = "2" placeholder="Type message.." name="msg" required
+                value={description}
+                onChange={(e)=>setDescription(e.target.value)}></textarea>
+                <div className="cmb-3">
+                <input type="text" className="form-control" placeholder="📧 Email" required="required" 
+                    value = {email} onChange = {(e)=>setEmail(e.target.value)}
+                    />
+                </div><br/>
+                <button type="submit" className="btn">Send</button>
+                <button type="button" className="btn cancel" onClick={closeForm}>Close</button>
             </form>
             </div>
 
-        </div>
         </div>
     )
 }
