@@ -165,6 +165,7 @@ import CampaignsButton4 from  "./components/staff/MarketingM/CampaignsButton";
 import CampaignsButton5 from  "./components/staff/MarketingM/CampaignsButton";
 import promochatBot from"./components/staff/MarketingM/chatBot";
 import StatusButton from  "./components/staff/MarketingM/StatusButton";
+import MarketingReportGenerator from "./components/staff/MarketingM/Marketings";
 
 
 
@@ -363,7 +364,7 @@ export default function App() {
 
              {/*Raveena -Routes*/}
             
-             <Route path="/staff-login-MarketingM" exact component={MarketingLogin} />
+            <Route path="/staff-login-MarketingM" exact component={MarketingLogin} />
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {Header_MM} /> 
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {PrivateMarketingStaff} /> 
             <PrivateMarketingManagerStaffRoute path = "/staff-MarketingM" exact component = {Home_MM} /> 
@@ -383,6 +384,7 @@ export default function App() {
             <PrivateMarketingManagerStaffRoute path = "/edit-MarketingM/:id/:Food_Item_Name/:Quantity/:Description/:Discount_Rate/:Prior_Price/:Present_Price"  exact component = {CampaignsButton4} /> 
             <PrivateMarketingManagerStaffRoute path = "/addcampaign-MarketingM" exact component = {promochatBot} />
             <PrivateMarketingManagerStaffRoute path = "/addfood-MarketingM" exact component = {StatusButton} /> 
+            <PrivateMarketingManagerStaffRoute path = "/generatePromotion-pdf" exact component = {MarketingReportGenerator} />
 
             
              {/*Chathura -Routes*/}

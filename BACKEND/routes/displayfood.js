@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-let marketing = require('../models/marketingfood');
+let marketing = require('../models/displayfood');
 
 
 

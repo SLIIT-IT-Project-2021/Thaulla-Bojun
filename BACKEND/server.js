@@ -159,7 +159,7 @@ app.use("/marketingcampaign" , marketingcampaignRouter);
 //Raveena displayfoods
 const marketingDisplayfoodRouter = require("./routes/displayfood.js"); //import 
 
-app.use("/displayfood" , marketingDisplayfoodRouter);
+app.use("/status" , marketingDisplayfoodRouter);
 
 const complaintRouter = require("./routes/complaintView");
 
