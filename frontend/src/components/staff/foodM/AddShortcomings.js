@@ -101,9 +101,7 @@ const AddShortcomings = ()=>{
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">
-                        {/*    <span className="input-group-text">
-                                <i className="fa fa-paper-plane"></i>
-                        </span>    */}                
+                                       
                         </div>
                         
                         <input type="text" className="form-control" name="scitem" placeholder="Enter shortcoming item" required="required" 
@@ -115,9 +113,7 @@ const AddShortcomings = ()=>{
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">
-                        {/*}    <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                    </span>      */}              
+                                
                         </div>
                         
                         <input type="text" className="form-control" name="itemid" placeholder="Enter Item ID" required="required" 
@@ -129,10 +125,7 @@ const AddShortcomings = ()=>{
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">
-                        {/*    <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                                <i className="fa fa-check"></i>
-                        </span> */}              
+                                     
                         </div>
                         
                         <input type="text" className="form-control" name="qty" placeholder="Enter quantity" required="required" 
@@ -144,10 +137,7 @@ const AddShortcomings = ()=>{
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">
-                        {/*  <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                                <i className="fa fa-check"></i>
-                    </span>  */}                  
+                                  
                         </div>
                         
                         <input type="date" className="form-control" name="reqdate" placeholder="Select Required Date" required="required" 
@@ -163,9 +153,7 @@ const AddShortcomings = ()=>{
             
         </div>
 
-            <div>
-                <button type="submit" className="btn btn-secondary float-left" float-right>Generate Summary Report</button>
-            </div>
+            
 
        </div>
        </div>

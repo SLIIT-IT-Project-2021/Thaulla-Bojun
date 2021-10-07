@@ -9,8 +9,9 @@ export default function ViewFoodOrders() {
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070//viewfoodord'
-    );
+      'http://localhost:8070/orderchats'
+   
+      );
 
     setStudents(response.data);
    
@@ -39,11 +40,11 @@ export default function ViewFoodOrders() {
             <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Assign Chefs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link active" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Chefs</Link>
+            <Link className="nav-link" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Chefs</Link>
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link " to = "/view-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> View Orders</Link>
+            <Link className="nav-link active" to = "/view-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> View Orders</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link " to = "/update-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Update New Food Arrivals</Link>
@@ -57,40 +58,36 @@ export default function ViewFoodOrders() {
     </div>
   </nav>
     <div className="App">
-      <h1>All Chefs</h1>
+      <h1>All Orders</h1>
 
       {/* Fetch data from API */}
       <div>
         <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Chefs
+        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Orders
         </button>
         <br />
       </div>
 
       {/* Display data from API */}
-      <div className="students">
+      <div className="students" style={{width:"70%", marginLeft:"220px"}}>
         {students &&
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Chef {index + 1}</h3>
+                <h3 className="badge bg-success">order {index + 1}</h3>
 
                 <div className="details">
                   <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
-                    <p >📋<b style={{color:"green"}}>Chef ID :</b>{student.id}</p>
-                    <p >👨<b style={{color:"green"}}>Name   : </b>{student.name}</p>
-                    <p >🏃<b style={{color:"green"}}>Address  : </b>{student.address} </p>
-                    <p >👫<b style={{color:"green"}}>Contact: </b>{student.phone}</p>
-                    <p >❤️<b style={{color:"green"}}>Email: </b>{student.email}</p>
-                    <p >🛠<b style={{color:"green"}}>Experience:</b>{student.exp}</p>
+                    
+                    <p >📋<b style={{color:"green"}}>Order ID :</b>{student.orderId}</p>
+                    <p >👨<b style={{color:"green"}}>Quantity   : </b>{student.quantity}</p>
+                    <p >🏃<b style={{color:"green"}}>Category  : </b>{student.category} </p>
+                    <p >👫<b style={{color:"green"}}>Item No : </b>{student.itemNumber}</p>
+                   
+                   
                   </div>
                 
-                  <a href="/edit-foodM"><button className="btn btn-secondary">Edit</button></a>
+                  
                   
     
                 </div>

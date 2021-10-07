@@ -83,7 +83,7 @@ app.use("/updatefood" , updateRouter);
 
 const viewFoodOrdRouter = require("./routes/viewfoodorders.js"); //import 
 
-app.use("/viewfoodord" , viewFoodOrdRouter);
+app.use("/orderchats" , viewFoodOrdRouter);
 
 
 

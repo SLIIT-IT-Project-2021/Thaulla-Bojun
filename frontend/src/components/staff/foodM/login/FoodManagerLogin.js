@@ -50,7 +50,7 @@ const FoodManagerLogin = ({history})=>{
     return(
         <div className="container0">
 	
-            <h1>Customer Login</h1>
+            <h1>Food Manager Login</h1>
             
             <div className="bird-container bird-container--one">
                 <div className="bird bird--one"></div>

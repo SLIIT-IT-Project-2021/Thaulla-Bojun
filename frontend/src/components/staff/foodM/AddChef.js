@@ -40,7 +40,7 @@ const AddChef = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
+                alert("data is uploaded successfully")
                 setNewUser({chefid : '', name :'' , address : '' , phone : '' , email : '', exp : '' , photo : ''})
              })
              .catch(err => {
@@ -206,20 +206,12 @@ const AddChef = () => {
         
 
         <br/>
-        <a href="/add"><button
-                        type="submit"
-                        className="btn btn-success"
-                        
-                        ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button></a>
+        
 
         <br></br><br></br>
         
-        {/* Add Button */}
-        <a href="/add"><button
-                        type="submit"
-                        className="btn btn-success"
-                        
-                        ><i aria-hidden="true"></i>ADD</button></a>
+        
+        
         
         <br/><br/><br/><br/><br/><br/>
         

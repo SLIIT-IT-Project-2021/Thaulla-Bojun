@@ -76,18 +76,14 @@ export default function UpdateFood() {
 
                 <div className="details">
                   <div>
-             {/*        <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>  */}
+             
                     
                     <p ><b style={{color:"green"}}></b>{student.foodItemName}</p>
                    
                     
                   </div>
                 
-                {/*   <a href="/edit-foodM"><button className="btn btn-secondary">Edit</button></a> */}
+                
                   
     
                 </div>
