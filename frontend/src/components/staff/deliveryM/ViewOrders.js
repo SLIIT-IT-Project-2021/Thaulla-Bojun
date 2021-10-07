@@ -4,12 +4,12 @@ import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function ViewBranches() {
+export default function ViewOrders() {
   const [students, setStudents] = useState(null);
 
   const fetchData = async () => {
     const response = await axios.get(
-      'http://localhost:8070/cvieworders'//
+      'http://localhost:8070/orderchats'//
     );
 
     setStudents(response.data);
@@ -70,19 +70,20 @@ export default function ViewBranches() {
           students.map((student, index) => {
             return (
               <div className="student" key={index}>
-                <h3 className="badge bg-success">Branch {index + 1}</h3>
+                <h3 className="badge bg-success">Order {index + 1}</h3>
 
                 <div className="details">
                   <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
-                    <p >🙎‍♀️<b style={{color:"red"}}>Customer Name   : </b>{student.customername}</p>
-                    <p >🍔<b style={{color:"blue"}}>Order ID: </b>{student.orderID}</p>
+                     
+                    <p >🙎‍♀️<b style={{color:"red"}}>Customer Name   : </b>{student.customerName}</p>
+                    <p >🍔<b style={{color:"blue"}}>Order ID: </b>{student.orderId}</p>
                     <p >🏠 <b style={{color:"orange"}}>Address: </b>{student.address}</p>
-                    <p >🚩<b style={{color:"green"}}>Destination: </b>{student.destination}</p>
+                    <p >🚩<b style={{color:"green"}}>Contact: </b>{student.contactNumber}</p>
+                    <p >🚩<b style={{color:"green"}}>Date: </b>{student.date}</p>
+                    <p >🚩<b style={{color:"green"}}>Item number: </b>{student.itemNumber}</p>
+                    <p >🚩<b style={{color:"green"}}>Category: </b>{student.category}</p>
+                    <p >🚩<b style={{color:"green"}}>Price: </b>{student.price}</p>
+                    <p >🚩<b style={{color:"green"}}>Quantity: </b>{student.quantity}</p>
                   </div>
                 
                    

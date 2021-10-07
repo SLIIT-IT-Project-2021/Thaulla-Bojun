@@ -74,6 +74,7 @@ import PrivateDeliveryStaff from "./components/staff/deliveryM/login/PrivateDeli
 import deliveryChatbot from "./components/staff/deliveryM/Chatbot";
 import ViewBranches from "./components/staff/deliveryM/ViewBranches";
 import ViewOrders from "./components/staff/deliveryM/ViewOrders";
+import DeliveryReportGenerator from "./components/staff/deliveryM/Deliveries";
   
  
 
@@ -277,6 +278,7 @@ export default function App() {
             <PrivateDeliveryStaffRoute path = "/assigndeliveries-deliveryM" exact component = {deliveryChatbot} />
             <PrivateDeliveryStaffRoute path = "/viewbranches-deliveryM" exact component = {ViewBranches} /> 
             <PrivateDeliveryStaffRoute path = "/vieworders-deliveryM" exact component = {ViewOrders} />
+            <PrivateDeliveryStaffRoute path = "/generatedelivery-pdf" exact component = {DeliveryReportGenerator} />
 
  
             {/*kavi's frontend routes*/}

@@ -62,6 +62,10 @@ app.use("/assigndeliveries" , AssignDeliveriesRouter);
 const assignbranches = require("./routes/ViewBranches.js"); //import 
 
 app.use("/assignbranches" , assignbranches);
+//View orders route
+const  vieworders = require("./routes/ViewOrders.js"); //import 
+
+app.use("/orderchats" , vieworders);
  
 //kavi
  

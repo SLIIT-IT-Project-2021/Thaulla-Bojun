@@ -63,9 +63,16 @@ export default class StudentList extends Component {
                 </form>
             </div>
             </div>
-        </nav><br/>
+        </nav>
+        <Link to = "/generatedelivery-pdf">
+        <div>
+              <button className="info__button" type="primary" style={{float:"right"}}><i class="fa fa-cogs" aria-hidden="true"></i> Generate Report</button> 
+          </div>
+        </Link>
+        <div className="bg4"></div>
+        <br/>
         <div className="table-wrapper container">
-            <Table striped bordered hover>
+            <Table striped bordered hoverstyle={{background:"#171717" , padding:"10px 10px 10px 10px" , opacity:"0.9"}}>
                 <thead>
                     <tr>
                         <th>Name</th>
