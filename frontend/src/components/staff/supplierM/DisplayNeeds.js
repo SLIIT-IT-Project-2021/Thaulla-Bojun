@@ -67,10 +67,14 @@ export default function DisplayNeeds() {
 
                 <div className="details">
                   <div>
+
+                   
                     <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
+                    {/*  <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
                       className = "border border-danger rounded-circle"
                       />
+                   */}
+
                     </div>
                     <p >👨<b style={{color:"red"}}>Item ID  : </b>{student.itemId}</p>
                     <p >👨<b style={{color:"red"}}>Item Name   : </b>{student.itemName}</p>
@@ -78,8 +82,9 @@ export default function DisplayNeeds() {
                     <p >👫<b style={{color:"blue"}}>Quantity: </b>{student.quantity}</p>
                   </div>
                 
+                {/*
                   <a href="/editNeeds-supplierM"><button className="btn btn-secondary">Edit Needs</button></a>
-                  
+                */}  
     
                 </div>
               </div>

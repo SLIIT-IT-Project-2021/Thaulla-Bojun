@@ -34,7 +34,7 @@ const Returns = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
+                alert("Return is uploaded successfully")
                 setNewUser({itemNo :'' , itemName : '' , itemQuantity : '' ,  photo : ''})
              })
              .catch(err => {
