@@ -92,7 +92,7 @@ import fchatBot2 from "./components/staff/foodM/chatBot2";
 import AddShortcoming from "./components/staff/foodM/AddShortcomings";
 import UpdateFood from "./components/staff/foodM/UpdateFood";
 import ViewFoodOrders from "./components/staff/foodM/ViewFoodOrders";
-
+import ChefReportGenerator from "./components/staff/foodM/Chefs";
 
 //Mithila section
 import PrivateBranchStaffRoute from "./components/routes/PrivateBranchStaffRoute";
@@ -290,6 +290,8 @@ export default function App() {
             <PrivateFoodManagerStaffRoute path = "/update-foodM" exact component = {fchatBot}/>
             <PrivateFoodManagerStaffRoute path = "/display-foodM" exact component = {fchatBot2}/>
             <PrivateFoodManagerStaffRoute path = "/view-foodM" exact component = {ViewFoodOrders}/> 
+            <PrivateFoodManagerStaffRoute path = "/generatechef-pdf" exact component = {ChefReportGenerator} />
+
 
              {/*mithila's frontend routes*/}
             <Route path="/staff-login-branchM" exact component={BranchLogin} />

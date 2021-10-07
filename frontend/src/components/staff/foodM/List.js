@@ -48,10 +48,16 @@ export default class StudentList extends Component {
                     <Link className="nav-link " aria-current="page" to = "/staff-foodM"><i class="fa fa-fw fa-home"></i>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Profile</Link>
+                    <Link className="nav-link" to = "/add-foodM"><i class="fa fa-user-circle" aria-hidden="true"></i> Create Shortcomings</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Profiles</Link>
+                    <Link className="nav-link active" to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Chefs</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link " to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> View Orders</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link " to = "/display-foodM"><i class="fa fa-desktop" aria-hidden="true"></i> Update New Food Arrivals</Link>
                 </li>
                 </ul>
                 <form className="d-flex">
@@ -60,9 +66,24 @@ export default class StudentList extends Component {
                 </form>
             </div>
             </div>
-        </nav><br/>
+        </nav>
+
+        <Link to = "/generatechef-pdf">
+
+<div>
+
+      <button className="info__button" type="primary" style={{float:"right"}}><i class="fa fa-cogs" aria-hidden="true"></i> Generate Report</button> 
+
+  </div>
+
+</Link>
+
+<div className="bg4">
+</div>
+
+        <br/>
         <div className="table-wrapper container">
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{background:"#ffffff" , padding:"10px 10px 10px 10px" , opacity:"0.9"}}>
                 <thead>
                     <tr>
                         <th>Chef ID</th>
