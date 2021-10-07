@@ -14,7 +14,7 @@ export default class StudentTableRow extends Component {
     deleteStudent() {
         axios.delete('http://localhost:8070/deliveryperson/delete/' + this.props.obj._id)
             .then((res) => {
-                alert('Student successfully deleted!')
+                alert('Delivery person successfully deleted!')
             }).catch((error) => {
                 console.log(error)
             })
