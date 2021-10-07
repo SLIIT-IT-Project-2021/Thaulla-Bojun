@@ -1,21 +1,59 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import '../../../styles.css';
 import {Link} from "react-router-dom";
 
 
-export default function DisplaySuppliers() {
-  const [students, setSuppliers] = useState(null);
-
-  const fetchData = async () => {
-    const response = await axios.get(
-      'http://localhost:8070/suppliers'
-    );
-
-    setSuppliers(response.data);
-   
+export default class DisplaySuppliers extends React.Component {
+  state = {
+    query: "",
+    data: [],
+    filteredData: []
   };
 
+   handleInputChange = event => {
+    const query = event.target.value;
+
+    this.setState(prevState => {
+      const filteredData = prevState.data.filter(element => {
+        return element.fullName.toLowerCase().includes(query.toLowerCase());
+   });
+
+    return {
+      query,
+      filteredData
+    };
+  });
+};
+
+ getData = () => {
+  fetch('http://localhost:8070/suppliers')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      const { query } = this.state;
+      const filteredData = data.filter(element => {
+        return(
+
+          element.supplierID.toLowerCase().includes(query.toLowerCase()) >= 0 ||
+          element.fullName.toLowerCase().includes(query.toLowerCase()) >= 0 ||
+          element.address.toLowerCase().includes(query.toLowerCase()) >= 0 ||
+          element.priorExperiance.toLowerCase().includes(query.toLowerCase()) >= 0 ||
+          element.itemsPurchased.toLowerCase().includes(query.toLowerCase()) >= 0 
+      
+        )
+      });
+
+      this.setState({
+        data,
+        filteredData
+      });
+    });
+};
+componentWillMount() {
+  this.getData();
+}
+
+render(){
   return (
    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -39,9 +77,20 @@ export default function DisplaySuppliers() {
             <Link className="nav-link" to = "/return-supplierM"><i class="fa fa-desktop" aria-hidden="true"></i> Returns </Link>
           </li>
         </ul>
+
+      {/*search*/}
         <form className="d-flex">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
+
+          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}
+
+          placeholder="Search for..."
+
+          value={this.state.query}
+
+          onChange={this.handleInputChange}/>
+
           <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
+
         </form>
       </div>
     </div>
@@ -49,34 +98,32 @@ export default function DisplaySuppliers() {
     <div className="App">
       <h1>All Suppliers</h1>
 
-      {/* Fetch data from API */}
-      <div>
-        <button className="fetch-button" onClick={fetchData} style={{color:"white"}}>
-        <i class="fa fa-file-archive-o" aria-hidden="true"></i> Fetch Suppliers
-        </button>
-        <br />
-      </div>
+     
 
-      {/* Display data from API */}
-      <div className="students">
-        {students &&
-          students.map((student, index) => {
-            return (
-              <div className="student" key={index}>
-                <h3 className="badge bg-success">Supplier {index + 1}</h3>
-
-                <div className="details">
-                  <div>
-                    <div style={{float:"right"}}>
-                      <img src ={"images/" + student.photo} style={{width:"200px" , height:"200px"}}
-                      className = "border border-danger rounded-circle"
-                      />
-                    </div>
-                    <p >👨<b style={{color:"red"}}>Supplier ID   : </b>{student.supplierID}</p>
-                    <p >👨<b style={{color:"red"}}>Full Name   : </b>{student.fullName}</p>
-                    <p >🏃<b style={{color:"green"}}>Address  : </b>{student.address}</p>
-                    <p >👫<b style={{color:"blue"}}>Prior Experiance: </b>{student.priorExperiance} years</p>
-                    <p >❤️<b style={{color:"orange"}}>Items Purchased: </b>{student.itemsPurchased}</p>
+         {/* Display data from API */}
+         <div className="students"style={{width:"100%",marginLeft:"50px"}}>
+           {this.state.filteredData.length === 0 ?(<div className="alert alert-danger" style={{marginLeft:"50px"}}>
+                                   <center>Data is not found
+                                   <img src="notfound.jpg" style={{width:"50%"}}/></center> <br/><br/><br/><br/><br/><br/><br/>
+                               </div>
+                           ):(this.state.filteredData.map(i => 
+            <p>
+                 <div className="student"style={{width:"95%" }} >
+                  
+   
+                   <div className="details">
+                     <div >
+                       <div style={{float:"right"}}>
+                         {/*change box size of details of suppliers*/}
+                         <img src ={"images/" + i.photo} style={{width:"250px" , height:"200px"}}
+                         className = "border border-danger rounded-circle"
+                         />
+                       </div>
+                    <p >👨<b style={{color:"red"}}>Supplier ID   : </b>{i.supplierID}</p>
+                    <p >👨<b style={{color:"red"}}>Full Name   : </b>{i.fullName}</p>
+                    <p >🏃<b style={{color:"green"}}>Address  : </b>{i.address}</p>
+                    <p >👫<b style={{color:"blue"}}>Prior Experiance: </b>{i.priorExperiance} years</p>
+                    <p >❤️<b style={{color:"orange"}}>Items Purchased: </b>{i.itemsPurchased}</p>
                   </div>
                 
                   <a href="/edit-supplierM"><button className="btn btn-secondary">Edit</button></a>
@@ -84,10 +131,13 @@ export default function DisplaySuppliers() {
     
                 </div>
               </div>
-            );
-          })}
+              </p>
+          
+                           ))}
       </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </div>
    </div>
   );
+}
+
 }

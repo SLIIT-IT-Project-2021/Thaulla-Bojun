@@ -38,7 +38,7 @@ const AddSupplier = () => {
              .then(res => {
                 console.log(res);
                 setLoading(false);
-                alert("Image is uploaded successfully")
+                alert("Supplier is added successfully")
                 setNewUser({supplierID :'' , fullName : '' , address : '' , priorExperiance : '' , photo : '' , itemsPurchased : ''})
              })
              .catch(err => {
@@ -97,7 +97,7 @@ const AddSupplier = () => {
                     placeholder="Enter supplier ID"
                     name="supplierID"
                     value={newUser.name}
-                    onChange={handleChange} required //pattern="[0-9][A-Z][a-z]"
+                    onChange={handleChange} required pattern="[A-Z][a-z][0-9]"
                 />
                 <label for="fullName" className="form-label">Full Name</label>
                 <input 

@@ -55,6 +55,8 @@ import ReqButton5 from "./components/staff/supplierM/RequirementsButton";
 import ReturnsChatBot from "./components/staff/supplierM/ChatBot";
 import PrivateSupplierManagerStaff from "./components/staff/supplierM/login/PrivateSupplierManagerStaff";
 import DisplayNeeds from "./components/staff/supplierM/DisplayNeeds";
+import SupplierReportGenerator from "./components/staff/supplierM/Suppliers";
+import SupplierPayment from "./components/staff/supplierM/Payments";
 
  
 //Chandima-Delivery Manager
@@ -364,7 +366,9 @@ export default function App() {
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM" exact component = {ListSupplier} /> 
             <PrivateSupplierManagerStaffRoute path = "/edit-supplierM/:id/:supplierID/:fullName/:address/:priorExperiance/:itemsPurchased" exact component = {EditSupplier} /> 
              <PrivateSupplierManagerStaffRoute path = "/displayNeeds-supplierM" exact component = {DisplayNeeds} /> 
-            
+             <PrivateSupplierManagerStaffRoute path = "/generateSuppliers-pdf" exact component = {SupplierReportGenerator} />
+             
+             <PrivateSupplierManagerStaffRoute path = "/payment-supplierM" exact component = {SupplierPayment} />
 
              {/*Raveena -Routes*/}
             
